@@ -166,6 +166,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 .view{display:none}
 .view.active{display:block}
 #view-login.active,
+#view-register.active,
 #view-dashboard.active{
   display:block;
   position:fixed;
@@ -730,7 +731,46 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           onkeydown="if(event.key==='Enter')webLogin()">
       </div>
       <button class="btn-full" id="login-btn" onclick="webLogin()">Sign in →</button>
-      <p class="auth-link">Don't have an account? <a href="#pricing" onclick="showView('landing')">Subscribe first →</a></p>
+      <p class="auth-link">Don't have an account? <a href="#" onclick="showView('register');return false">Create account →</a></p>
+      <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ REGISTER VIEW ═══ -->
+<div id="view-register" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <span>Tyvaris</span>
+      </div>
+      <div class="auth-title">Create account</div>
+      <div class="auth-sub">Register to subscribe and use Tyvaris</div>
+      <div class="auth-err" id="register-err"></div>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="register-name" placeholder="Your name" autocomplete="name"
+          onkeydown="if(event.key==='Enter')document.getElementById('register-email').focus()">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="register-email" placeholder="you@email.com" autocomplete="email"
+          onkeydown="if(event.key==='Enter')document.getElementById('register-pass').focus()">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="register-pass" placeholder="Min. 6 characters" autocomplete="new-password"
+          onkeydown="if(event.key==='Enter')document.getElementById('register-pass2').focus()">
+      </div>
+      <div class="field">
+        <label>Confirm password</label>
+        <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password"
+          onkeydown="if(event.key==='Enter')webRegister()">
+      </div>
+      <button class="btn-full" id="register-btn" onclick="webRegister()">Create account →</button>
+      <p class="auth-link">Already have an account? <a href="#" onclick="showView('login');return false">Sign in →</a></p>
+      <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
     </div>
   </div>
 </div>
@@ -857,7 +897,7 @@ function showView(name) {
   var el = document.getElementById('view-' + name)
   if (el) {
     el.classList.add('active')
-    if (name === 'login' || name === 'dashboard') {
+    if (name === 'login' || name === 'dashboard' || name === 'register') {
       el.scrollTop = 0
     } else {
       // volver a landing: NO hacer logout, solo ocultar overlay
@@ -878,6 +918,48 @@ function route() {
 }
 
 window.addEventListener('hashchange', route)
+
+async function webRegister() {
+  var name  = (document.getElementById('register-name')||{}).value || ''
+  var email = (document.getElementById('register-email')||{}).value || ''
+  var pass  = (document.getElementById('register-pass')||{}).value  || ''
+  var pass2 = (document.getElementById('register-pass2')||{}).value || ''
+  var errEl = document.getElementById('register-err')
+  var btn   = document.getElementById('register-btn')
+  errEl.style.display = 'none'
+  if (!email || !pass) { errEl.textContent='Email and password required'; errEl.style.display='block'; return }
+  if (pass.length < 6) { errEl.textContent='Password must be at least 6 characters'; errEl.style.display='block'; return }
+  if (pass !== pass2) { errEl.textContent='Passwords do not match'; errEl.style.display='block'; return }
+  btn.disabled = true; btn.textContent = 'Creating account...'
+  try {
+    var res = await fetch(BACKEND + '/auth/register', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email, password: pass, name })
+    })
+    var data = await res.json()
+    if (!res.ok || !data.token) {
+      errEl.textContent = data.error || 'Error creating account'
+      errEl.style.display = 'block'
+      btn.disabled = false; btn.textContent = 'Create account →'
+      return
+    }
+    _webToken = data.token
+    _webUser  = data.user
+    localStorage.setItem('tyvaris_web_token', _webToken)
+    var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
+    var valData = await val.json()
+    _webUser.subscription = valData.subscription || null
+    _webUser.subValid = valData.valid
+    window.location.hash = '#dashboard'
+    showView('dashboard')
+    loadDashboard()
+    updateNavForSession()
+  } catch(e) {
+    errEl.textContent = 'Connection error — try again'
+    errEl.style.display = 'block'
+    btn.disabled = false; btn.textContent = 'Create account →'
+  }
+}
 
 async function webLogin() {
   var email = (document.getElementById('login-email')||{}).value || ''
