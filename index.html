@@ -730,7 +730,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <div id="view-dashboard" class="view">
   <!-- Dash nav -->
   <nav>
-    <div class="nav-logo">
+    <div class="nav-logo" onclick="showView('landing')" style="cursor:pointer">
       <svg viewBox="0 0 32 32" fill="none"><polygon points="2,2 18,2 10,10" fill="#5b4cdb"/><polygon points="6,13 14,13 10,26" fill="#7c6ef0"/><rect x="8" y="10" width="4" height="4" fill="#5b4cdb"/></svg>
       <span class="nav-brand">Tyvaris</span>
     </div>
@@ -818,12 +818,12 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <div class="dash-card-title">Download Tyvaris</div>
           <div class="download-grid">
             <a class="dl-card" id="dl-mac" href="#">
-              <div class="dl-icon">🍎</div>
+              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M26.5 19.2c0-4.1 3.4-6.1 3.5-6.2-1.9-2.8-4.9-3.1-5.9-3.2-2.5-.3-4.9 1.5-6.2 1.5-1.3 0-3.2-1.4-5.3-1.4-2.7.1-5.2 1.6-6.6 4-2.8 4.9-.7 12.2 2 16.2 1.3 1.9 2.9 4.1 5 4 2-.1 2.8-1.3 5.2-1.3 2.4 0 3.1 1.3 5.3 1.2 2.2 0 3.5-2 4.8-3.9 1.5-2.2 2.1-4.4 2.2-4.5-.1 0-4-1.6-4-6.4z" fill="currentColor"/><path d="M22.4 7.3c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 3-1.6 4.7 1.7.1 3.5-.9 4.6-2.2z" fill="currentColor"/></svg></div>
               <div class="dl-name">Tyvaris for Mac</div>
               <div class="dl-meta">macOS 12+ · Apple Silicon + Intel · DMG</div>
             </a>
             <a class="dl-card" id="dl-win" href="#">
-              <div class="dl-icon">🪟</div>
+              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 5.5l12.5-1.7v12H4V5.5z" fill="#00ADEF"/><path d="M17.8 3.6L32 1.5v14.8H17.8V3.6z" fill="#00ADEF"/><path d="M4 17.2h12.5v12L4 27.5V17.2z" fill="#00ADEF"/><path d="M17.8 17.2H32v14.8l-14.2-2V17.2z" fill="#00ADEF"/></svg></div>
               <div class="dl-name">Tyvaris for Windows</div>
               <div class="dl-meta">Windows 10/11 · x64 · EXE installer</div>
             </a>
@@ -848,11 +848,12 @@ function showView(name) {
   var el = document.getElementById('view-' + name)
   if (el) {
     el.classList.add('active')
-    // scroll al top dentro del overlay (login/dashboard) o en el window (landing)
-    if (el.style.position === 'fixed' || name === 'login' || name === 'dashboard') {
+    if (name === 'login' || name === 'dashboard') {
       el.scrollTop = 0
     } else {
+      // volver a landing: NO hacer logout, solo ocultar overlay
       window.scrollTo(0,0)
+      window.location.hash = ''
     }
   }
 }
@@ -899,6 +900,7 @@ async function webLogin() {
     window.location.hash = '#dashboard'
     showView('dashboard')
     loadDashboard()
+    updateNavForSession()
   } catch(e) {
     errEl.textContent = 'Connection error — try again'
     errEl.style.display = 'block'
@@ -911,6 +913,7 @@ function webLogout() {
   localStorage.removeItem('tyvaris_web_token')
   window.location.hash = ''
   showView('landing')
+  updateNavForSession()
 }
 
 async function loadDashboard() {
@@ -1121,17 +1124,27 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   })
 })
 
-// Nav: add Sign in link
-document.addEventListener('DOMContentLoaded', function() {
+// Nav: Sign in / Dashboard button depending on session
+function updateNavForSession() {
   var navCta = document.querySelector('#view-landing .nav-cta')
-  if (navCta) {
-    var a = document.createElement('a')
-    a.className = 'btn-ghost'
+  if (!navCta) return
+  var existing = document.getElementById('nav-session-btn')
+  if (existing) existing.remove()
+  var a = document.createElement('a')
+  a.id = 'nav-session-btn'
+  a.className = 'btn-ghost'
+  a.style.cursor = 'pointer'
+  if (_webToken) {
+    a.textContent = 'My account'
+    a.onclick = function(e){ e.preventDefault(); window.location.hash='#dashboard'; showView('dashboard'); loadDashboard() }
+  } else {
     a.textContent = 'Sign in'
-    a.style.cursor = 'pointer'
     a.onclick = function(e){ e.preventDefault(); window.location.hash='#login'; showView('login') }
-    navCta.insertBefore(a, navCta.firstChild)
   }
+  navCta.insertBefore(a, navCta.firstChild)
+}
+document.addEventListener('DOMContentLoaded', function() {
+  updateNavForSession()
   // Restore session if token exists and going to dashboard
   if (_webToken && window.location.hash === '#dashboard') {
     showView('dashboard'); loadDashboard()
