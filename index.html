@@ -165,6 +165,15 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 /* AUTH VIEWS */
 .view{display:none}
 .view.active{display:block}
+#view-login.active,
+#view-dashboard.active{
+  display:block;
+  position:fixed;
+  inset:0;
+  overflow-y:auto;
+  z-index:200;
+  background:var(--bg);
+}
 
 /* LOGIN PAGE */
 .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)}
@@ -837,8 +846,15 @@ var _webUser  = null
 function showView(name) {
   document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active') })
   var el = document.getElementById('view-' + name)
-  if (el) el.classList.add('active')
-  window.scrollTo(0,0)
+  if (el) {
+    el.classList.add('active')
+    // scroll al top dentro del overlay (login/dashboard) o en el window (landing)
+    if (el.style.position === 'fixed' || name === 'login' || name === 'dashboard') {
+      el.scrollTop = 0
+    } else {
+      window.scrollTo(0,0)
+    }
+  }
 }
 
 function route() {
