@@ -258,15 +258,17 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .screen-caption{text-align:center;margin-top:16px;font-size:12px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px}
 /* PAYMENT */
-.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-.pay-card{background:var(--bg2);border:1px solid var(--b1);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px;transition:border-color .2s}
-.pay-card:hover{border-color:rgba(91,76,219,.4)}
-.pay-icon{font-size:26px;flex-shrink:0}
-.pay-name{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:3px}
-.pay-desc{font-size:11px;color:var(--mut);font-family:var(--mono)}
-.pay-card{cursor:pointer}
-.pay-card .pay-btn{display:block;width:100%;margin-top:10px;padding:8px 0;border-radius:7px;border:none;background:var(--acc);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:background .2s}
-.pay-card .pay-btn:hover{background:var(--acc2)}
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+@media(max-width:700px){.pay-grid{grid-template-columns:1fr}}
+.pay-card{background:var(--bg2);border:1px solid var(--b1);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:0;transition:border-color .25s,transform .2s,box-shadow .2s;cursor:pointer;position:relative;overflow:hidden}
+.pay-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:0;transition:opacity .25s}
+.pay-card:hover{border-color:rgba(91,76,219,.5);transform:translateY(-3px);box-shadow:0 12px 40px rgba(91,76,219,.15)}
+.pay-card:hover::before{opacity:1}
+.pay-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(91,76,219,.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--acc)}
+.pay-name{font-size:15px;font-weight:800;color:var(--txt);margin-bottom:5px;letter-spacing:-.2px}
+.pay-desc{font-size:12px;color:var(--mut);font-family:var(--mono);line-height:1.6;margin-bottom:20px;flex:1}
+.pay-card .pay-btn{display:block;width:100%;padding:11px 0;border-radius:9px;border:none;background:var(--acc);color:#fff;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:background .2s,box-shadow .2s;letter-spacing:.2px}
+.pay-card .pay-btn:hover{background:var(--acc2);box-shadow:0 4px 16px rgba(91,76,219,.35)}
 /* PAYMENT MODAL */
 #pay-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center}
 #pay-modal.open{display:flex}
@@ -566,28 +568,28 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <p style="font-size:11px;font-family:var(--mono);color:var(--mut);letter-spacing:2px;text-align:center;margin-bottom:20px;text-transform:uppercase">Accepted payment methods</p>
       <div class="pay-grid">
         <div class="pay-card" onclick="openPayModal('stripe')">
-          <div class="pay-icon">💳</div>
-          <div style="flex:1">
-            <div class="pay-name">Credit / Debit card</div>
-            <div class="pay-desc">Visa · Mastercard · Amex<br>via Stripe — USD</div>
-            <button class="pay-btn" onclick="event.stopPropagation();openPayModal('stripe')">Subscribe with Stripe →</button>
+          <div class="pay-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
+          <div class="pay-name">Credit / Debit Card</div>
+          <div class="pay-desc">Visa · Mastercard · Amex<br>via Stripe · USD · instant</div>
+          <button class="pay-btn" onclick="event.stopPropagation();openPayModal('stripe')">Subscribe with Stripe →</button>
         </div>
         <div class="pay-card" onclick="openPayModal('mp')">
-          <div class="pay-icon">🏦</div>
-          <div style="flex:1">
-            <div class="pay-name">Mercado Pago</div>
-            <div class="pay-desc">Tarjeta · cuotas · débito<br>ARS al tipo de cambio del día</div>
-            <button class="pay-btn" onclick="event.stopPropagation();openPayModal('mp')">Suscribirse con MP →</button>
+          <div class="pay-icon-wrap" style="background:rgba(0,158,227,.12);color:#009EE3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="currentColor"/></svg>
           </div>
+          <div class="pay-name">Mercado Pago</div>
+          <div class="pay-desc">Tarjeta · cuotas · débito<br>ARS · LATAM · sin comisión extra</div>
+          <button class="pay-btn" style="background:#009EE3" onclick="event.stopPropagation();openPayModal('mp')">Suscribirse con MP →</button>
         </div>
         <div class="pay-card" onclick="openPayModal('crypto')">
-          <div class="pay-icon">₿</div>
-          <div style="flex:1">
-            <div class="pay-name">Crypto</div>
-            <div class="pay-desc">USDT · USDC<br>TRC20 · ERC20 · BEP20</div>
-            <button class="pay-btn" onclick="event.stopPropagation();openPayModal('crypto')">Pay with Crypto →</button>
+          <div class="pay-icon-wrap" style="background:rgba(247,147,26,.12);color:#F7931A">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           </div>
+          <div class="pay-name">Crypto</div>
+          <div class="pay-desc">USDT · USDC · BTC · ETH<br>TRC20 · ERC20 · BEP20</div>
+          <button class="pay-btn" style="background:linear-gradient(135deg,#F7931A,#f4a93a)" onclick="event.stopPropagation();openPayModal('crypto')">Pay with Crypto →</button>
         </div>
       </div>
     </div>
@@ -597,14 +599,21 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <!-- PAYMENT MODAL -->
 <div id="pay-modal">
   <div class="pay-modal-box">
-    <div class="pay-modal-title" id="pay-modal-title">Subscribe to Tyvaris</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px">
+      <div class="pay-modal-title" id="pay-modal-title">Subscribe to Tyvaris</div>
+      <button onclick="closePayModal()" style="background:none;border:none;color:var(--mut);font-size:20px;cursor:pointer;line-height:1;padding:0 0 0 12px">✕</button>
+    </div>
     <div class="pay-modal-sub" id="pay-modal-sub">Enter your email to continue</div>
-    <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email" />
+    <div id="pay-modal-email-wrap">
+      <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email"
+        onkeydown="if(event.key==='Enter')confirmPayment()" />
+    </div>
     <div class="pay-modal-err" id="pay-modal-err"></div>
     <div class="pay-modal-actions">
       <button class="pay-modal-cancel" onclick="closePayModal()">Cancel</button>
       <button class="pay-modal-confirm" id="pay-modal-confirm" onclick="confirmPayment()">Continue →</button>
     </div>
+    <p style="font-size:11px;color:var(--mut);text-align:center;margin-top:14px;font-family:var(--mono)">🔒 Secure · $120 USD / year · Cancel anytime</p>
   </div>
 </div>
 
@@ -1000,20 +1009,45 @@ async function manageStripe() {
 // ─── PAYMENT MODAL ───────────────────────────────────────────────
 var _payMethod = null
 
+// Recuperar user desde token JWT si _webUser es null pero _webToken existe
+function getPayUserId() {
+  if (_webUser && _webUser.id) return _webUser.id
+  if (_webToken) {
+    try {
+      var payload = JSON.parse(atob(_webToken.split('.')[1]))
+      return payload.id || null
+    } catch(e) {}
+  }
+  return null
+}
+function getPayUserEmail() {
+  if (_webUser && _webUser.email) return _webUser.email
+  if (_webToken) {
+    try {
+      var payload = JSON.parse(atob(_webToken.split('.')[1]))
+      return payload.email || ''
+    } catch(e) {}
+  }
+  return ''
+}
+
 function openPayModal(method) {
   _payMethod = method
-  var titles = { stripe: 'Subscribe · Credit / Debit Card', mp: 'Suscribirse · Mercado Pago', crypto: 'Subscribe · Crypto (USDT/USDC)' }
-  var subs   = { stripe: 'You will be redirected to Stripe — USD $120/yr', mp: 'Serás redirigido a Mercado Pago — $120 USD/año', crypto: 'You will be redirected to NOWPayments — $120 USD/yr' }
+  var titles = { stripe: 'Credit / Debit Card — $120/yr', mp: 'Mercado Pago — $120/yr', crypto: 'Crypto — $120/yr' }
+  var subs   = { stripe: 'Redirecting to Stripe secure checkout', mp: 'Serás redirigido al checkout de Mercado Pago', crypto: 'Redirecting to NOWPayments crypto checkout' }
   document.getElementById('pay-modal-title').textContent = titles[method] || 'Subscribe'
-  document.getElementById('pay-modal-sub').textContent   = subs[method]  || 'Enter your email to continue'
-  // Si ya está logueado, pre-llenar email y no mostrarlo
+  document.getElementById('pay-modal-sub').textContent   = subs[method]  || ''
   var emailInput = document.getElementById('pay-modal-email')
-  if (_webUser && _webUser.email) emailInput.value = _webUser.email
+  var knownEmail = getPayUserEmail()
+  emailInput.value = knownEmail
+  // Si ya tiene sesión, ocultar el campo de email
+  var emailWrap = document.getElementById('pay-modal-email-wrap')
+  if (emailWrap) emailWrap.style.display = knownEmail ? 'none' : 'block'
   document.getElementById('pay-modal-err').style.display = 'none'
   document.getElementById('pay-modal-confirm').disabled = false
   document.getElementById('pay-modal-confirm').textContent = 'Continue →'
   document.getElementById('pay-modal').classList.add('open')
-  if (!(_webUser && _webUser.email)) emailInput.focus()
+  if (!knownEmail) emailInput.focus()
 }
 
 function closePayModal() {
@@ -1021,13 +1055,13 @@ function closePayModal() {
   _payMethod = null
 }
 
-// Cerrar modal al clickear el fondo
 document.addEventListener('click', function(e) {
   if (e.target && e.target.id === 'pay-modal') closePayModal()
 })
 
 async function confirmPayment() {
-  var email = document.getElementById('pay-modal-email').value.trim()
+  var emailInput = document.getElementById('pay-modal-email')
+  var email = emailInput.value.trim() || getPayUserEmail()
   var errEl = document.getElementById('pay-modal-err')
   var btn   = document.getElementById('pay-modal-confirm')
   errEl.style.display = 'none'
@@ -1035,43 +1069,33 @@ async function confirmPayment() {
     errEl.textContent = 'Please enter a valid email'; errEl.style.display = 'block'; return
   }
 
-  btn.disabled = true; btn.textContent = 'Processing...'
-
-  // Obtener user_id: si está logueado usarlo, sino registrar/buscar
-  var userId = _webUser && _webUser.id ? _webUser.id : null
+  // Obtener user_id del token JWT (no depender de _webUser que puede ser null)
+  var userId = getPayUserId()
   if (!userId) {
-    try {
-      // Intentar login silencioso / buscar si el usuario ya existe
-      // Si no existe aún, el checkout igual se crea con el email — el user_id se puede resolver post-pago
-      // Para MP y crypto necesitamos un user_id; pedimos que se registre/loguee primero
-      errEl.textContent = 'Please sign in or create an account first to continue.'
-      errEl.style.display = 'block'
-      btn.disabled = false; btn.textContent = 'Continue →'
-      // Redirigir al login después de 1.5s
-      setTimeout(function(){ closePayModal(); window.location.hash='#login'; showView('login') }, 1500)
-      return
-    } catch(e) {}
+    errEl.textContent = 'Please sign in first to continue.'
+    errEl.style.display = 'block'
+    btn.disabled = false
+    setTimeout(function(){ closePayModal(); window.location.hash='#login'; showView('login') }, 1200)
+    return
   }
+
+  btn.disabled = true; btn.textContent = 'Redirecting...'
 
   try {
     var endpoint = _payMethod === 'stripe' ? '/billing/checkout'
                  : _payMethod === 'mp'     ? '/billing/checkout-mp'
                  :                           '/billing/checkout-crypto'
 
-    var headers = { 'Content-Type': 'application/json' }
-    if (_webToken) headers['Authorization'] = 'Bearer ' + _webToken
-
     var res = await fetch(BACKEND + endpoint, {
       method: 'POST',
-      headers: headers,
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _webToken },
       body: JSON.stringify({ email: email, user_id: userId, plan: 'annual' })
     })
     var data = await res.json()
     if (!res.ok) {
-      errEl.textContent = data.error || 'Error connecting to payment. Try again.'; errEl.style.display = 'block'
+      errEl.textContent = data.error || 'Payment error. Try again.'; errEl.style.display = 'block'
       btn.disabled = false; btn.textContent = 'Continue →'; return
     }
-    // Redirigir al checkout externo
     var url = data.url || data.init_point || data.invoice_url
     if (url) window.location.href = url
     else { errEl.textContent = 'Could not get payment URL. Try again.'; errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'Continue →' }
