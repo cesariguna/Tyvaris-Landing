@@ -173,6 +173,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 .view.active{display:block}
 #view-login.active,
 #view-register.active,
+#view-forgot.active,
+#view-reset.active,
 #view-dashboard.active{
   display:block;
   position:fixed;
@@ -746,7 +748,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       </div>
       <button class="btn-full" id="login-btn" onclick="webLogin()">Sign in →</button>
       <p class="auth-link">Don't have an account? <a href="#" onclick="showView('register');return false">Create account →</a></p>
-      <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
+      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView('forgot');return false" style="color:var(--mut)">Forgot password?</a></p>
+      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
     </div>
   </div>
 </div>
@@ -785,6 +788,61 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <button class="btn-full" id="register-btn" onclick="webRegister()">Create account →</button>
       <p class="auth-link">Already have an account? <a href="#" onclick="showView('login');return false">Sign in →</a></p>
       <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FORGOT PASSWORD VIEW ═══ -->
+<div id="view-forgot" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <span>Tyvaris</span>
+      </div>
+      <div class="auth-title">Forgot password?</div>
+      <div class="auth-sub">Enter your email and we'll send you a reset link</div>
+      <div class="auth-err" id="forgot-err"></div>
+      <div id="forgot-ok" style="display:none;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:8px;padding:12px;font-size:13px;color:var(--grn);text-align:center;margin-bottom:16px">
+        ✓ Check your email — reset link sent!
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="forgot-email" placeholder="you@email.com" autocomplete="email"
+          onkeydown="if(event.key==='Enter')webForgot()">
+      </div>
+      <button class="btn-full" id="forgot-btn" onclick="webForgot()">Send reset link →</button>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ RESET PASSWORD VIEW ═══ -->
+<div id="view-reset" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <span>Tyvaris</span>
+      </div>
+      <div class="auth-title">Set new password</div>
+      <div class="auth-sub">Enter your new password below</div>
+      <div class="auth-err" id="reset-err"></div>
+      <div id="reset-ok" style="display:none;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:8px;padding:12px;font-size:13px;color:var(--grn);text-align:center;margin-bottom:16px">
+        ✓ Password updated! You can now sign in.
+      </div>
+      <div class="field">
+        <label>New password</label>
+        <input type="password" id="reset-pass" placeholder="Min. 6 characters" autocomplete="new-password"
+          onkeydown="if(event.key==='Enter')document.getElementById('reset-pass2').focus()">
+      </div>
+      <div class="field">
+        <label>Confirm password</label>
+        <input type="password" id="reset-pass2" placeholder="Repeat password" autocomplete="new-password"
+          onkeydown="if(event.key==='Enter')webResetConfirm()">
+      </div>
+      <button class="btn-full" id="reset-btn" onclick="webResetConfirm()">Set new password →</button>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
     </div>
   </div>
 </div>
@@ -945,7 +1003,7 @@ function showView(name) {
   var el = document.getElementById('view-' + name)
   if (el) {
     el.classList.add('active')
-    if (name === 'login' || name === 'dashboard' || name === 'register') {
+    if (name === 'login' || name === 'dashboard' || name === 'register' || name === 'forgot' || name === 'reset') {
       el.scrollTop = 0
     } else {
       // volver a landing: NO hacer logout, solo ocultar overlay
@@ -961,6 +1019,10 @@ function route() {
   if (hash === '#dashboard') {
     if (_webToken) { showView('dashboard'); loadDashboard(); return }
     showView('login'); return
+  }
+  if (hash.startsWith('#reset?token=')) {
+    var token = hash.replace('#reset?token=', '')
+    if (token) { document.getElementById('reset-err') && (document.getElementById('reset-err').style.display='none'); window._resetToken = token; showView('reset'); return }
   }
   showView('landing')
 }
@@ -1134,6 +1196,81 @@ async function manageStripe() {
     else alert(data.error||'No active subscription to manage')
   } catch(e){ alert('Connection error') }
   finally{ btn.disabled=false; btn.textContent='⬡ Manage subscription' }
+}
+
+// ─── FORGOT PASSWORD ─────────────────────────────────────────────
+async function webForgot() {
+  var email = (document.getElementById('forgot-email')||{}).value || ''
+  var errEl = document.getElementById('forgot-err')
+  var okEl  = document.getElementById('forgot-ok')
+  var btn   = document.getElementById('forgot-btn')
+  if (errEl) errEl.style.display = 'none'
+  if (okEl)  okEl.style.display  = 'none'
+  if (!email || !email.includes('@')) {
+    if (errEl) { errEl.textContent = 'Please enter a valid email'; errEl.style.display = 'block' }
+    return
+  }
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending...' }
+  try {
+    await fetch(BACKEND + '/auth/reset-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    })
+    // Always show success (don't reveal if email exists)
+    if (okEl) okEl.style.display = 'block'
+    if (document.getElementById('forgot-email')) document.getElementById('forgot-email').value = ''
+  } catch(e) {
+    if (errEl) { errEl.textContent = 'Connection error — try again'; errEl.style.display = 'block' }
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Send reset link →' }
+  }
+}
+
+async function webResetConfirm() {
+  var pass  = (document.getElementById('reset-pass')||{}).value  || ''
+  var pass2 = (document.getElementById('reset-pass2')||{}).value || ''
+  var errEl = document.getElementById('reset-err')
+  var okEl  = document.getElementById('reset-ok')
+  var btn   = document.getElementById('reset-btn')
+  if (errEl) errEl.style.display = 'none'
+  if (okEl)  okEl.style.display  = 'none'
+  if (pass.length < 6) {
+    if (errEl) { errEl.textContent = 'Password must be at least 6 characters'; errEl.style.display = 'block' }
+    return
+  }
+  if (pass !== pass2) {
+    if (errEl) { errEl.textContent = 'Passwords do not match'; errEl.style.display = 'block' }
+    return
+  }
+  var token = window._resetToken
+  if (!token) {
+    if (errEl) { errEl.textContent = 'Invalid reset link — request a new one'; errEl.style.display = 'block' }
+    return
+  }
+  if (btn) { btn.disabled = true; btn.textContent = 'Saving...' }
+  try {
+    var res = await fetch(BACKEND + '/auth/reset-confirm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, password: pass })
+    })
+    var data = await res.json()
+    if (!res.ok) {
+      if (errEl) { errEl.textContent = data.error || 'Error — request a new reset link'; errEl.style.display = 'block' }
+    } else {
+      if (okEl) okEl.style.display = 'block'
+      window._resetToken = null
+      window.location.hash = ''
+      if (document.getElementById('reset-pass'))  document.getElementById('reset-pass').value  = ''
+      if (document.getElementById('reset-pass2')) document.getElementById('reset-pass2').value = ''
+      setTimeout(function(){ showView('login') }, 2000)
+    }
+  } catch(e) {
+    if (errEl) { errEl.textContent = 'Connection error — try again'; errEl.style.display = 'block' }
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Set new password →' }
+  }
 }
 
 // ─── PAYMENT MODAL ───────────────────────────────────────────────
