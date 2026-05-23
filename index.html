@@ -136,6 +136,12 @@ section{padding:100px 24px}
 .btn-pricing{width:100%;padding:15px;border-radius:10px;border:none;background:var(--acc);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;text-align:center;display:block;text-decoration:none}
 .btn-pricing:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,76,219,.4)}
 .pricing-note{text-align:center;font-size:12px;color:var(--mut);margin-top:14px;font-family:var(--mono)}
+/* BETA COUNTER */
+.beta-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px auto 0;max-width:320px}
+.beta-counter-bar{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.beta-counter-fill{height:100%;background:linear-gradient(90deg,var(--acc),var(--grn));border-radius:99px;transition:width .8s ease}
+.beta-counter-text{font-size:11px;font-family:var(--mono);color:var(--mut);white-space:nowrap}
+.beta-counter-text strong{color:var(--grn)}
 
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--b1);border:1px solid var(--b1);border-radius:16px;overflow:hidden;max-width:720px}
@@ -561,6 +567,10 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
         </ul>
         <a href="#download" class="btn-pricing">Download Free Beta →</a>
         <p class="pricing-note">No credit card · Free for 1 month · $120/yr after</p>
+        <div class="beta-counter" id="pricing-counter" style="display:none">
+          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width:0%"></div></div>
+          <div class="beta-counter-text"><strong id="pricing-counter-left">—</strong> spots left</div>
+        </div>
       </div>
     </div>
 
@@ -681,6 +691,10 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       </div>
       <h2 class="beta-title">Ready to trade with clarity?</h2>
       <p class="beta-sub">Download Tyvaris free for 1 month. No credit card required.<br>Available for Mac (Apple Silicon + Intel) and Windows.</p>
+      <div class="beta-counter" id="banner-counter" style="margin:0 auto 28px;max-width:360px;display:none">
+        <div class="beta-counter-bar"><div class="beta-counter-fill" id="banner-counter-fill" style="width:0%"></div></div>
+        <div class="beta-counter-text"><strong id="banner-counter-left">—</strong> of 100 beta spots remaining</div>
+      </div>
       <div class="beta-ctas">
         <a href="#" class="btn-hero btn-hero-primary" id="btn-mac">Download for Mac →</a>
         <a href="#" class="btn-hero btn-hero-secondary" id="btn-win">Download for Windows</a>
@@ -889,6 +903,40 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 
 <script>
 var BACKEND = 'https://tradex-backend-production-9222.up.railway.app'
+
+// ─── BETA COUNTER ────────────────────────────────────────────────
+async function loadBetaCounter() {
+  try {
+    var res = await fetch(BACKEND + '/stats/users')
+    var data = await res.json()
+    var used = Math.min(data.count || 0, 100)
+    var left = Math.max(100 - used, 0)
+    var pct  = (used / 100) * 100
+
+    // Solo mostrar si quedan spots
+    if (left <= 0) return
+
+    // Pricing card counter
+    var pc = document.getElementById('pricing-counter')
+    var pcFill = document.getElementById('pricing-counter-fill')
+    var pcLeft = document.getElementById('pricing-counter-left')
+    if (pc) {
+      pc.style.display = 'flex'
+      pcLeft.textContent = left
+      setTimeout(function(){ pcFill.style.width = pct + '%' }, 100)
+    }
+
+    // Banner counter
+    var bc = document.getElementById('banner-counter')
+    var bcFill = document.getElementById('banner-counter-fill')
+    var bcLeft = document.getElementById('banner-counter-left')
+    if (bc) {
+      bc.style.display = 'flex'
+      bcLeft.textContent = left
+      setTimeout(function(){ bcFill.style.width = pct + '%' }, 100)
+    }
+  } catch(e) { /* silencioso — no romper la landing */ }
+}
 var _webToken = localStorage.getItem('tyvaris_web_token')
 var _webUser  = null
 
@@ -1251,6 +1299,7 @@ function updateNavForSession() {
 }
 document.addEventListener('DOMContentLoaded', function() {
   updateNavForSession()
+  loadBetaCounter()
   // Restore session if token exists and going to dashboard
   if (_webToken && window.location.hash === '#dashboard') {
     showView('dashboard'); loadDashboard()
