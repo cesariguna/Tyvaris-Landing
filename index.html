@@ -176,6 +176,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 #view-forgot.active,
 #view-reset.active,
 #view-verify-email.active,
+#view-verify-success.active,
+#view-verify-error.active,
 #view-verify.active,
 #view-dashboard.active{
   display:block;
@@ -807,6 +809,39 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   </div>
 </div>
 
+<!-- ═══ VERIFY SUCCESS VIEW ═══ -->
+<div id="view-verify-success" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card" style="text-align:center">
+      <div style="font-size:56px;margin-bottom:8px">🎉</div>
+      <div class="auth-title">¡Email verificado!</div>
+      <div class="auth-sub" style="margin-bottom:20px">Tu cuenta está activa. Disfrutá de la beta por 30 días.</div>
+      <div style="background:rgba(0,200,150,.08);border:1px solid rgba(0,200,150,.2);border-radius:10px;padding:16px;margin-bottom:20px">
+        <div style="font-size:11px;color:#a0a0c0;letter-spacing:1px;margin-bottom:4px">PLAN ACTIVADO</div>
+        <div id="verify-success-plan" style="font-size:18px;font-weight:800;color:#00c896">Beta · 30 días gratis</div>
+        <div id="verify-success-exp" style="font-size:11px;color:#a0a0c0;margin-top:2px"></div>
+      </div>
+      <div style="font-size:12px;color:#a0a0c0;margin-bottom:20px;line-height:1.6">
+        Descargá la app de escritorio y conectá tu cuenta de MT5 para empezar a trackear tus trades.
+      </div>
+      <button class="btn-full" onclick="goToDashboardAfterVerify()">Ir al dashboard →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ VERIFY ERROR VIEW ═══ -->
+<div id="view-verify-error" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card" style="text-align:center">
+      <div style="font-size:48px;margin-bottom:8px">⚠️</div>
+      <div class="auth-title">Link inválido o expirado</div>
+      <div class="auth-sub" style="margin-bottom:20px">El link de verificación expiró o ya fue usado.</div>
+      <button class="btn-full" onclick="showView('login')" style="margin-bottom:8px">Ir al login</button>
+      <button class="btn-full" onclick="showView('verify-email')" style="background:transparent;border:1px solid var(--b1);color:var(--mut)">Reenviar verificación</button>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ VERIFY EMAIL VIEW ═══ -->
 <div id="view-verify-email" class="view">
   <div class="auth-wrap">
@@ -935,30 +970,6 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           </div>
         </div>
 
-        <!-- Referral card -->
-        <div class="dash-card">
-          <div class="dash-card-title">Referral Program</div>
-          <div style="font-size:12px;color:#a0a0c0;margin-bottom:12px;line-height:1.5">Earn <strong style="color:#fff">30% commission</strong> on every sale. Your referrals get <strong style="color:#fff">20% off</strong>.</div>
-          <div id="dash-referral-code-wrap" style="display:none;margin-bottom:12px">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-              <code id="dash-ref-code" style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:6px;padding:8px 14px;font-size:15px;font-weight:700;color:#7c6de0;letter-spacing:2px;flex:1;text-align:center"></code>
-              <button onclick="copyReferralCode()" style="background:#5b4cdb;color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:12px;white-space:nowrap">Copy</button>
-            </div>
-            <div style="display:flex;gap:16px;font-size:12px;color:#a0a0c0">
-              <span>Uses: <strong id="dash-ref-uses" style="color:#fff">0</strong></span>
-              <span>Paid: <strong id="dash-ref-paid" style="color:#00c896">0</strong></span>
-              <span>Earned: <strong id="dash-ref-earned" style="color:#00c896">$0</strong></span>
-            </div>
-          </div>
-          <div id="dash-referral-create">
-            <div style="display:flex;gap:8px">
-              <input type="text" id="dash-ref-custom" placeholder="Custom code (optional)" style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:6px;padding:8px 12px;color:#fff;font-family:monospace;font-size:13px;flex:1;outline:none;box-sizing:border-box" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,10)">
-              <button onclick="createReferralCode()" style="background:#5b4cdb;color:#fff;border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-size:12px;white-space:nowrap" id="btn-gen-ref">Generate →</button>
-            </div>
-            <div id="dash-ref-err" style="font-size:11px;color:#e63950;margin-top:5px;display:none"></div>
-          </div>
-        </div>
-
         <!-- Account card -->
         <div class="dash-card">
           <div class="dash-card-title">Account</div>
@@ -1068,7 +1079,7 @@ function showView(name) {
   var el = document.getElementById('view-' + name)
   if (el) {
     el.classList.add('active')
-    if (name === 'login' || name === 'dashboard' || name === 'register' || name === 'forgot' || name === 'reset' || name === 'verify-email') {
+    if (name === 'login' || name === 'dashboard' || name === 'register' || name === 'forgot' || name === 'reset' || name === 'verify-email' || name === 'verify-success' || name === 'verify-error') {
       el.scrollTop = 0
     } else {
       // volver a landing: NO hacer logout, solo ocultar overlay
@@ -1181,7 +1192,7 @@ async function webLogin() {
     var data = await res.json()
     if (!res.ok || !data.token) {
       if (data.error === 'email_not_verified') {
-        errEl.innerHTML = 'Please verify your email first. <a href="#" onclick="resendVerifyEmail(\'' + email + '\');return false" style="color:var(--acc)">Resend email</a>'
+        errEl.innerHTML = 'Verificá tu email antes de ingresar. <a href="#" onclick="resendVerifyEmail(\'' + email + '\');return false" style="color:var(--acc)">Reenviar email</a>'
       } else {
         errEl.textContent = data.error || data.message || 'Incorrect credentials'
       }
@@ -1394,6 +1405,17 @@ async function webResetConfirm() {
 }
 
 // ─── EMAIL VERIFICATION FUNCTIONS ────────────────────────────────
+function goToDashboardAfterVerify() {
+  if (_webToken && _webUser) {
+    window.location.hash = '#dashboard'
+    showView('dashboard')
+    loadDashboard()
+    updateNavForSession()
+  } else {
+    showView('login')
+  }
+}
+
 async function resendVerifyEmail(email) {
   try {
     await fetch(BACKEND + '/auth/resend-verify', {
@@ -1423,18 +1445,25 @@ async function handleVerifyToken(token) {
     })
     var data = await res.json()
     if (res.ok && data.ok) {
-      // Verified — if user is logged in, refresh; else show success + go to login
       if (_webToken) {
+        // Already logged in — refresh subscription and go to dashboard
         var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
         var valData = await val.json()
         if (_webUser) { _webUser.subscription = valData.subscription || null; _webUser.subValid = valData.valid }
-        window.location.hash = '#dashboard'
-        showView('dashboard')
-        loadDashboard()
-        updateNavForSession()
-      } else {
-        showView('verify-success')
+        // Show success screen first
+        var planEl = document.getElementById('verify-success-plan')
+        var expEl  = document.getElementById('verify-success-exp')
+        var sub = valData.subscription
+        if (planEl && sub) {
+          planEl.textContent = sub.plan === 'beta' ? 'Beta · 30 días gratis' : 'Trial · 7 días gratis'
+          planEl.style.color = sub.plan === 'beta' ? '#7c6de0' : '#f4b942'
+        }
+        if (expEl && sub && sub.expires_at) {
+          var exp = new Date(sub.expires_at)
+          expEl.textContent = 'Vence el ' + exp.toLocaleDateString('es-AR', { day:'2-digit', month:'long', year:'numeric' })
+        }
       }
+      showView('verify-success')
     } else {
       showView('verify-error')
     }
