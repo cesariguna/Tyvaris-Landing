@@ -814,17 +814,17 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   <div class="auth-wrap">
     <div class="auth-card" style="text-align:center">
       <div style="font-size:56px;margin-bottom:8px">🎉</div>
-      <div class="auth-title">¡Email verificado!</div>
-      <div class="auth-sub" style="margin-bottom:20px">Tu cuenta está activa. Disfrutá de la beta por 30 días.</div>
+      <div class="auth-title">Email verified!</div>
+      <div class="auth-sub" style="margin-bottom:20px">Your account is active. Enjoy your free beta access for 30 days.</div>
       <div style="background:rgba(0,200,150,.08);border:1px solid rgba(0,200,150,.2);border-radius:10px;padding:16px;margin-bottom:20px">
-        <div style="font-size:11px;color:#a0a0c0;letter-spacing:1px;margin-bottom:4px">PLAN ACTIVADO</div>
-        <div id="verify-success-plan" style="font-size:18px;font-weight:800;color:#00c896">Beta · 30 días gratis</div>
+        <div style="font-size:11px;color:#a0a0c0;letter-spacing:1px;margin-bottom:4px">PLAN ACTIVATED</div>
+        <div id="verify-success-plan" style="font-size:18px;font-weight:800;color:#00c896">Beta · 30 days free</div>
         <div id="verify-success-exp" style="font-size:11px;color:#a0a0c0;margin-top:2px"></div>
       </div>
       <div style="font-size:12px;color:#a0a0c0;margin-bottom:20px;line-height:1.6">
-        Descargá la app de escritorio y conectá tu cuenta de MT5 para empezar a trackear tus trades.
+        Download the desktop app and connect your MT5 account to start tracking your trades.
       </div>
-      <button class="btn-full" onclick="goToDashboardAfterVerify()">Ir al dashboard →</button>
+      <button class="btn-full" onclick="goToDashboardAfterVerify()">Go to dashboard →</button>
     </div>
   </div>
 </div>
@@ -1455,12 +1455,12 @@ async function handleVerifyToken(token) {
         var expEl  = document.getElementById('verify-success-exp')
         var sub = valData.subscription
         if (planEl && sub) {
-          planEl.textContent = sub.plan === 'beta' ? 'Beta · 30 días gratis' : 'Trial · 7 días gratis'
+          planEl.textContent = sub.plan === 'beta' ? 'Beta · 30 days free' : 'Trial · 7 days free'
           planEl.style.color = sub.plan === 'beta' ? '#7c6de0' : '#f4b942'
         }
         if (expEl && sub && sub.expires_at) {
           var exp = new Date(sub.expires_at)
-          expEl.textContent = 'Vence el ' + exp.toLocaleDateString('es-AR', { day:'2-digit', month:'long', year:'numeric' })
+          expEl.textContent = 'Expires on ' + exp.toLocaleDateString('en-US', { day:'2-digit', month:'long', year:'numeric' })
         }
       }
       showView('verify-success')
