@@ -1173,7 +1173,7 @@ function webLogout() {
   updateNavForSession()
 }
 
-async function getDashboardTrialBadge(sub) {
+function getDashboardTrialBadge(sub) {
   if (!sub) return ''
   var plan = sub.plan || ''
   var exp  = sub.expires_at ? new Date(sub.expires_at) : null
