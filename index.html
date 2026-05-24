@@ -783,7 +783,20 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <div class="field">
         <label>Confirm password</label>
         <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password"
-          onkeydown="if(event.key==='Enter')webRegister()">
+          onkeydown="if(event.key==='Enter')document.getElementById('register-referral').focus()">
+      </div>
+      <div class="field" id="field-referral">
+        <label style="display:flex;align-items:center;justify-content:space-between">
+          Referral code <span style="font-size:10px;color:var(--mut);font-weight:400">(optional)</span>
+        </label>
+        <div style="display:flex;gap:6px">
+          <input type="text" id="register-referral" placeholder="e.g. CESAR20" autocomplete="off"
+            style="text-transform:uppercase;flex:1"
+            onkeydown="if(event.key==='Enter')webRegister()"
+            oninput="this.value=this.value.toUpperCase();validateReferralCode(this.value)">
+          <span id="referral-check" style="font-size:18px;line-height:36px;min-width:20px"></span>
+        </div>
+        <div id="referral-msg" style="font-size:11px;margin-top:3px;display:none"></div>
       </div>
       <button class="btn-full" id="register-btn" onclick="webRegister()">Create account →</button>
       <p class="auth-link">Already have an account? <a href="#" onclick="showView('login');return false">Sign in →</a></p>
@@ -878,6 +891,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
         <!-- Subscription card -->
         <div class="dash-card">
           <div class="dash-card-title">Subscription</div>
+          <div id="dash-plan-badge" style="margin-bottom:10px"></div>
           <div class="sub-status">
             <div class="sub-dot" id="dash-sub-dot"></div>
             <div>
@@ -891,6 +905,30 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           </div>
           <div class="dash-btn-row">
             <button class="btn-dash btn-dash-primary" onclick="manageStripe()">⬡ Manage subscription</button>
+          </div>
+        </div>
+
+        <!-- Referral card -->
+        <div class="dash-card">
+          <div class="dash-card-title">Referral Program</div>
+          <div style="font-size:12px;color:#a0a0c0;margin-bottom:12px;line-height:1.5">Earn <strong style="color:#fff">30% commission</strong> on every sale. Your referrals get <strong style="color:#fff">20% off</strong>.</div>
+          <div id="dash-referral-code-wrap" style="display:none;margin-bottom:12px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <code id="dash-ref-code" style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:6px;padding:8px 14px;font-size:15px;font-weight:700;color:#7c6de0;letter-spacing:2px;flex:1;text-align:center"></code>
+              <button onclick="copyReferralCode()" style="background:#5b4cdb;color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:12px;white-space:nowrap">Copy</button>
+            </div>
+            <div style="display:flex;gap:16px;font-size:12px;color:#a0a0c0">
+              <span>Uses: <strong id="dash-ref-uses" style="color:#fff">0</strong></span>
+              <span>Paid: <strong id="dash-ref-paid" style="color:#00c896">0</strong></span>
+              <span>Earned: <strong id="dash-ref-earned" style="color:#00c896">$0</strong></span>
+            </div>
+          </div>
+          <div id="dash-referral-create">
+            <div style="display:flex;gap:8px">
+              <input type="text" id="dash-ref-custom" placeholder="Custom code (optional)" style="background:#0d0d1a;border:1px solid #2a2a50;border-radius:6px;padding:8px 12px;color:#fff;font-family:monospace;font-size:13px;flex:1;outline:none;box-sizing:border-box" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,10)">
+              <button onclick="createReferralCode()" style="background:#5b4cdb;color:#fff;border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-size:12px;white-space:nowrap" id="btn-gen-ref">Generate →</button>
+            </div>
+            <div id="dash-ref-err" style="font-size:11px;color:#e63950;margin-top:5px;display:none"></div>
           </div>
         </div>
 
@@ -1013,9 +1051,26 @@ function showView(name) {
   }
 }
 
+function getUrlReferralCode() {
+  var search = window.location.search
+  var m = search.match(/[?&]ref=([A-Z0-9]+)/i)
+  return m ? m[1].toUpperCase() : null
+}
+
 function route() {
   var hash = window.location.hash
   if (hash === '#login')     { showView('login'); return }
+  if (hash.startsWith('#register') || window.location.search.includes('ref=')) {
+    var urlRef = getUrlReferralCode()
+    if (urlRef) {
+      showView('register')
+      setTimeout(function(){
+        var refEl = document.getElementById('register-referral')
+        if (refEl && !refEl.value) { refEl.value = urlRef; validateReferralCode(urlRef) }
+      }, 100)
+      return
+    }
+  }
   if (hash === '#dashboard') {
     if (_webToken) { showView('dashboard'); loadDashboard(); return }
     showView('login'); return
@@ -1042,9 +1097,10 @@ async function webRegister() {
   if (pass !== pass2) { errEl.textContent='Passwords do not match'; errEl.style.display='block'; return }
   btn.disabled = true; btn.textContent = 'Creating account...'
   try {
+    var referralCode = (document.getElementById('register-referral')||{}).value || ''
     var res = await fetch(BACKEND + '/auth/register', {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ email, password: pass, name })
+      body: JSON.stringify({ email, password: pass, name, referralCode: referralCode.trim().toUpperCase() || undefined })
     })
     var data = await res.json()
     if (!res.ok || !data.token) {
@@ -1117,6 +1173,19 @@ function webLogout() {
   updateNavForSession()
 }
 
+async function getDashboardTrialBadge(sub) {
+  if (!sub) return ''
+  var plan = sub.plan || ''
+  var exp  = sub.expires_at ? new Date(sub.expires_at) : null
+  if (!exp) return ''
+  var now  = new Date()
+  var daysLeft = Math.ceil((exp - now) / (1000*60*60*24))
+  if (daysLeft < 0) return '<span style="background:rgba(230,57,80,.15);color:#e63950;padding:3px 10px;border-radius:5px;font-size:11px;font-family:monospace">● EXPIRED</span>'
+  if (plan === 'beta') return '<span style="background:rgba(91,76,219,.15);color:#7c6de0;padding:3px 10px;border-radius:5px;font-size:11px;font-family:monospace">● BETA · ' + daysLeft + ' days left</span>'
+  if (plan === 'trial') return '<span style="background:rgba(244,185,66,.15);color:#f4b942;padding:3px 10px;border-radius:5px;font-size:11px;font-family:monospace">● TRIAL · ' + daysLeft + ' days left</span>'
+  return '<span style="background:rgba(0,200,150,.15);color:#00c896;padding:3px 10px;border-radius:5px;font-size:11px;font-family:monospace">● ACTIVE · ' + daysLeft + ' days left</span>'
+}
+
 async function loadDashboard() {
   if (!_webToken) { showView('login'); return }
   try {
@@ -1133,7 +1202,8 @@ async function loadDashboard() {
     if (el('dash-email-disp')) el('dash-email-disp').textContent = email
     var sub = data.subscription
     if (el('dash-sub-dot'))  el('dash-sub-dot').className  = 'sub-dot'+(data.valid?'':' inactive')
-    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan||'Annual'):(data.valid?'Beta':'Inactive')
+    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan==='beta'?'Beta':sub.plan==='trial'?'Trial':'Annual'):(data.valid?'Beta':'Inactive')
+    if (el('dash-plan-badge')) el('dash-plan-badge').innerHTML = getDashboardTrialBadge(sub)
     if (el('dash-expires')) {
       if (sub && sub.expires_at) {
         el('dash-expires').textContent = new Date(sub.expires_at).toLocaleDateString('en-US',{day:'2-digit',month:'short',year:'numeric'})
@@ -1142,6 +1212,7 @@ async function loadDashboard() {
       }
     }
   } catch(e) { console.error('Dashboard load error:', e) }
+  loadReferralStats()
 }
 
 function togglePwdForm() {
@@ -1271,6 +1342,104 @@ async function webResetConfirm() {
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = 'Set new password →' }
   }
+}
+
+// ─── REFERRAL DASHBOARD FUNCTIONS ───────────────────────────────
+async function loadReferralStats() {
+  if (!_webToken) return
+  try {
+    var res = await fetch(BACKEND + '/referral/stats', { headers:{ Authorization:'Bearer '+_webToken } })
+    var data = await res.json()
+    var wrap   = document.getElementById('dash-referral-code-wrap')
+    var create = document.getElementById('dash-referral-create')
+    if (data.hasCode) {
+      var code = document.getElementById('dash-ref-code')
+      if (code) code.textContent = data.code
+      var uses = document.getElementById('dash-ref-uses')
+      if (uses) uses.textContent = data.uses || 0
+      var paid = document.getElementById('dash-ref-paid')
+      if (paid) paid.textContent = data.paidConverts || 0
+      var earned = document.getElementById('dash-ref-earned')
+      if (earned) earned.textContent = '$' + (data.earnings || 0).toFixed(2)
+      if (wrap)   wrap.style.display = 'block'
+      if (create) create.style.display = 'none'
+    } else {
+      if (wrap)   wrap.style.display = 'none'
+      if (create) create.style.display = 'block'
+    }
+  } catch(e) {}
+}
+
+async function createReferralCode() {
+  if (!_webToken) return
+  var customCode = (document.getElementById('dash-ref-custom')||{}).value || ''
+  var btn  = document.getElementById('btn-gen-ref')
+  var errEl = document.getElementById('dash-ref-err')
+  if (btn) { btn.disabled = true; btn.textContent = 'Creating...' }
+  if (errEl) errEl.style.display = 'none'
+  try {
+    var res = await fetch(BACKEND + '/referral/create', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', Authorization:'Bearer '+_webToken },
+      body: JSON.stringify({ customCode: customCode.trim() || undefined })
+    })
+    var data = await res.json()
+    if (!res.ok) {
+      if (errEl) { errEl.textContent = data.error || 'Error creating code'; errEl.style.display = 'block' }
+    } else {
+      await loadReferralStats()
+    }
+  } catch(e) {
+    if (errEl) { errEl.textContent = 'Connection error'; errEl.style.display = 'block' }
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Generate →' }
+  }
+}
+
+function copyReferralCode() {
+  var code = (document.getElementById('dash-ref-code')||{}).textContent || ''
+  if (!code) return
+  var link = 'https://www.tyvaris.com/?ref=' + code
+  navigator.clipboard.writeText(link).then(function(){
+    var btn = document.querySelector('[onclick="copyReferralCode()"]')
+    if (btn) { btn.textContent = '✓ Copied!'; setTimeout(function(){ btn.textContent = 'Copy' }, 2000) }
+  })
+}
+
+// ─── REFERRAL CODE VALIDATION ────────────────────────────────────
+var _refValidTimer = null
+async function validateReferralCode(code) {
+  var checkEl = document.getElementById('referral-check')
+  var msgEl   = document.getElementById('referral-msg')
+  if (!code || code.length < 3) {
+    if (checkEl) checkEl.textContent = ''
+    if (msgEl)   msgEl.style.display = 'none'
+    return
+  }
+  clearTimeout(_refValidTimer)
+  _refValidTimer = setTimeout(async function() {
+    try {
+      var res = await fetch(BACKEND + '/referral/validate/' + encodeURIComponent(code))
+      var data = await res.json()
+      if (data.valid) {
+        if (checkEl) checkEl.textContent = '✓'
+        if (checkEl) checkEl.style.color = '#00c896'
+        if (msgEl) {
+          msgEl.textContent = '🎉 ' + data.discountPct + '% discount applied!'
+          msgEl.style.color = '#00c896'
+          msgEl.style.display = 'block'
+        }
+      } else {
+        if (checkEl) checkEl.textContent = '✗'
+        if (checkEl) checkEl.style.color = '#e63950'
+        if (msgEl) {
+          msgEl.textContent = 'Invalid code'
+          msgEl.style.color = '#e63950'
+          msgEl.style.display = 'block'
+        }
+      }
+    } catch(e) {}
+  }, 600)
 }
 
 // ─── PAYMENT MODAL ───────────────────────────────────────────────
