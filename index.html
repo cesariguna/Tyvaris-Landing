@@ -175,6 +175,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 #view-register.active,
 #view-forgot.active,
 #view-reset.active,
+#view-verify-email.active,
+#view-verify.active,
 #view-dashboard.active{
   display:block;
   position:fixed;
@@ -805,6 +807,31 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   </div>
 </div>
 
+<!-- ═══ VERIFY EMAIL VIEW ═══ -->
+<div id="view-verify-email" class="view">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <span>Tyvaris</span>
+      </div>
+      <div style="text-align:center;margin-bottom:16px">
+        <div style="font-size:40px;margin-bottom:8px">✉</div>
+        <div class="auth-title">Check your email</div>
+        <div class="auth-sub">We sent a verification link to</div>
+        <div style="font-size:13px;font-weight:700;color:var(--acc);margin-top:4px" id="verify-email-addr"></div>
+      </div>
+      <div style="background:rgba(91,76,219,.08);border:1px solid rgba(91,76,219,.2);border-radius:8px;padding:12px;font-size:12px;color:var(--mut);text-align:center;margin-bottom:16px;line-height:1.6">
+        Click the link in the email to activate your account.<br>
+        The link expires in <strong style="color:var(--txt)">24 hours</strong>.
+      </div>
+      <div id="resend-ok" style="display:none;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:8px;padding:10px;font-size:12px;color:var(--grn);text-align:center;margin-bottom:12px">✓ New verification email sent!</div>
+      <button class="btn-full" onclick="resendVerifyFromView()" style="background:transparent;border:1px solid var(--b1);color:var(--mut)" id="btn-resend-verify">Resend verification email</button>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
+    </div>
+  </div>
+</div>
+
 <!-- ═══ FORGOT PASSWORD VIEW ═══ -->
 <div id="view-forgot" class="view">
   <div class="auth-wrap">
@@ -1041,7 +1068,7 @@ function showView(name) {
   var el = document.getElementById('view-' + name)
   if (el) {
     el.classList.add('active')
-    if (name === 'login' || name === 'dashboard' || name === 'register' || name === 'forgot' || name === 'reset') {
+    if (name === 'login' || name === 'dashboard' || name === 'register' || name === 'forgot' || name === 'reset' || name === 'verify-email') {
       el.scrollTop = 0
     } else {
       // volver a landing: NO hacer logout, solo ocultar overlay
@@ -1074,6 +1101,10 @@ function route() {
   if (hash === '#dashboard') {
     if (_webToken) { showView('dashboard'); loadDashboard(); return }
     showView('login'); return
+  }
+  if (hash.startsWith('#verify?token=')) {
+    var vtoken = hash.replace('#verify?token=', '')
+    if (vtoken) { handleVerifyToken(vtoken); return }
   }
   if (hash.startsWith('#reset?token=')) {
     var token = hash.replace('#reset?token=', '')
@@ -1112,14 +1143,21 @@ async function webRegister() {
     _webToken = data.token
     _webUser  = data.user
     localStorage.setItem('tyvaris_web_token', _webToken)
-    var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
-    var valData = await val.json()
-    _webUser.subscription = valData.subscription || null
-    _webUser.subValid = valData.valid
-    window.location.hash = '#dashboard'
-    showView('dashboard')
-    loadDashboard()
-    updateNavForSession()
+    if (data.needsVerification) {
+      // Show verify email screen
+      showView('verify-email')
+      var veEl = document.getElementById('verify-email-addr')
+      if (veEl) veEl.textContent = _webUser.email || email
+    } else {
+      var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
+      var valData = await val.json()
+      _webUser.subscription = valData.subscription || null
+      _webUser.subValid = valData.valid
+      window.location.hash = '#dashboard'
+      showView('dashboard')
+      loadDashboard()
+      updateNavForSession()
+    }
   } catch(e) {
     errEl.textContent = 'Connection error — try again'
     errEl.style.display = 'block'
@@ -1142,7 +1180,11 @@ async function webLogin() {
     })
     var data = await res.json()
     if (!res.ok || !data.token) {
-      errEl.textContent = data.error || 'Incorrect credentials'
+      if (data.error === 'email_not_verified') {
+        errEl.innerHTML = 'Please verify your email first. <a href="#" onclick="resendVerifyEmail(\'' + email + '\');return false" style="color:var(--acc)">Resend email</a>'
+      } else {
+        errEl.textContent = data.error || data.message || 'Incorrect credentials'
+      }
       errEl.style.display = 'block'
       btn.disabled = false; btn.textContent = 'Sign in →'
       return
@@ -1150,14 +1192,21 @@ async function webLogin() {
     _webToken = data.token
     _webUser  = data.user
     localStorage.setItem('tyvaris_web_token', _webToken)
-    var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
-    var valData = await val.json()
-    _webUser.subscription = valData.subscription || null
-    _webUser.subValid = valData.valid
-    window.location.hash = '#dashboard'
-    showView('dashboard')
-    loadDashboard()
-    updateNavForSession()
+    if (data.needsVerification) {
+      // Show verify email screen
+      showView('verify-email')
+      var veEl = document.getElementById('verify-email-addr')
+      if (veEl) veEl.textContent = _webUser.email || email
+    } else {
+      var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
+      var valData = await val.json()
+      _webUser.subscription = valData.subscription || null
+      _webUser.subValid = valData.valid
+      window.location.hash = '#dashboard'
+      showView('dashboard')
+      loadDashboard()
+      updateNavForSession()
+    }
   } catch(e) {
     errEl.textContent = 'Connection error — try again'
     errEl.style.display = 'block'
@@ -1342,6 +1391,54 @@ async function webResetConfirm() {
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = 'Set new password →' }
   }
+}
+
+// ─── EMAIL VERIFICATION FUNCTIONS ────────────────────────────────
+async function resendVerifyEmail(email) {
+  try {
+    await fetch(BACKEND + '/auth/resend-verify', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email })
+    })
+    var okEl = document.getElementById('resend-ok')
+    if (okEl) { okEl.style.display='block'; setTimeout(function(){ okEl.style.display='none' },4000) }
+  } catch(e) {}
+}
+
+async function resendVerifyFromView() {
+  var email = _webUser && _webUser.email
+  if (!email) return
+  var btn = document.getElementById('btn-resend-verify')
+  if (btn) { btn.disabled=true; btn.textContent='Sending...' }
+  await resendVerifyEmail(email)
+  if (btn) { btn.disabled=false; btn.textContent='Resend verification email' }
+}
+
+async function handleVerifyToken(token) {
+  var errEl = document.getElementById('verify-token-err')
+  try {
+    var res  = await fetch(BACKEND + '/auth/verify-email', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ token })
+    })
+    var data = await res.json()
+    if (res.ok && data.ok) {
+      // Verified — if user is logged in, refresh; else show success + go to login
+      if (_webToken) {
+        var val = await fetch(BACKEND + '/license/validate', { headers:{ Authorization:'Bearer '+_webToken } })
+        var valData = await val.json()
+        if (_webUser) { _webUser.subscription = valData.subscription || null; _webUser.subValid = valData.valid }
+        window.location.hash = '#dashboard'
+        showView('dashboard')
+        loadDashboard()
+        updateNavForSession()
+      } else {
+        showView('verify-success')
+      }
+    } else {
+      showView('verify-error')
+    }
+  } catch(e) { showView('verify-error') }
 }
 
 // ─── REFERRAL DASHBOARD FUNCTIONS ───────────────────────────────
