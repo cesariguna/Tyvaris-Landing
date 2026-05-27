@@ -571,44 +571,41 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <p class="section-sub" style="margin:0 auto" data-en="Not all journals are built the same. Here's what sets Tyvaris apart." data-es="No todos los journals son iguales. Esto es lo que hace diferente a Tyvaris.">Not all journals are built the same. Here's what sets Tyvaris apart.</p>
     </div>
 
-    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
-      <table style="width:100%;border-collapse:separate;border-spacing:0;min-width:600px">
-        <!-- HEADER -->
+    <!-- DESKTOP TABLE -->
+    <div class="cmp-desktop">
+      <table style="width:100%;border-collapse:separate;border-spacing:0">
         <thead>
           <tr>
-            <th style="padding:16px 20px;text-align:left;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1);width:34%"></th>
-            <th style="padding:16px 20px;text-align:center;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1)">Typical web journals</th>
+            <th style="padding:16px 20px;text-align:left;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1);width:40%"></th>
+            <th style="padding:16px 20px;text-align:center;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1)" data-en="Typical web journals" data-es="Journals web típicos">Typical web journals</th>
             <th style="padding:0;text-align:center;border-bottom:none;position:relative">
               <div style="background:rgba(91,76,219,.08);border:1px solid rgba(91,76,219,.35);border-bottom:none;border-radius:12px 12px 0 0;padding:16px 20px;position:relative">
                 <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--acc);color:#fff;font-size:9px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:3px 12px;border-radius:99px;letter-spacing:1.5px;white-space:nowrap" data-en="YOU ARE HERE" data-es="ESTÁS AQUÍ">YOU ARE HERE</div>
-                <span style="font-size:14px;font-weight:800;color:var(--txt);letter-spacing:-.3px">Tyvaris</span>
+                <span style="font-size:14px;font-weight:800;color:var(--txt)">Tyvaris</span>
               </div>
             </th>
           </tr>
         </thead>
-        <tbody id="compare-body">
-          <!-- rows injected by JS -->
-        </tbody>
-        <!-- FOOTER ROW — price -->
+        <tbody id="compare-body"></tbody>
         <tfoot>
           <tr>
-            <td style="padding:20px 20px;font-size:13px;font-weight:700;color:var(--txt);border-top:1px solid var(--b1)" data-en="Price" data-es="Precio">Price</td>
-            <td style="padding:20px 20px;text-align:center;font-size:13px;color:var(--mut);border-top:1px solid var(--b1)" data-en="$40–$60 / month" data-es="$40–$60 / mes">$40–$60 / month</td>
-            <td style="padding:20px 20px;text-align:center;border-top:1px solid rgba(91,76,219,.2);background:rgba(91,76,219,.05);border-left:1px solid rgba(91,76,219,.2);border-right:1px solid rgba(91,76,219,.2)">
+            <td style="padding:20px;font-size:13px;font-weight:700;color:var(--txt);border-top:1px solid var(--b1)" data-en="Price" data-es="Precio">Price</td>
+            <td style="padding:20px;text-align:center;font-size:13px;color:var(--mut);border-top:1px solid var(--b1)" data-en="$40–$60 / month" data-es="$40–$60 / mes">$40–$60 / month</td>
+            <td style="padding:20px;text-align:center;border-top:1px solid rgba(91,76,219,.2);background:rgba(91,76,219,.05);border-left:1px solid rgba(91,76,219,.2);border-right:1px solid rgba(91,76,219,.2)">
               <span style="font-size:15px;font-weight:800;color:var(--grn)">$149<span style="font-size:12px;font-weight:500;color:var(--mut)">/yr</span></span>
               <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--grn);margin-top:3px" data-en="Free during beta" data-es="Gratis en beta">Free during beta</div>
             </td>
           </tr>
-          <!-- closing accent border -->
           <tr>
             <td colspan="2" style="padding:0;border:none"></td>
-            <td style="padding:0;border:none">
-              <div style="height:4px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn));border-radius:0 0 12px 12px"></div>
-            </td>
+            <td style="padding:0;border:none"><div style="height:4px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn));border-radius:0 0 12px 12px"></div></td>
           </tr>
         </tfoot>
       </table>
     </div>
+
+    <!-- MOBILE CARDS -->
+    <div class="cmp-mobile" id="compare-mobile"></div>
 
     <div style="text-align:center;margin-top:40px">
       <a href="#download" class="btn-hero btn-hero-primary" data-en="Try Tyvaris free →" data-es="Probá Tyvaris gratis →">Try Tyvaris free →</a>
@@ -617,74 +614,105 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 </section>
 
 <style>
-.cmp-row td { border-top:1px solid var(--b1); transition:background .15s; }
-.cmp-row:hover td { background:rgba(255,255,255,.02); }
-.cmp-row td:last-child { border-left:1px solid rgba(91,76,219,.2); border-right:1px solid rgba(91,76,219,.2); background:rgba(91,76,219,.04); }
-.cmp-row:hover td:last-child { background:rgba(91,76,219,.08); }
-.cmp-check { color:var(--grn); font-size:16px; font-weight:700; }
-.cmp-cross { color:#444; font-size:18px; }
-.cmp-partial { color:#f5a623; font-size:12px; font-family:'IBM Plex Mono',monospace; }
-.cmp-feat { font-size:14px; color:var(--txt); font-weight:500; }
-.cmp-feat-sub { font-size:11px; color:var(--mut); margin-top:2px; font-family:'IBM Plex Mono',monospace; }
+.cmp-desktop { display:block }
+.cmp-mobile  { display:none }
+@media(max-width:640px){
+  .cmp-desktop { display:none }
+  .cmp-mobile  { display:flex; flex-direction:column; gap:10px }
+}
+.cmp-row td { border-top:1px solid var(--b1); transition:background .15s }
+.cmp-row:hover td { background:rgba(255,255,255,.02) }
+.cmp-row td:last-child { border-left:1px solid rgba(91,76,219,.2); border-right:1px solid rgba(91,76,219,.2); background:rgba(91,76,219,.04) }
+.cmp-row:hover td:last-child { background:rgba(91,76,219,.08) }
+.cmp-check  { color:var(--grn); font-size:16px; font-weight:700 }
+.cmp-cross  { color:#444; font-size:18px }
+.cmp-partial{ color:#f5a623; font-size:12px; font-family:'IBM Plex Mono',monospace }
+.cmp-feat   { font-size:14px; color:var(--txt); font-weight:600 }
+.cmp-feat-sub { font-size:11px; color:var(--mut); margin-top:2px; font-family:'IBM Plex Mono',monospace }
+/* mobile card */
+.cmp-card { background:var(--bg2); border:1px solid var(--b1); border-radius:12px; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px }
+.cmp-card-left { flex:1 }
+.cmp-card-cols { display:flex; gap:16px; flex-shrink:0; align-items:center }
+.cmp-col-label { font-size:9px; font-family:'IBM Plex Mono',monospace; color:var(--mut); letter-spacing:1px; text-align:center; margin-bottom:4px }
+.cmp-col-val   { text-align:center }
+.cmp-card-tyvaris { border-color:rgba(91,76,219,.35); background:rgba(91,76,219,.05) }
 </style>
 
 <script>
 (function(){
   var rows = [
-    { en:'MT5 native auto-sync',          es:'Sync automático nativo con MT5',       sub_en:'No CSV exports, ever',           sub_es:'Sin exportar CSV nunca',            web:'partial', web_en:'CSV only',     web_es:'Solo CSV',    us:true },
-    { en:'Desktop app — data stays local',es:'App de escritorio — datos locales',    sub_en:'Your files, your control',       sub_es:'Tus archivos, tu control',          web:false,                                               us:true },
-    { en:'Conversational AI Coach',       es:'AI Coach conversacional',              sub_en:'Trained on your actual trades',  sub_es:'Entrenado en tus trades reales',    web:false,                                               us:true },
-    { en:'Protection & discipline system',es:'Sistema de protección y disciplina',   sub_en:'Blocks trading when rules break',sub_es:'Bloquea al romper reglas',          web:false,                                               us:true },
-    { en:'Multiple MT5 accounts',         es:'Múltiples cuentas MT5',                sub_en:'All in one place',               sub_es:'Todo en un lugar',                  web:'partial', web_en:'Limited',      web_es:'Limitado',    us:true },
-    { en:'Trading calendar heatmap',      es:'Heatmap de calendario',                sub_en:'Spot bad sessions at a glance',  sub_es:'Detectá malas sesiones de un vistazo',web:true,                                             us:true },
-    { en:'Playbooks per setup',           es:'Playbooks por setup',                  sub_en:'Track edge by strategy',         sub_es:'Medí tu edge por estrategia',       web:'partial', web_en:'Basic notes',  web_es:'Notas básicas',us:true },
-    { en:'Google Drive sync',             es:'Sync con Google Drive',                sub_en:'Seamless Mac ↔ Windows',         sub_es:'Mac ↔ Windows sin fricción',        web:false,                                               us:true },
+    { en:'MT5 native auto-sync',           es:'Sync automático nativo MT5',          sub_en:'No CSV exports, ever',            sub_es:'Sin exportar CSV nunca',             web:'partial', web_en:'CSV only',    web_es:'Solo CSV'    },
+    { en:'Desktop app — data stays local', es:'App desktop — datos locales',         sub_en:'Your files, your control',        sub_es:'Tus archivos, tu control',           web:false                                                  },
+    { en:'Conversational AI Coach',        es:'AI Coach conversacional',             sub_en:'Based on your actual trades',     sub_es:'Basado en tus trades reales',        web:false                                                  },
+    { en:'Protection & discipline system', es:'Sistema de protección y disciplina',  sub_en:'Blocks trading when rules break', sub_es:'Bloquea al romper tus reglas',       web:false                                                  },
+    { en:'Multiple MT5 accounts',          es:'Múltiples cuentas MT5',               sub_en:'All in one place',                sub_es:'Todo en un lugar',                   web:'partial', web_en:'Limited',     web_es:'Limitado'    },
+    { en:'Trading calendar heatmap',       es:'Heatmap de calendario',               sub_en:'Spot bad sessions at a glance',   sub_es:'Detectá malas sesiones fácilmente',  web:true                                                   },
+    { en:'Playbooks per setup',            es:'Playbooks por setup',                 sub_en:'Track edge by strategy',          sub_es:'Medí tu edge por estrategia',        web:'partial', web_en:'Basic notes', web_es:'Notas básicas'},
+    { en:'Google Drive sync',              es:'Sync con Google Drive',               sub_en:'Seamless Mac ↔ Windows',          sub_es:'Mac ↔ Windows sin fricción',         web:false                                                  },
   ];
 
+  function webVal(r, lang) {
+    if(r.web === true)  return '<span class="cmp-check">✓</span>';
+    if(r.web === false) return '<span class="cmp-cross">✕</span>';
+    return '<span class="cmp-partial">'+(lang==='es'?r.web_es:r.web_en)+'</span>';
+  }
+
   var lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+
+  // Desktop table
   var tbody = document.getElementById('compare-body');
-  if(!tbody) return;
-
-  rows.forEach(function(r){
-    var tr = document.createElement('tr');
-    tr.className = 'cmp-row';
-
-    var webCell;
-    if(r.web === true){
-      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
-    } else if(r.web === false){
-      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-cross">✕</span></td>';
-    } else {
-      var wt = lang==='es' ? r.web_es : r.web_en;
-      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-partial">' + wt + '</span></td>';
-    }
-
-    var feat = lang==='es' ? r.es : r.en;
-    var sub  = lang==='es' ? r.sub_es : r.sub_en;
-
-    tr.innerHTML =
-      '<td style="padding:16px 20px">' +
-        '<div class="cmp-feat" data-en="'+r.en+'" data-es="'+r.es+'">'+feat+'</div>' +
-        '<div class="cmp-feat-sub" data-en="'+r.sub_en+'" data-es="'+r.sub_es+'">'+sub+'</div>' +
-      '</td>' +
-      webCell +
-      '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
-
-    tbody.appendChild(tr);
-  });
-
-  // re-run if i18n toggles
-  document.addEventListener('langchange', function(e){
-    var l = e.detail || 'en';
-    tbody.querySelectorAll('[data-en]').forEach(function(el){
-      el.textContent = l==='es' ? el.dataset.es : el.dataset.en;
+  if(tbody){
+    rows.forEach(function(r){
+      var tr = document.createElement('tr');
+      tr.className = 'cmp-row';
+      tr.innerHTML =
+        '<td style="padding:16px 20px">'+
+          '<div class="cmp-feat">'+( lang==='es'?r.es:r.en )+'</div>'+
+          '<div class="cmp-feat-sub">'+( lang==='es'?r.sub_es:r.sub_en )+'</div>'+
+        '</td>'+
+        '<td style="padding:16px 20px;text-align:center">'+webVal(r,lang)+'</td>'+
+        '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
+      tbody.appendChild(tr);
     });
-    // refresh partial cells
-    tbody.querySelectorAll('.cmp-partial').forEach(function(el, i){
-      var r = rows.filter(function(x){ return typeof x.web === 'string'; })[i];
-      if(r) el.textContent = l==='es' ? r.web_es : r.web_en;
+  }
+
+  // Mobile cards
+  var mob = document.getElementById('compare-mobile');
+  if(mob){
+    // header card
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'display:grid;grid-template-columns:1fr 72px 72px;gap:12px;padding:0 4px;margin-bottom:4px';
+    hdr.innerHTML =
+      '<div></div>'+
+      '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--mut);letter-spacing:1px;text-align:center;text-transform:uppercase" data-en="Others" data-es="Otros">'+(lang==='es'?'Otros':'Others')+'</div>'+
+      '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--acc2);letter-spacing:1px;text-align:center;text-transform:uppercase">Tyvaris</div>';
+    mob.appendChild(hdr);
+
+    rows.forEach(function(r){
+      var card = document.createElement('div');
+      card.style.cssText = 'background:var(--bg2);border:1px solid var(--b1);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr 72px 72px;gap:12px;align-items:center';
+      card.innerHTML =
+        '<div>'+
+          '<div class="cmp-feat">'+( lang==='es'?r.es:r.en )+'</div>'+
+          '<div class="cmp-feat-sub">'+( lang==='es'?r.sub_es:r.sub_en )+'</div>'+
+        '</div>'+
+        '<div style="text-align:center">'+webVal(r,lang)+'</div>'+
+        '<div style="text-align:center;background:rgba(91,76,219,.08);border-radius:8px;padding:6px 0"><span class="cmp-check">✓</span></div>';
+      mob.appendChild(card);
     });
-  });
+
+    // price row
+    var priceCard = document.createElement('div');
+    priceCard.style.cssText = 'background:var(--bg2);border:1px solid var(--b1);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr 72px 72px;gap:12px;align-items:center;margin-top:4px';
+    priceCard.innerHTML =
+      '<div class="cmp-feat" data-en="Price" data-es="Precio">'+(lang==='es'?'Precio':'Price')+'</div>'+
+      '<div style="text-align:center;font-size:11px;color:var(--mut)" data-en="$40–60/mo" data-es="$40–60/mes">'+(lang==='es'?'$40–60/mes':'$40–60/mo')+'</div>'+
+      '<div style="text-align:center;background:rgba(91,76,219,.08);border-radius:8px;padding:6px 4px">'+
+        '<div style="font-size:13px;font-weight:800;color:var(--grn)">$149<span style="font-size:10px;font-weight:400;color:var(--mut)">/yr</span></div>'+
+        '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--grn)" data-en="free beta" data-es="beta gratis">'+(lang==='es'?'beta gratis':'free beta')+'</div>'+
+      '</div>';
+    mob.appendChild(priceCard);
+  }
 })();
 </script>
 
