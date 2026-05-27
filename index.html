@@ -562,6 +562,132 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   </div>
 </section>
 
+<!-- COMPARISON TABLE -->
+<section id="compare" style="padding:100px 24px">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-label" data-en="COMPARISON" data-es="COMPARACIÓN">COMPARISON</div>
+      <h2 class="section-title" data-en="How Tyvaris stacks up" data-es="Cómo se compara Tyvaris">How Tyvaris stacks up</h2>
+      <p class="section-sub" style="margin:0 auto" data-en="Not all journals are built the same. Here's what sets Tyvaris apart." data-es="No todos los journals son iguales. Esto es lo que hace diferente a Tyvaris.">Not all journals are built the same. Here's what sets Tyvaris apart.</p>
+    </div>
+
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table style="width:100%;border-collapse:separate;border-spacing:0;min-width:600px">
+        <!-- HEADER -->
+        <thead>
+          <tr>
+            <th style="padding:16px 20px;text-align:left;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1);width:34%"></th>
+            <th style="padding:16px 20px;text-align:center;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1)">Typical web journals</th>
+            <th style="padding:0;text-align:center;border-bottom:none;position:relative">
+              <div style="background:rgba(91,76,219,.08);border:1px solid rgba(91,76,219,.35);border-bottom:none;border-radius:12px 12px 0 0;padding:16px 20px;position:relative">
+                <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--acc);color:#fff;font-size:9px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:3px 12px;border-radius:99px;letter-spacing:1.5px;white-space:nowrap" data-en="YOU ARE HERE" data-es="ESTÁS AQUÍ">YOU ARE HERE</div>
+                <span style="font-size:14px;font-weight:800;color:var(--txt);letter-spacing:-.3px">Tyvaris</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="compare-body">
+          <!-- rows injected by JS -->
+        </tbody>
+        <!-- FOOTER ROW — price -->
+        <tfoot>
+          <tr>
+            <td style="padding:20px 20px;font-size:13px;font-weight:700;color:var(--txt);border-top:1px solid var(--b1)" data-en="Price" data-es="Precio">Price</td>
+            <td style="padding:20px 20px;text-align:center;font-size:13px;color:var(--mut);border-top:1px solid var(--b1)" data-en="$40–$60 / month" data-es="$40–$60 / mes">$40–$60 / month</td>
+            <td style="padding:20px 20px;text-align:center;border-top:1px solid rgba(91,76,219,.2);background:rgba(91,76,219,.05);border-left:1px solid rgba(91,76,219,.2);border-right:1px solid rgba(91,76,219,.2)">
+              <span style="font-size:15px;font-weight:800;color:var(--grn)">$149<span style="font-size:12px;font-weight:500;color:var(--mut)">/yr</span></span>
+              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--grn);margin-top:3px" data-en="Free during beta" data-es="Gratis en beta">Free during beta</div>
+            </td>
+          </tr>
+          <!-- closing accent border -->
+          <tr>
+            <td colspan="2" style="padding:0;border:none"></td>
+            <td style="padding:0;border:none">
+              <div style="height:4px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn));border-radius:0 0 12px 12px"></div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="#download" class="btn-hero btn-hero-primary" data-en="Try Tyvaris free →" data-es="Probá Tyvaris gratis →">Try Tyvaris free →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.cmp-row td { border-top:1px solid var(--b1); transition:background .15s; }
+.cmp-row:hover td { background:rgba(255,255,255,.02); }
+.cmp-row td:last-child { border-left:1px solid rgba(91,76,219,.2); border-right:1px solid rgba(91,76,219,.2); background:rgba(91,76,219,.04); }
+.cmp-row:hover td:last-child { background:rgba(91,76,219,.08); }
+.cmp-check { color:var(--grn); font-size:16px; font-weight:700; }
+.cmp-cross { color:#444; font-size:18px; }
+.cmp-partial { color:#f5a623; font-size:12px; font-family:'IBM Plex Mono',monospace; }
+.cmp-feat { font-size:14px; color:var(--txt); font-weight:500; }
+.cmp-feat-sub { font-size:11px; color:var(--mut); margin-top:2px; font-family:'IBM Plex Mono',monospace; }
+</style>
+
+<script>
+(function(){
+  var rows = [
+    { en:'MT5 native auto-sync',          es:'Sync automático nativo con MT5',       sub_en:'No CSV exports, ever',           sub_es:'Sin exportar CSV nunca',            web:'partial', web_en:'CSV only',     web_es:'Solo CSV',    us:true },
+    { en:'Desktop app — data stays local',es:'App de escritorio — datos locales',    sub_en:'Your files, your control',       sub_es:'Tus archivos, tu control',          web:false,                                               us:true },
+    { en:'Conversational AI Coach',       es:'AI Coach conversacional',              sub_en:'Trained on your actual trades',  sub_es:'Entrenado en tus trades reales',    web:false,                                               us:true },
+    { en:'Protection & discipline system',es:'Sistema de protección y disciplina',   sub_en:'Blocks trading when rules break',sub_es:'Bloquea al romper reglas',          web:false,                                               us:true },
+    { en:'Multiple MT5 accounts',         es:'Múltiples cuentas MT5',                sub_en:'All in one place',               sub_es:'Todo en un lugar',                  web:'partial', web_en:'Limited',      web_es:'Limitado',    us:true },
+    { en:'Trading calendar heatmap',      es:'Heatmap de calendario',                sub_en:'Spot bad sessions at a glance',  sub_es:'Detectá malas sesiones de un vistazo',web:true,                                             us:true },
+    { en:'Playbooks per setup',           es:'Playbooks por setup',                  sub_en:'Track edge by strategy',         sub_es:'Medí tu edge por estrategia',       web:'partial', web_en:'Basic notes',  web_es:'Notas básicas',us:true },
+    { en:'Google Drive sync',             es:'Sync con Google Drive',                sub_en:'Seamless Mac ↔ Windows',         sub_es:'Mac ↔ Windows sin fricción',        web:false,                                               us:true },
+  ];
+
+  var lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+  var tbody = document.getElementById('compare-body');
+  if(!tbody) return;
+
+  rows.forEach(function(r){
+    var tr = document.createElement('tr');
+    tr.className = 'cmp-row';
+
+    var webCell;
+    if(r.web === true){
+      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
+    } else if(r.web === false){
+      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-cross">✕</span></td>';
+    } else {
+      var wt = lang==='es' ? r.web_es : r.web_en;
+      webCell = '<td style="padding:16px 20px;text-align:center"><span class="cmp-partial">' + wt + '</span></td>';
+    }
+
+    var feat = lang==='es' ? r.es : r.en;
+    var sub  = lang==='es' ? r.sub_es : r.sub_en;
+
+    tr.innerHTML =
+      '<td style="padding:16px 20px">' +
+        '<div class="cmp-feat" data-en="'+r.en+'" data-es="'+r.es+'">'+feat+'</div>' +
+        '<div class="cmp-feat-sub" data-en="'+r.sub_en+'" data-es="'+r.sub_es+'">'+sub+'</div>' +
+      '</td>' +
+      webCell +
+      '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
+
+    tbody.appendChild(tr);
+  });
+
+  // re-run if i18n toggles
+  document.addEventListener('langchange', function(e){
+    var l = e.detail || 'en';
+    tbody.querySelectorAll('[data-en]').forEach(function(el){
+      el.textContent = l==='es' ? el.dataset.es : el.dataset.en;
+    });
+    // refresh partial cells
+    tbody.querySelectorAll('.cmp-partial').forEach(function(el, i){
+      var r = rows.filter(function(x){ return typeof x.web === 'string'; })[i];
+      if(r) el.textContent = l==='es' ? r.web_es : r.web_en;
+    });
+  });
+})();
+</script>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner" style="text-align:center">
@@ -716,14 +842,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
     <!-- OS Toggle -->
     <div style="display:flex;justify-content:center;margin-bottom:48px">
       <div style="display:flex;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px;gap:4px">
-        <button id="os-mac" onclick="setOS('mac')" style="padding:8px 24px;border-radius:7px;border:none;background:var(--acc);color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Mac
-        </button>
-        <button id="os-win" onclick="setOS('win')" style="padding:8px 24px;border-radius:7px;border:none;background:transparent;color:var(--mut);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.557L10.025 4.5v6.928H3V5.557zm0 12.886L10.025 19.5v-6.928H3v5.871zm7.975-13.05L21 3v8.428h-10.025V5.393zm0 13.164V13.572H21V21l-10.025-1.493z"/></svg>
-          Windows
-        </button>
+        <button id="os-mac" onclick="setOS('mac')" style="padding:8px 28px;border-radius:7px;border:none;background:var(--acc);color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🍎 Mac</button>
+        <button id="os-win" onclick="setOS('win')" style="padding:8px 28px;border-radius:7px;border:none;background:transparent;color:var(--mut);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🪟 Windows</button>
       </div>
     </div>
 
@@ -958,14 +1078,8 @@ function setOS(os) {
         <div class="beta-counter-text"><strong id="banner-counter-left">94</strong> <span data-en="of 100 beta spots remaining" data-es="de 100 lugares disponibles">of 100 beta spots remaining</span></div>
       </div>
       <div class="beta-ctas">
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →" style="display:inline-flex;align-items:center;gap:8px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download for Mac →
-        </a>
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows" style="display:inline-flex;align-items:center;gap:8px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.557L10.025 4.5v6.928H3V5.557zm0 12.886L10.025 19.5v-6.928H3v5.871zm7.975-13.05L21 3v8.428h-10.025V5.393zm0 13.164V13.572H21V21l-10.025-1.493z"/></svg>
-          Download for Windows
-        </a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows">Download for Windows</a>
       </div>
       <p style="font-size:12px;color:var(--mut);margin-top:20px;font-family:var(--mono)" data-en="macOS 12+ · Windows 10/11 · Free beta · $149/yr after" data-es="macOS 12+ · Windows 10/11 · Beta gratis · $149/año después">macOS 12+ · Windows 10/11 · Free beta · $149/yr after</p>
       <p style="font-size:11px;color:var(--mut);margin-top:10px;opacity:.6" data-en="As a new independent app, Mac or Windows may flag the installer on first run — this is normal for apps without a paid security certificate. On Mac: right-click → Open. On Windows: More info → Run anyway." data-es="Como app independiente nueva, Mac o Windows pueden marcar el instalador la primera vez — esto es normal para apps sin certificado de seguridad pago. En Mac: click derecho → Abrir. En Windows: Más información → Ejecutar de todas formas.">As a new independent app, Mac or Windows may flag the installer on first run — this is normal for apps without a paid security certificate. On Mac: right-click → Open. On Windows: More info → Run anyway.</p>
