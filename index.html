@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0066)/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tyvaris — Professional Trading Journal for MT5 & Prop Firm Traders</title>
-<meta name="description" content="Tyvaris is a desktop trading journal for serious traders. Auto-sync with MT5, import futures & prop firm accounts, AI coaching, advanced analytics. Mac & Windows. Your data stays in your Google Drive.">
+<title>Tyvaris — Professional Trading Journal for MT5 &amp; Prop Firm Traders</title>
+<meta name="description" content="Tyvaris is a desktop trading journal for serious traders. Auto-sync with MT5, import futures &amp; prop firm accounts, AI coaching, advanced analytics. Mac &amp; Windows. Your data stays in your Google Drive.">
 <meta name="keywords" content="trading journal, prop firm trading journal, MT5 trading journal, futures trading journal, trading journal desktop app, trading journal multiple accounts, trading journal Google Drive, funded trader journal, trading journal AI coach, trading journal Mac Windows">
 <meta property="og:title" content="Tyvaris — Track your trades. Master your edge.">
-<meta property="og:description" content="Professional trading journal for MT5 & prop firm traders. Desktop app for Mac and Windows. Your data, your Drive.">
+<meta property="og:description" content="Professional trading journal for MT5 &amp; prop firm traders. Desktop app for Mac and Windows. Your data, your Drive.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Tyvaris landing backup_files/css2" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -297,29 +299,36 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 .pay-modal-confirm:disabled{opacity:.5;cursor:default}
 .pay-modal-cancel{padding:12px 18px;border-radius:8px;border:1px solid var(--b1);background:transparent;color:var(--mut);font-size:14px;cursor:pointer;font-family:var(--sans)}
 </style>
-</head>
+<link rel="stylesheet" href="chrome-extension://fcc19f3e-6668-4d28-957b-d71d0a98db00/app/content-style.css"></head>
 <body>
 
 <div id="view-landing" class="view active">
 <!-- NAV -->
-<nav>
+<nav style="border-bottom-color: rgba(255, 255, 255, 0.1);">
   <div class="nav-logo">
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="2,2 18,2 10,10" fill="#5b4cdb"/>
-      <polygon points="6,13 14,13 10,26" fill="#7c6ef0"/>
-      <rect x="8" y="10" width="4" height="4" fill="#5b4cdb"/>
+      <polygon points="2,2 18,2 10,10" fill="#5b4cdb"></polygon>
+      <polygon points="6,13 14,13 10,26" fill="#7c6ef0"></polygon>
+      <rect x="8" y="10" width="4" height="4" fill="#5b4cdb"></rect>
     </svg>
     <span class="nav-brand">Tyvaris</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#why">Why Tyvaris</a></li>
-    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#features" data-en="Features" data-es="Funciones">Features</a></li>
+    <li><a href="#why" data-en="Why Tyvaris" data-es="Por qué Tyvaris">Why Tyvaris</a></li>
+    <li><a href="#install" data-en="How to install" data-es="Cómo instalar">How to install</a></li>
+    <li><a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <div class="nav-cta">
-    <a href="#pricing" class="btn-ghost">Get Beta Access</a>
-    <a href="#download" class="btn-primary">Download →</a>
+    <a id="nav-session-btn" class="btn-ghost" style="cursor: pointer;" data-en="Sign in" data-es="Iniciar sesión" data-en="Sign in" data-es="Iniciar sesión">Sign in</a>
+    <a href="https://www.instagram.com/tyvarisapp/" target="_blank" class="btn-ghost" style="display:flex;align-items:center;gap:6px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      Instagram
+    </a>
+    <button onclick="toggleLang()" id="lang-btn" class="btn-ghost" style="font-family:monospace;font-size:12px;letter-spacing:1px;padding:8px 14px">EN</button>
+    <a href="#pricing" class="btn-ghost" data-en="Get Beta Access" data-es="Acceso Beta">Get Beta Access</a>
+    <a href="#download" class="btn-primary" data-en="Download →" data-es="Descargar →">Download →</a>
   </div>
 </nav>
 
@@ -327,16 +336,16 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <section class="hero">
   <div class="hero-glow"></div>
   <div>
-    <div class="hero-badge">
+    <div class="hero-badge" data-en="<span></span> Beta — Free for 1 month" data-es="<span></span> Beta — 1 mes gratis">
       <span></span> Beta — Free for 1 month
     </div>
-    <h1>Track your trades.<br><span>Master your edge.</span></h1>
-    <p class="hero-sub">Professional trading journal for MT5, futures & prop firm traders. Desktop app for Mac and Windows. Your data stays in your Google Drive — always.</p>
+    <h1 data-en="Track your trades.<br><span>Master your edge.</span>" data-es="Registrá tus trades.<br><span>Dominá tu edge.</span>">Track your trades.<br><span>Master your edge.</span></h1>
+    <p class="hero-sub" data-en="Professional trading journal for MT5, futures &amp; prop firm traders. Desktop app for Mac and Windows. Your data stays in your Google Drive — always." data-es="Journal profesional para traders de MT5, futuros y prop firms. App de escritorio para Mac y Windows. Tus datos en tu Google Drive — siempre.">Professional trading journal for MT5, futures &amp; prop firm traders. Desktop app for Mac and Windows. Your data stays in your Google Drive — always.</p>
     <div class="hero-ctas">
-      <a href="#download" class="btn-hero btn-hero-primary">Download Free Beta →</a>
-      <a href="#features" class="btn-hero btn-hero-secondary">See features</a>
+      <a href="#download" class="btn-hero btn-hero-primary" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
+      <a href="#features" class="btn-hero btn-hero-secondary" data-en="See features" data-es="Ver funciones">See features</a>
     </div>
-    <p class="hero-note">Mac · Windows · Your data, your Drive · No monthly fees</p>
+    <p class="hero-note" data-en="Mac · Windows · Your data, your Drive · No monthly fees" data-es="Mac · Windows · Tus datos, tu Drive · Sin cuota mensual">Mac · Windows · Your data, your Drive · No monthly fees</p>
 
     <!-- App mockup -->
     <div class="hero-mockup" style="margin-top:60px">
@@ -351,7 +360,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <div class="mockup-sidebar">
             <div class="mock-logo">
               <div class="mock-logo-mark">
-                <svg width="14" height="14" viewBox="0 0 14 14"><polygon points="0,0 8,0 4,5" fill="#5b4cdb"/><polygon points="2,6 6,6 4,12" fill="#7c6ef0"/></svg>
+                <svg width="14" height="14" viewBox="0 0 14 14"><polygon points="0,0 8,0 4,5" fill="#5b4cdb"></polygon><polygon points="2,6 6,6 4,12" fill="#7c6ef0"></polygon></svg>
                 <span style="font-size:11px;font-weight:700;color:#fff;font-family:var(--mono)">Tyvaris</span>
               </div>
             </div>
@@ -366,7 +375,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
             <div class="mock-stats">
               <div class="mock-stat">
                 <div class="mock-stat-val grn">+$4,280</div>
-                <div class="mock-stat-lbl">NET P&L</div>
+                <div class="mock-stat-lbl">NET P&amp;L</div>
               </div>
               <div class="mock-stat">
                 <div class="mock-stat-val acc">68.4%</div>
@@ -381,7 +390,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
                 <div class="mock-stat-lbl">TRADES</div>
               </div>
             </div>
-            <div class="mock-chart" id="mockChart"></div>
+            <div class="mock-chart" id="mockChart"><div class="bar" style="height:40%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:65%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:30%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:80%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:55%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:90%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:45%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:70%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:85%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:35%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:60%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:75%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:50%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:95%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:40%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:68%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:82%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:45%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:72%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:88%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:35%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:60%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:78%;background:rgba(0,200,150,.7)"></div><div class="bar" style="height:50%;background:rgba(230,57,80,.6)"></div><div class="bar" style="height:92%;background:rgba(0,200,150,.7)"></div></div>
           </div>
         </div>
       </div>
@@ -407,26 +416,34 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <!-- SCREENSHOTS -->
 <section id="screenshots" style="padding:80px 24px">
   <div class="section-inner" style="text-align:center">
-    <div class="section-label" style="text-align:center">The app</div>
-    <h2 class="section-title">See it in action</h2>
-    <p class="section-sub" style="margin:0 auto 40px">Every screen designed for clarity. No clutter, no noise — just your trading data.</p>
+    <div class="section-label" style="text-align:center" data-en="The app" data-es="La app">The app</div>
+    <h2 class="section-title" data-en="See it in action" data-es="Miralo en acción">See it in action</h2>
+    <p class="section-sub" style="margin:0 auto 40px" data-en="Every screen designed for clarity. No clutter, no noise — just your trading data." data-es="Cada pantalla diseñada para la claridad. Sin ruido — solo tus datos de trading.">Every screen designed for clarity. No clutter, no noise — just your trading data.</p>
 
     <div class="screens-tabs">
-      <button class="screen-tab on" onclick="showScreen('dashboard',this)">Dashboard</button>
-      <button class="screen-tab" onclick="showScreen('trades',this)">Trades</button>
-      <button class="screen-tab" onclick="showScreen('analytics',this)">Analytics</button>
-      <button class="screen-tab" onclick="showScreen('calendar',this)">Calendar</button>
-      <button class="screen-tab" onclick="showScreen('journal',this)">Trade Journal</button>
-      <button class="screen-tab" onclick="showScreen('protection',this)">Protection</button>
+      <button class="screen-tab on" onclick="showScreen(&#39;dashboard&#39;,this)">Dashboard</button>
+      <button class="screen-tab" onclick="showScreen(&#39;trades&#39;,this)">Trades</button>
+      <button class="screen-tab" onclick="showScreen(&#39;analytics&#39;,this)">Analytics</button>
+      <button class="screen-tab" onclick="showScreen(&#39;calendar&#39;,this)">Calendar</button>
+      <button class="screen-tab" onclick="showScreen(&#39;journal&#39;,this)">Trade Journal</button>
+      <button class="screen-tab" onclick="showScreen(&#39;protection&#39;,this)">Protection</button>
+      <button class="screen-tab" onclick="showScreen(&#39;ai-coach&#39;,this)" data-en="AI Coach" data-es="AI Coach">AI Coach</button>
+      <button class="screen-tab" onclick="showScreen(&#39;checklist&#39;,this)">Checklist</button>
+      <button class="screen-tab" onclick="showScreen(&#39;learnings&#39;,this)">Learnings</button>
+      <button class="screen-tab" onclick="showScreen(&#39;risk-calculator&#39;,this)">Risk Calculator</button>
     </div>
 
     <div class="screen-frame">
-      <img class="screen-img on"  id="screen-dashboard"  src="images/screenshot-dashboard.png"  alt="Tyvaris Dashboard — equity curve, smart insights, PnL by pair">
-      <img class="screen-img"     id="screen-trades"     src="images/screenshot-trades.png"     alt="Tyvaris Trades — full trade list with PnL, session, duration">
-      <img class="screen-img"     id="screen-analytics"  src="images/screenshot-analytics.png"  alt="Tyvaris Analytics — Tyvaris Score, monthly PnL, win rate by day">
-      <img class="screen-img"     id="screen-calendar"   src="images/screenshot-calendar.png"   alt="Tyvaris Calendar — monthly heatmap with PnL per day">
-      <img class="screen-img"     id="screen-journal"    src="images/screenshot-journal.png"    alt="Tyvaris Trade Journal — emotions, confirmations, setup tracking">
-      <img class="screen-img"     id="screen-protection" src="images/screenshot-protection.png" alt="Tyvaris Protection — daily score, weekly review, behavioral patterns">
+      <img class="screen-img on" id="screen-dashboard" src="./Tyvaris landing backup_files/screenshot-dashboard.png" alt="Tyvaris Dashboard — equity curve, smart insights, PnL by pair">
+      <img class="screen-img" id="screen-trades" src="./Tyvaris landing backup_files/screenshot-trades.png" alt="Tyvaris Trades — full trade list with PnL, session, duration">
+      <img class="screen-img" id="screen-analytics" src="./Tyvaris landing backup_files/screenshot-analytics.png" alt="Tyvaris Analytics — Tyvaris Score, monthly PnL, win rate by day">
+      <img class="screen-img" id="screen-calendar" src="./Tyvaris landing backup_files/screenshot-calendar.png" alt="Tyvaris Calendar — monthly heatmap with PnL per day">
+      <img class="screen-img" id="screen-journal" src="./Tyvaris landing backup_files/screenshot-journal.png" alt="Tyvaris Trade Journal — emotions, confirmations, setup tracking">
+      <img class="screen-img" id="screen-protection" src="./Tyvaris landing backup_files/screenshot-protection.png" alt="Tyvaris Protection — daily score, weekly review, behavioral patterns">
+      <img class="screen-img" id="screen-ai-coach" src="./Tyvaris landing backup_files/ai-coach.png" alt="Tyvaris AI Coach">
+      <img class="screen-img" id="screen-checklist" src="./Tyvaris landing backup_files/Checklist.png" alt="Tyvaris Checklist">
+      <img class="screen-img" id="screen-learnings" src="./Tyvaris landing backup_files/learnings.png" alt="Tyvaris Learnings">
+      <img class="screen-img" id="screen-risk-calculator" src="./Tyvaris landing backup_files/Risk-calculator.png" alt="Tyvaris Risk Calculator">
       <div class="screen-caption" id="screen-caption-text">Dashboard — Equity curve, Smart Insights and full performance overview</div>
     </div>
   </div>
@@ -435,55 +452,55 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <!-- FEATURES -->
 <section id="features">
   <div class="section-inner">
-    <div class="section-label">Features</div>
-    <h2 class="section-title">Everything a serious trader needs</h2>
+    <div class="section-label" data-en="Features" data-es="Funciones">Features</div>
+    <h2 class="section-title" data-en="Everything a serious trader needs" data-es="Todo lo que un trader serio necesita">Everything a serious trader needs</h2>
     <p class="section-sub">Built for traders who treat trading as a business — not a hobby.</p>
 
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-ico">📡</div>
-        <div class="feature-title">Auto-sync with MT5</div>
-        <div class="feature-desc">Connect your MetaTrader 5 account once. Tyvaris syncs trades automatically every 30 seconds via a lightweight Expert Advisor — no manual exports.</div>
+        <div class="feature-title" data-en="Auto-sync with MT5" data-es="Sync automático con MT5">Auto-sync with MT5</div>
+        <div class="feature-desc" data-en="Connect your MetaTrader 5 account once. Tyvaris syncs trades automatically every 30 seconds via a lightweight Expert Advisor — no manual exports." data-es="Conectá tu cuenta de MetaTrader 5 una vez. Tyvaris sincroniza los trades automáticamente cada 30 segundos via Expert Advisor — sin exportar nada a mano.">Connect your MetaTrader 5 account once. Tyvaris syncs trades automatically every 30 seconds via a lightweight Expert Advisor — no manual exports.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">📊</div>
-        <div class="feature-title">Advanced Analytics</div>
-        <div class="feature-desc">Win rate, RR ratio, expectancy, drawdown, session performance, best/worst pairs, streaks, Tyvaris Score and 30+ metrics that actually matter.</div>
+        <div class="feature-title" data-en="Advanced Analytics" data-es="Analytics Avanzado">Advanced Analytics</div>
+        <div class="feature-desc" data-en="Win rate, RR ratio, expectancy, drawdown, session performance, best/worst pairs, streaks, Tyvaris Score and 30+ metrics that actually matter." data-es="Win rate, ratio RR, expectativa, drawdown, performance por sesión, mejores/peores pares, rachas, Tyvaris Score y más de 30 métricas que importan de verdad.">Win rate, RR ratio, expectancy, drawdown, session performance, best/worst pairs, streaks, Tyvaris Score and 30+ metrics that actually matter.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">📅</div>
-        <div class="feature-title">Trading Calendar</div>
-        <div class="feature-desc">Visual heatmap of every trading day. Spot patterns instantly — best sessions, tilt days, overtrading, and consistency over time.</div>
+        <div class="feature-title" data-en="Trading Calendar" data-es="Calendario de Trading">Trading Calendar</div>
+        <div class="feature-desc" data-en="Visual heatmap of every trading day. Spot patterns instantly — best sessions, tilt days, overtrading, and consistency over time." data-es="Heatmap visual de cada día de trading. Detectá patrones al instante: mejores sesiones, días de tilt, overtrading y consistencia en el tiempo.">Visual heatmap of every trading day. Spot patterns instantly — best sessions, tilt days, overtrading, and consistency over time.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">📓</div>
-        <div class="feature-title">Rich Trade Journal</div>
-        <div class="feature-desc">Log photos, screenshots, videos, notes and emotions for every trade. Add pre and post-trade analysis. Everything linked to the actual trade data.</div>
+        <div class="feature-title" data-en="Rich Trade Journal" data-es="Trade Journal Completo">Rich Trade Journal</div>
+        <div class="feature-desc" data-en="Log photos, screenshots, videos, notes and emotions for every trade. Add pre and post-trade analysis. Everything linked to the actual trade data." data-es="Guardá fotos, capturas, notas y emociones para cada trade. Agregá análisis pre y post-trade. Todo vinculado a los datos reales del trade.">Log photos, screenshots, videos, notes and emotions for every trade. Add pre and post-trade analysis. Everything linked to the actual trade data.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">📋</div>
-        <div class="feature-title">Playbooks</div>
-        <div class="feature-desc">Create unlimited playbooks for your setups. Document entry rules, confirmation criteria, and risk parameters. Link trades to their playbook and track edge by setup.</div>
+        <div class="feature-title" data-en="Playbooks" data-es="Playbooks">Playbooks</div>
+        <div class="feature-desc" data-en="Create unlimited playbooks for your setups. Document entry rules, confirmation criteria, and risk parameters. Link trades to their playbook and track edge by setup." data-es="Creá playbooks ilimitados para tus setups. Documentá reglas de entrada, criterios de confirmación y parámetros de riesgo. Vinculá trades a su playbook y medí tu edge por setup.">Create unlimited playbooks for your setups. Document entry rules, confirmation criteria, and risk parameters. Link trades to their playbook and track edge by setup.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">⚡</div>
-        <div class="feature-title">Protection System</div>
-        <div class="feature-desc">Daily and weekly loss limits, revenge trade detection, tilt protection, discipline score. Know when to stop before the market makes you stop.</div>
+        <div class="feature-title" data-en="Protection System" data-es="Sistema de Protección">Protection System</div>
+        <div class="feature-desc" data-en="Daily and weekly loss limits, revenge trade detection, tilt protection, discipline score. Know when to stop before the market makes you stop." data-es="Límites de pérdida diaria y semanal, detección de revenge trading, protección contra tilt, score de disciplina. Sabé cuándo parar antes de que el mercado te obligue.">Daily and weekly loss limits, revenge trade detection, tilt protection, discipline score. Know when to stop before the market makes you stop.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">🏦</div>
-        <div class="feature-title">Prop Firm Ready</div>
-        <div class="feature-desc">Import trades from Tradovate, NinjaTrader and any prop firm. Track multiple funded accounts simultaneously with per-account rules and limits.</div>
+        <div class="feature-title" data-en="Prop Firm Ready" data-es="Listo para Prop Firms">Prop Firm Ready</div>
+        <div class="feature-desc" data-en="Import trades from Tradovate, NinjaTrader and any prop firm. Track multiple funded accounts simultaneously with per-account rules and limits." data-es="Importá trades de Tradovate, NinjaTrader y cualquier prop firm. Manejá múltiples cuentas fondeadas con reglas y límites por cuenta.">Import trades from Tradovate, NinjaTrader and any prop firm. Track multiple funded accounts simultaneously with per-account rules and limits.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">🤖</div>
-        <div class="feature-title">AI Coach</div>
-        <div class="feature-desc">Ask your AI coach about your performance, patterns, and psychology. Context-aware analysis based on your actual trade history — not generic advice.</div>
+        <div class="feature-title" data-en="AI Coach" data-es="AI Coach">AI Coach</div>
+        <div class="feature-desc" data-en="Ask your AI coach about your performance, patterns, and psychology. Context-aware analysis based on your actual trade history — not generic advice." data-es="Preguntale a tu AI Coach sobre tu performance, patrones y psicología. Análisis basado en tu historial real — no consejos genéricos.">Ask your AI coach about your performance, patterns, and psychology. Context-aware analysis based on your actual trade history — not generic advice.</div>
       </div>
       <div class="feature-card">
         <div class="feature-ico">☁️</div>
-        <div class="feature-title">Google Drive Sync</div>
-        <div class="feature-desc">All your data lives in your own Google Drive. Mac and Windows share the same folder — switch devices instantly. You own your data, always.</div>
+        <div class="feature-title" data-en="Google Drive Sync" data-es="Sync con Google Drive">Google Drive Sync</div>
+        <div class="feature-desc" data-en="All your data lives in your own Google Drive. Mac and Windows share the same folder — switch devices instantly. You own your data, always." data-es="Todos tus datos viven en tu Google Drive. Mac y Windows comparten la misma carpeta — cambiás de dispositivo al instante. Tus datos, siempre.">All your data lives in your own Google Drive. Mac and Windows share the same folder — switch devices instantly. You own your data, always.</div>
       </div>
     </div>
   </div>
@@ -492,53 +509,53 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <!-- WHY TYVARIS -->
 <section id="why" style="background:var(--bg2)">
   <div class="section-inner">
-    <div class="section-label">Why Tyvaris</div>
-    <h2 class="section-title">Different by design</h2>
-    <p class="section-sub">Most trading journals are web apps that store your data on their servers. Tyvaris is different.</p>
+    <div class="section-label" data-en="Why Tyvaris" data-es="Por qué Tyvaris">Why Tyvaris</div>
+    <h2 class="section-title" data-en="Different by design" data-es="Diferente por diseño">Different by design</h2>
+    <p class="section-sub" data-en="Most trading journals are web apps that store your data on their servers. Tyvaris is different." data-es="La mayoría de los trading journals son apps web que guardan tus datos en sus servidores. Tyvaris es diferente.">Most trading journals are web apps that store your data on their servers. Tyvaris is different.</p>
 
     <div class="diff-grid">
       <div class="diff-card highlight">
-        <div class="diff-tag">DESKTOP NATIVE</div>
-        <div class="diff-title">Your data lives on your drive</div>
-        <div class="diff-desc">Unlike web-based journals, Tyvaris is a native desktop app. Your trades, journal entries, and analytics are stored in your own Google Drive. No server, no subscription to their cloud, no lock-in.</div>
+        <div class="diff-tag" data-en="DESKTOP NATIVE" data-es="NATIVO DE ESCRITORIO">DESKTOP NATIVE</div>
+        <div class="diff-title" data-en="Your data lives on your drive" data-es="Tus datos viven en tu disco">Your data lives on your drive</div>
+        <div class="diff-desc" data-en="Unlike web-based journals, Tyvaris is a native desktop app. Your trades, journal entries, and analytics are stored in your own Google Drive. No server, no subscription to their cloud, no lock-in." data-es="A diferencia de los journals web, Tyvaris es una app de escritorio nativa. Tus trades, journal y analytics se guardan en tu propio Google Drive. Sin servidor, sin suscripción a su nube, sin lock-in.">Unlike web-based journals, Tyvaris is a native desktop app. Your trades, journal entries, and analytics are stored in your own Google Drive. No server, no subscription to their cloud, no lock-in.</div>
         <ul class="diff-list">
-          <li>Works offline — no internet required to analyze trades</li>
-          <li>Mac and Windows share the exact same data folder</li>
-          <li>Connect up to 2 devices on one subscription</li>
-          <li>Export everything anytime — it's just JSON files in your Drive</li>
+          <li data-en="Works offline — no internet required to analyze trades" data-es="Funciona offline — sin internet para analizar trades">Works offline — no internet required to analyze trades</li>
+          <li data-en="Mac and Windows share the exact same data folder" data-es="Mac y Windows comparten exactamente la misma carpeta de datos">Mac and Windows share the exact same data folder</li>
+          <li data-en="Connect up to 2 devices on one subscription" data-es="Conectá hasta 2 dispositivos con una suscripción">Connect up to 2 devices on one subscription</li>
+          <li data-en="Export everything anytime — it's just JSON files in your Drive" data-es="Exportá todo cuando quieras — son solo archivos JSON en tu Drive">Export everything anytime — it's just JSON files in your Drive</li>
         </ul>
       </div>
       <div class="diff-card highlight">
-        <div class="diff-tag">PRICING</div>
-        <div class="diff-title">$149/year. That's it.</div>
-        <div class="diff-desc">Most trading journals charge $30–$50/month with feature restrictions, account limits, or upgrade tiers. Tyvaris keeps it simple: $149/year with full access, unlimited accounts, and no upsells.</div>
+        <div class="diff-tag" data-en="PRICING" data-es="PRECIOS">PRICING</div>
+        <div class="diff-title" data-en="$149/year. That's it." data-es="$149/año. Eso es todo.">$149/year. That's it.</div>
+        <div class="diff-desc" data-en="Most trading journals charge $30–$50/month with feature restrictions, account limits, or upgrade tiers. Tyvaris keeps it simple: $149/year with full access, unlimited accounts, and no upsells." data-es="La mayoría de los journals cobran $30–$50/mes con restricciones de funciones o límites de cuentas. Tyvaris es simple: $149/año con acceso completo, cuentas ilimitadas y sin upsells.">Most trading journals charge $30–$50/month with feature restrictions, account limits, or upgrade tiers. Tyvaris keeps it simple: $149/year with full access, unlimited accounts, and no upsells.</div>
         <ul class="diff-list">
-          <li>Unlimited trading accounts</li>
-          <li>Unlimited journal entries and playbooks</li>
-          <li>All features included — nothing locked behind tiers</li>
-          <li>One price, two devices, full access</li>
+          <li data-en="Unlimited trading accounts" data-es="Cuentas de trading ilimitadas" data-en="Unlimited trading accounts" data-es="Cuentas de trading ilimitadas">Unlimited trading accounts</li>
+          <li data-en="Unlimited journal entries and playbooks" data-es="Entradas de journal y playbooks ilimitados">Unlimited journal entries and playbooks</li>
+          <li data-en="All features included — nothing locked behind tiers" data-es="Todas las funciones incluidas — nada bloqueado por tiers">All features included — nothing locked behind tiers</li>
+          <li data-en="One price, two devices, full access" data-es="Un precio, dos dispositivos, acceso completo">One price, two devices, full access</li>
         </ul>
       </div>
       <div class="diff-card">
-        <div class="diff-tag">PROP FIRM FOCUS</div>
-        <div class="diff-title">Built for funded traders</div>
-        <div class="diff-desc">Per-account trading rules, funded account protection, multiple prop firm tracking, and futures import from Tradovate and NinjaTrader.</div>
+        <div class="diff-tag" data-en="PROP FIRM FOCUS" data-es="ENFOCADO EN PROP FIRMS">PROP FIRM FOCUS</div>
+        <div class="diff-title" data-en="Built for funded traders" data-es="Construido para traders fondeados">Built for funded traders</div>
+        <div class="diff-desc" data-en="Per-account trading rules, funded account protection, multiple prop firm tracking, and futures import from Tradovate and NinjaTrader." data-es="Reglas por cuenta, protección de cuentas fondeadas, seguimiento de múltiples prop firms e importación de futuros desde Tradovate y NinjaTrader.">Per-account trading rules, funded account protection, multiple prop firm tracking, and futures import from Tradovate and NinjaTrader.</div>
         <ul class="diff-list">
-          <li>Per-account max daily loss limits</li>
-          <li>Daily lock system with reflection journal</li>
-          <li>Import futures trades from any prop firm</li>
-          <li>Track evaluation and funded accounts separately</li>
+          <li data-en="Per-account max daily loss limits" data-es="Límites de pérdida diaria máxima por cuenta">Per-account max daily loss limits</li>
+          <li data-en="Daily lock system with reflection journal" data-es="Sistema de bloqueo diario con journal de reflexión">Daily lock system with reflection journal</li>
+          <li data-en="Import futures trades from any prop firm" data-es="Importá trades de futuros de cualquier prop firm">Import futures trades from any prop firm</li>
+          <li data-en="Track evaluation and funded accounts separately" data-es="Seguimiento separado de cuentas de evaluación y fondeadas">Track evaluation and funded accounts separately</li>
         </ul>
       </div>
       <div class="diff-card">
-        <div class="diff-tag">CONFIGURABLE</div>
-        <div class="diff-title">Rules that match your style</div>
-        <div class="diff-desc">Every rule, limit, and confirmation in Tyvaris is configurable per account. Set your own discipline rules and let the system enforce them so you don't have to.</div>
+        <div class="diff-tag" data-en="CONFIGURABLE" data-es="CONFIGURABLE">CONFIGURABLE</div>
+        <div class="diff-title" data-en="Rules that match your style" data-es="Reglas que se adaptan a tu estilo">Rules that match your style</div>
+        <div class="diff-desc" data-en="Every rule, limit, and confirmation in Tyvaris is configurable per account. Set your own discipline rules and let the system enforce them so you don't have to." data-es="Cada regla, límite y confirmación en Tyvaris es configurable por cuenta. Definí tus propias reglas de disciplina y dejá que el sistema las aplique.">Every rule, limit, and confirmation in Tyvaris is configurable per account. Set your own discipline rules and let the system enforce them so you don't have to.</div>
         <ul class="diff-list">
-          <li>Custom confirmation checklist before entries</li>
-          <li>Configurable session blockers</li>
-          <li>Per-account revenge and tilt protection</li>
-          <li>Customizable emotion and psychology tracking</li>
+          <li data-en="Custom confirmation checklist before entries" data-es="Checklist de confirmación personalizado antes de entradas">Custom confirmation checklist before entries</li>
+          <li data-en="Configurable session blockers" data-es="Bloqueadores de sesión configurables">Configurable session blockers</li>
+          <li data-en="Per-account revenge and tilt protection" data-es="Protección contra revenge y tilt por cuenta">Per-account revenge and tilt protection</li>
+          <li data-en="Customizable emotion and psychology tracking" data-es="Seguimiento de emociones y psicología personalizable">Customizable emotion and psychology tracking</li>
         </ul>
       </div>
     </div>
@@ -548,65 +565,65 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner" style="text-align:center">
-    <div class="section-label" style="text-align:center">Pricing</div>
-    <h2 class="section-title">Simple pricing. No surprises.</h2>
-    <p class="section-sub" style="margin:0 auto 60px">One plan. Everything included. Cancel anytime.</p>
+    <div class="section-label" style="text-align:center" data-en="Pricing" data-es="Precios">Pricing</div>
+    <h2 class="section-title" data-en="Simple pricing. No surprises." data-es="Precios simples. Sin sorpresas.">Simple pricing. No surprises.</h2>
+    <p class="section-sub" style="margin:0 auto 60px" data-en="One plan. Everything included. Cancel anytime." data-es="Un plan. Todo incluido. Cancelá cuando quieras.">One plan. Everything included. Cancel anytime.</p>
 
     <div class="pricing-wrap">
       <div class="pricing-card">
-        <div class="pricing-badge">BETA — 1 MONTH FREE</div>
+        <div class="pricing-badge" data-en="BETA — 1 MONTH FREE" data-es="BETA — 1 MES GRATIS">BETA — 1 MONTH FREE</div>
         <div class="pricing-price">$149<span>/yr</span></div>
-        <div class="pricing-period">after beta · billed annually</div>
-        <div class="pricing-beta">🎉 Beta period is completely free — no credit card required. Give feedback, shape the product.</div>
+        <div class="pricing-period" data-en="after beta · billed annually" data-es="después de la beta · facturado anualmente">after beta · billed annually</div>
+        <div class="pricing-beta" data-en="🎉 Beta period is completely free — no credit card required. Give feedback, shape the product." data-es="🎉 La beta es completamente gratis — sin tarjeta de crédito. Danos feedback y ayudanos a mejorar el producto.">🎉 Beta period is completely free — no credit card required. Give feedback, shape the product.</div>
         <ul class="pricing-features">
-          <li><span class="check">✓</span> MT5 auto-sync (EA included)</li>
-          <li><span class="check">✓</span> Futures & prop firm import</li>
-          <li><span class="check">✓</span> Unlimited trading accounts</li>
-          <li><span class="check">✓</span> Unlimited journal entries</li>
-          <li><span class="check">✓</span> Unlimited playbooks</li>
-          <li><span class="check">✓</span> Advanced analytics & calendar</li>
-          <li><span class="check">✓</span> AI Coach</li>
-          <li><span class="check">✓</span> Protection & discipline system</li>
-          <li><span class="check">✓</span> Google Drive sync</li>
-          <li><span class="check">✓</span> Mac + Windows (2 devices)</li>
-          <li><span class="check">✓</span> NinjaTrader & cTrader <span class="soon">SOON</span></li>
+          <li><span class="check">✓</span> <span data-en="MT5 auto-sync (EA included)" data-es="Sync automático MT5 (EA incluido)">MT5 auto-sync (EA included)</span></li>
+          <li><span class="check">✓</span> <span data-en="Futures &amp; prop firm import" data-es="Importación de futuros y prop firms">Futures &amp; prop firm import</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited trading accounts" data-es="Cuentas de trading ilimitadas">Unlimited trading accounts</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited journal entries" data-es="Entradas de journal ilimitadas">Unlimited journal entries</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited playbooks" data-es="Playbooks ilimitados">Unlimited playbooks</span></li>
+          <li><span class="check">✓</span> <span data-en="Advanced analytics &amp; calendar" data-es="Analytics avanzado y calendario">Advanced analytics &amp; calendar</span></li>
+          <li><span class="check">✓</span> <span data-en="AI Coach" data-es="AI Coach">AI Coach</span></li>
+          <li><span class="check">✓</span> <span data-en="Protection &amp; discipline system" data-es="Sistema de protección y disciplina">Protection &amp; discipline system</span></li>
+          <li><span class="check">✓</span> <span data-en="Google Drive sync" data-es="Sync con Google Drive">Google Drive sync</span></li>
+          <li><span class="check">✓</span> <span data-en="Mac + Windows (2 devices)" data-es="Mac + Windows (2 dispositivos)">Mac + Windows (2 devices)</span></li>
+          <li><span class="check">✓</span> <span data-en="NinjaTrader &amp; cTrader" data-es="NinjaTrader &amp; cTrader">NinjaTrader &amp; cTrader</span> <span class="soon">SOON</span></li>
         </ul>
-        <a href="#download" class="btn-pricing">Download Free Beta →</a>
-        <p class="pricing-note">No credit card · Free for 1 month · $149/yr after</p>
-        <div class="beta-counter" id="pricing-counter" style="display:none">
-          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width:0%"></div></div>
-          <div class="beta-counter-text"><strong id="pricing-counter-left">—</strong> spots left</div>
+        <a href="#download" class="btn-pricing" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
+        <p class="pricing-note" data-en="No credit card · Free for 1 month · $149/yr after" data-es="Sin tarjeta · Gratis 1 mes · $149/año después">No credit card · Free for 1 month · $149/yr after</p>
+        <div class="beta-counter" id="pricing-counter" style="display: flex;">
+          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width: 6%;"></div></div>
+          <div class="beta-counter-text"><strong id="pricing-counter-left">94</strong> <span data-en="spots left" data-es="lugares disponibles">spots left</span></div>
         </div>
       </div>
     </div>
 
     <!-- Payment methods -->
     <div style="max-width:680px;margin:40px auto 0">
-      <p style="font-size:11px;font-family:var(--mono);color:var(--mut);letter-spacing:2px;text-align:center;margin-bottom:20px;text-transform:uppercase">Accepted payment methods</p>
+      <p style="font-size:11px;font-family:var(--mono);color:var(--mut);letter-spacing:2px;text-align:center;margin-bottom:20px;text-transform:uppercase" data-en="Accepted payment methods" data-es="Métodos de pago aceptados">Accepted payment methods</p>
       <div class="pay-grid">
-        <div class="pay-card" onclick="openPayModal('stripe')">
+        <div class="pay-card" onclick="openPayModal(&#39;stripe&#39;)">
           <div class="pay-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2"></rect><path d="M2 10h20" stroke="currentColor" stroke-width="2"></path><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
           </div>
           <div class="pay-name">Credit / Debit Card</div>
           <div class="pay-desc">Visa · Mastercard · Amex<br>via Stripe · USD · instant</div>
-          <button class="pay-btn" onclick="event.stopPropagation();openPayModal('stripe')">Subscribe with Stripe →</button>
+          <button class="pay-btn" onclick="event.stopPropagation();openPayModal(&#39;stripe&#39;)" data-en="Subscribe with Stripe →" data-es="Suscribirse con Stripe →">Subscribe with Stripe →</button>
         </div>
-        <div class="pay-card" onclick="openPayModal('mp')">
+        <div class="pay-card" onclick="openPayModal(&#39;mp&#39;)">
           <div class="pay-icon-wrap" style="background:rgba(0,158,227,.12);color:#009EE3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15" r="1.5" fill="currentColor"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"></circle><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><circle cx="12" cy="15" r="1.5" fill="currentColor"></circle></svg>
           </div>
           <div class="pay-name">Mercado Pago</div>
           <div class="pay-desc">Tarjeta · cuotas · débito<br>ARS · LATAM · sin comisión extra</div>
-          <button class="pay-btn" style="background:#009EE3" onclick="event.stopPropagation();openPayModal('mp')">Suscribirse con MP →</button>
+          <button class="pay-btn" style="background:#009EE3" onclick="event.stopPropagation();openPayModal(&#39;mp&#39;)">Suscribirse con MP →</button>
         </div>
-        <div class="pay-card" onclick="openPayModal('crypto')">
+        <div class="pay-card" onclick="openPayModal(&#39;crypto&#39;)">
           <div class="pay-icon-wrap" style="background:rgba(247,147,26,.12);color:#F7931A">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>
           </div>
           <div class="pay-name">Crypto</div>
           <div class="pay-desc">USDT · USDC · BTC · ETH<br>TRC20 · ERC20 · BEP20</div>
-          <button class="pay-btn" style="background:linear-gradient(135deg,#F7931A,#f4a93a)" onclick="event.stopPropagation();openPayModal('crypto')">Pay with Crypto →</button>
+          <button class="pay-btn" style="background:linear-gradient(135deg,#F7931A,#f4a93a)" onclick="event.stopPropagation();openPayModal(&#39;crypto&#39;)" data-en="Pay with Crypto →" data-es="Pagar con Crypto →">Pay with Crypto →</button>
         </div>
       </div>
     </div>
@@ -622,8 +639,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
     </div>
     <div class="pay-modal-sub" id="pay-modal-sub">Enter your email to continue</div>
     <div id="pay-modal-email-wrap">
-      <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email"
-        onkeydown="if(event.key==='Enter')confirmPayment()" />
+      <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)confirmPayment()">
     </div>
     <div class="pay-modal-err" id="pay-modal-err"></div>
     <div class="pay-modal-actions">
@@ -638,74 +654,308 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <div style="display:none">
     </div>
   </div>
-</section>
+
 
 <!-- FAQ -->
 <section id="faq" style="background:var(--bg2)">
   <div class="section-inner">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common questions</h2>
-    <p class="section-sub">Everything you need to know before downloading.</p>
+    <div class="section-label" data-en="FAQ" data-es="FAQ">FAQ</div>
+    <h2 class="section-title" data-en="Common questions" data-es="Preguntas frecuentes">Common questions</h2>
+    <p class="section-sub" data-en="Everything you need to know before downloading." data-es="Todo lo que necesitás saber antes de descargar.">Everything you need to know before downloading.</p>
 
     <div class="faq-list">
       <div class="faq-item open">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="What is the beta period? <span class='faq-arrow'>+</span>" data-es="¿Qué es el período beta? <span class='faq-arrow'>+</span>">
           What is the beta period? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">The beta is free for 1 month from download. During this period you get full access to all features. We ask that you share feedback to help us improve. After the beta, the subscription is $149/year.</div>
+        <div class="faq-a" data-en="The beta is free for 1 month from download. During this period you get full access to all features. We ask that you share feedback to help us improve. After the beta, the subscription is $149/year." data-es="La beta es gratis por 1 mes desde la descarga. Durante este período tenés acceso completo a todas las funciones. Te pedimos que compartas feedback para ayudarnos a mejorar. Después de la beta, la suscripción es $149/año.">The beta is free for 1 month from download. During this period you get full access to all features. We ask that you share feedback to help us improve. After the beta, the subscription is $149/year.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="Where is my data stored? <span class='faq-arrow'>+</span>" data-es="¿Dónde se guardan mis datos? <span class='faq-arrow'>+</span>">
           Where is my data stored? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">All your trade data, journal entries, and analytics are stored in your own Google Drive — in a folder called "Tyvaris". Nothing is stored on our servers except your account credentials. You own your data completely.</div>
+        <div class="faq-a" data-en="All your trade data, journal entries, and analytics are stored in your own Google Drive — in a folder called "Tyvaris". Nothing is stored on our servers except your account credentials. You own your data completely." data-es="Todos tus datos de trades, entradas de journal y analytics se guardan en tu propio Google Drive — en una carpeta llamada "Tyvaris". Nada se guarda en nuestros servidores excepto tus credenciales. Tus datos son completamente tuyos.">All your trade data, journal entries, and analytics are stored in your own Google Drive — in a folder called "Tyvaris". Nothing is stored on our servers except your account credentials. You own your data completely.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="Does it work with prop firm accounts? <span class='faq-arrow'>+</span>" data-es="¿Funciona con cuentas de prop firms? <span class='faq-arrow'>+</span>">
           Does it work with prop firm accounts? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">Yes. You can import trades from Tradovate (used by Apex, Topstep, MFFU and others) via CSV. MT5-based prop firms sync automatically via the EA. Each account gets its own rules, limits and journal.</div>
+        <div class="faq-a" data-en="Yes. You can import trades from Tradovate (used by Apex, Topstep, MFFU and others) via CSV. MT5-based prop firms sync automatically via the EA. Each account gets its own rules, limits and journal." data-es="Sí. Podés importar trades de Tradovate (usado por Apex, Topstep, MFFU y otros) via CSV. Las prop firms basadas en MT5 sincronizan automáticamente via EA. Cada cuenta tiene sus propias reglas, límites y journal.">Yes. You can import trades from Tradovate (used by Apex, Topstep, MFFU and others) via CSV. MT5-based prop firms sync automatically via the EA. Each account gets its own rules, limits and journal.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="Can I use it on both Mac and Windows? <span class='faq-arrow'>+</span>" data-es="¿Puedo usarlo en Mac y Windows? <span class='faq-arrow'>+</span>">
           Can I use it on both Mac and Windows? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">Yes. One subscription covers 2 devices. Because data is stored in Google Drive, switching between Mac and Windows is seamless — open the app and your data is already there.</div>
+        <div class="faq-a" data-en="Yes. One subscription covers 2 devices. Because data is stored in Google Drive, switching between Mac and Windows is seamless — open the app and your data is already there." data-es="Sí. Una suscripción cubre 2 dispositivos. Como los datos se guardan en Google Drive, cambiar entre Mac y Windows es transparente — abrís la app y tus datos ya están ahí.">Yes. One subscription covers 2 devices. Because data is stored in Google Drive, switching between Mac and Windows is seamless — open the app and your data is already there.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="What happens to my data if I cancel? <span class='faq-arrow'>+</span>" data-es="¿Qué pasa con mis datos si cancelo? <span class='faq-arrow'>+</span>">
           What happens to my data if I cancel? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">Your data stays in your Google Drive forever — it's yours. The app simply stops syncing new trades after the subscription ends. You can still read and export everything at any time.</div>
+        <div class="faq-a" data-en="Your data stays in your Google Drive forever — it's yours. The app simply stops syncing new trades after the subscription ends. You can still read and export everything at any time." data-es="Tus datos permanecen en tu Google Drive para siempre — son tuyos. La app simplemente deja de sincronizar nuevos trades cuando vence la suscripción. Podés leer y exportar todo en cualquier momento.">Your data stays in your Google Drive forever — it's yours. The app simply stops syncing new trades after the subscription ends. You can still read and export everything at any time.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
+        <div class="faq-q" onclick="toggleFaq(this)" data-en="Is the MT5 Expert Advisor safe to use on a funded account? <span class='faq-arrow'>+</span>" data-es="¿Es seguro usar el Expert Advisor de MT5 en una cuenta fondeada? <span class='faq-arrow'>+</span>">
           Is the MT5 Expert Advisor safe to use on a funded account? <span class="faq-arrow">+</span>
         </div>
-        <div class="faq-a">Yes. The Tyvaris EA is read-only — it only exports your trade history to a local JSON file. It does not place trades, modify orders, or interact with your broker in any way. It is safe to use on funded and live accounts.</div>
+        <div class="faq-a" data-en="Yes. The Tyvaris EA is read-only — it only exports your trade history to a local JSON file. It does not place trades, modify orders, or interact with your broker in any way. It is safe to use on funded and live accounts." data-es="Sí. El EA de Tyvaris es de solo lectura — únicamente exporta tu historial de trades a un archivo JSON local. No coloca trades, no modifica órdenes ni interactúa con tu broker de ninguna forma. Es seguro usarlo en cuentas fondeadas y reales.">Yes. The Tyvaris EA is read-only — it only exports your trade history to a local JSON file. It does not place trades, modify orders, or interact with your broker in any way. It is safe to use on funded and live accounts.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BETA CTA -->
+<section id="install" style="padding:100px 24px;background:var(--bg1)">
+  <div class="section-inner" style="max-width:860px">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="hero-badge" style="margin:0 auto 20px" data-en="<span></span> Setup guide" data-es="<span></span> Guía de instalación"><span></span> Setup guide</div>
+      <h2 style="font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:16px" data-en="Up and running in 10 minutes" data-es="Listo en 10 minutos" data-en="Up and running in 10 minutes" data-es="Listo en 10 minutos">Up and running in 10 minutes</h2>
+      <p style="color:var(--mut);font-size:16px;max-width:540px;margin:0 auto" data-en="Follow these steps once. After that, Tyvaris syncs automatically every 30 seconds." data-es="Seguí estos pasos una vez. Después, Tyvaris sincroniza automáticamente cada 30 segundos.">Follow these steps once. After that, Tyvaris syncs automatically every 30 seconds.</p>
+    </div>
+
+    <!-- OS Toggle -->
+    <div style="display:flex;justify-content:center;margin-bottom:48px">
+      <div style="display:flex;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px;gap:4px">
+        <button id="os-mac" onclick="setOS('mac')" style="padding:8px 28px;border-radius:7px;border:none;background:var(--acc);color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🍎 Mac</button>
+        <button id="os-win" onclick="setOS('win')" style="padding:8px 28px;border-radius:7px;border:none;background:transparent;color:var(--mut);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🪟 Windows</button>
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div style="display:flex;flex-direction:column;gap:0">
+
+      <!-- STEP 1 -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title" data-en="Download & install Tyvaris" data-es="Descargar e instalar Tyvaris">Download & install Tyvaris</div>
+          <p class="step-desc" data-en="Download the app for your operating system and run the installer." data-es="Descargá la app para tu sistema operativo y ejecutá el instalador.">Download the app for your operating system and run the installer.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <a id="s1-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none" data-en="⬇ Download for Mac" data-es="⬇ Descargar para Mac">⬇ Download for Mac</a>
+            <a id="s1-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none;display:none" data-en="⬇ Download for Windows" data-es="⬇ Descargar para Windows">⬇ Download for Windows</a>
+          </div>
+          <div id="s1-mac-note" class="step-note" style="margin-top:12px" data-en="Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it." data-es="Abrí el archivo <strong>.dmg</strong> → arrastrá Tyvaris a Aplicaciones → abrilo.">Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it.</div>
+          <div id="s1-win-note" class="step-note" style="margin-top:12px;display:none">Run the <strong>.exe</strong> installer → if Windows shows a SmartScreen warning, click <strong>"More info" → "Run anyway"</strong>. This is normal for new apps without a code signing certificate.</div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title" data-en="Log in or create an account" data-es="Iniciá sesión o creá una cuenta">Log in or create an account</div>
+          <p class="step-desc" data-en="Open Tyvaris and register with your email. You'll receive a verification email — click the link to activate your account." data-es="Abrí Tyvaris y registrate con tu email. Recibirás un email de verificación — hacé click en el link para activar tu cuenta.">Open Tyvaris and register with your email. You'll receive a verification email — click the link to activate your account.</p>
+          <div class="step-note" data-en="Beta access is free for the first 100 users. No credit card required." data-es="El acceso beta es gratis para los primeros 100 usuarios. Sin tarjeta de crédito.">Beta access is free for the first 100 users. No credit card required.</div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title" data-en="Install the Expert Advisor in MT5" data-es="Instalar el Expert Advisor en MT5">Install the Expert Advisor in MT5</div>
+          <p class="step-desc">Don't have MT5 yet? <a href="https://www.metatrader5.com/en/download" target="_blank" style="color:#7c6ee6">Download MetaTrader 5 free</a>. Then go to <strong>MT5 Connection</strong> in Tyvaris and click <strong>"Install EA — choose folder"</strong>. A folder picker will open — navigate to your MT5 Experts folder and click OK. Tyvaris copies the EA automatically.</p>
+
+          <div style="margin-top:16px;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;overflow:hidden">
+            <div style="padding:12px 16px;border-bottom:1px solid var(--brd);font-size:12px;font-weight:600;color:var(--mut);letter-spacing:1px;text-transform:uppercase" data-en="Where is the Experts folder?" data-es="¿Dónde está la carpeta Experts?">Where is the Experts folder?</div>
+            <div id="s3-mac" style="padding:16px">
+              <div style="font-size:13px;color:var(--txt);margin-bottom:8px">In MT5: <strong>File → Open Data Folder → MQL5 → Experts</strong></div>
+              <div style="font-size:12px;color:var(--mut);margin-bottom:6px">Or in Finder press <kbd style="background:var(--bg1);border:1px solid var(--brd);border-radius:4px;padding:1px 6px;font-size:11px">Cmd+Shift+G</kbd> and paste:</div>
+              <div style="font-family:monospace;font-size:11px;color:#7c6ee6;background:var(--bg1);padding:10px 14px;border-radius:6px;word-break:break-all">~/Library/Application Support/net.metaquotes.wine.metatrader5/drive_c/Program Files/MetaTrader 5/MQL5/Experts</div>
+            </div>
+            <div id="s3-win" style="padding:16px;display:none">
+              <div style="font-size:13px;color:var(--txt);margin-bottom:8px">In MT5: <strong>File → Open Data Folder → MQL5 → Experts</strong></div>
+              <div style="font-size:12px;color:var(--mut);margin-bottom:6px">Or navigate manually to:</div>
+              <div style="font-family:monospace;font-size:11px;color:#7c6ee6;background:var(--bg1);padding:10px 14px;border-radius:6px;word-break:break-all">C:\Users\<span style="color:#f5a623">[your username]</span>\AppData\Roaming\MetaQuotes\Terminal\<span style="color:#f5a623">[ID]</span>\MQL5\Experts</div>
+            </div>
+          </div>
+
+          <!-- MT5 screenshot: Navigator with EA -->
+          <div style="margin-top:16px;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px;position:relative">
+            <div style="font-size:11px;color:var(--mut);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px">MT5 Navigator — Expert Advisors</div>
+            <div style="background:#1a1a2e;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;position:relative">
+              <div style="color:#6b6b8a;margin-bottom:4px">▼ Expert Advisors</div>
+              <div style="color:#6b6b8a;padding-left:16px;margin-bottom:4px">▶ Advisors</div>
+              <div style="color:#6b6b8a;padding-left:16px;margin-bottom:4px">▶ Examples</div>
+              <div style="color:#6b6b8a;padding-left:16px;margin-bottom:4px">▶ Free Robots</div>
+              <div style="padding-left:16px;display:flex;align-items:center;gap:8px">
+                <span style="color:#00c896;font-size:14px">🎓</span>
+                <span style="color:#e8e8f0;font-weight:700">Tyvaris_Exporter</span>
+                <span style="background:rgba(0,200,150,.15);color:#00c896;font-size:9px;padding:1px 6px;border-radius:4px;border:1px solid rgba(0,200,150,.3)">ready</span>
+              </div>
+              <!-- Arrow annotation -->
+              <div style="position:absolute;right:-8px;top:50%;transform:translateY(-50%) translateX(100%);background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:6px;padding:6px 10px;font-size:11px;color:#00c896;white-space:nowrap;font-family:sans-serif">← EA installed here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title" data-en="Compile and attach the EA to a chart" data-es="Compilar y adjuntar el EA a un gráfico">Compile and attach the EA to a chart</div>
+          <p class="step-desc">In MT5, open <strong>MetaEditor</strong> (press <kbd style="background:var(--bg2);border:1px solid var(--brd);border-radius:4px;padding:1px 6px;font-size:11px">F4</kbd>). Find <strong>Tyvaris_Exporter.mq5</strong> in the Experts folder and press <kbd style="background:var(--bg2);border:1px solid var(--brd);border-radius:4px;padding:1px 6px;font-size:11px">F7</kbd> to compile.</p>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div class="step-substep"><span class="substep-n">A</span> In the <strong>Navigator</strong> panel, find <strong>Tyvaris_Exporter</strong> under Expert Advisors</div>
+            <div class="step-substep"><span class="substep-n">B</span> Drag it to any chart (e.g. EURUSD H1)</div>
+            <div class="step-substep"><span class="substep-n">C</span> In the popup, check <strong>"Allow algorithmic trading"</strong> → click OK</div>
+            <div class="step-substep"><span class="substep-n">D</span> You'll see <strong>Tyvaris_Exporter</strong> appear in the top-right corner of the chart ✓</div>
+          </div>
+          <!-- Chart corner indicator -->
+          <div style="margin-top:16px;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px">
+            <div style="font-size:11px;color:var(--mut);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px">What you'll see in MT5</div>
+            <div style="background:#1a1a2e;border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:flex-start">
+              <div style="font-size:11px;color:#6b6b8a;font-family:monospace">EURUSD, M15: Euro vs US Dollar</div>
+              <div style="display:flex;align-items:center;gap:6px;background:rgba(0,200,150,.08);border:1px solid rgba(0,200,150,.25);border-radius:5px;padding:3px 8px">
+                <span style="width:7px;height:7px;background:#00c896;border-radius:50%;display:inline-block"></span>
+                <span style="font-size:11px;color:#00c896;font-family:monospace">Tyvaris_Exporter</span>
+              </div>
+            </div>
+            <div style="font-size:11px;color:var(--mut);margin-top:8px">The green dot means the EA is running and exporting your trades every 30 seconds.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div class="step-title" data-en="Connect the data file in Tyvaris" data-es="Conectar el archivo de datos en Tyvaris">Connect the data file in Tyvaris</div>
+          <p class="step-desc">Back in Tyvaris, go to <strong>MT5 Connection</strong>. Click <strong>"Auto-detect"</strong> — Tyvaris will find the <code style="background:var(--bg2);padding:1px 6px;border-radius:4px;font-size:12px">tyvaris_data.json</code> file automatically. If it doesn't, click <strong>"Browse file"</strong> and select it manually.</p>
+
+          <div style="margin-top:12px;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:16px">
+            <div style="font-size:11px;color:var(--mut);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px">File location</div>
+            <div id="s5-mac" style="font-family:monospace;font-size:11px;color:#7c6ee6;background:var(--bg1);padding:10px 14px;border-radius:6px;word-break:break-all">~/Library/Application Support/net.metaquotes.wine.metatrader5/drive_c/Program Files/MetaTrader 5/MQL5/Files/tyvaris_data.json</div>
+            <div id="s5-win" style="font-family:monospace;font-size:11px;color:#7c6ee6;background:var(--bg1);padding:10px 14px;border-radius:6px;word-break:break-all;display:none">C:\Users\<span style="color:#f5a623">[username]</span>\AppData\Roaming\MetaQuotes\Terminal\<span style="color:#f5a623">[ID]</span>\MQL5\Files\tyvaris_data.json</div>
+          </div>
+
+          <!-- Connected state -->
+          <div style="margin-top:12px;background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.2);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px">
+            <div style="width:10px;height:10px;background:#00c896;border-radius:50%;flex-shrink:0"></div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#00c896">Connected</div>
+              <div style="font-size:11px;color:var(--mut);margin-top:2px">Tyvaris is now syncing with MT5 every 30 seconds. Your trades appear automatically.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6 — Google Drive sync -->
+      <div class="install-step">
+        <div class="step-left">
+          <div class="step-num">6</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-right">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div class="step-title" style="margin-bottom:0" data-en="Connect Google Drive (Mac + Windows sync)" data-es="Conectar Google Drive (sincronización Mac + Windows)">Connect Google Drive (Mac + Windows sync)</div>
+            <span style="background:rgba(0,200,150,.1);color:#00c896;font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid rgba(0,200,150,.25);font-weight:600">RECOMMENDED</span>
+          </div>
+          <p class="step-desc" data-en="If you use Tyvaris on both Mac and Windows, connect Google Drive so both devices share the same data. Your journals, playbook and settings sync automatically." data-es="Si usás Tyvaris en Mac y Windows, conectá Google Drive para que ambos dispositivos compartan los mismos datos. Tus journals, playbook y configuración se sincronizan automáticamente.">If you use Tyvaris on both Mac and Windows, connect Google Drive so both devices share the same data. Your journals, playbook and settings sync automatically.</p>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div class="step-substep"><span class="substep-n">A</span> Download and install <a href="https://drive.google.com/drive/download" target="_blank" style="color:#7c6ee6">Google Drive for Desktop</a> if you don't have it</div>
+            <div class="step-substep"><span class="substep-n">B</span> In Tyvaris → <strong>Settings → Google Drive</strong>, click <strong>"Auto-detect Drive"</strong></div>
+            <div class="step-substep"><span class="substep-n">C</span> If not found, click <strong>"Select folder"</strong> and choose your Google Drive folder</div>
+            <div class="step-substep"><span class="substep-n">D</span> Tyvaris creates a <code style="background:var(--bg1);padding:1px 6px;border-radius:4px;font-size:11px">Tyvaris/</code> subfolder inside your Drive — all data saves there automatically</div>
+          </div>
+          <div style="margin-top:12px;background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.2);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px">
+            <div style="font-size:22px">☁️</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#00c896;margin-bottom:2px">Drive active</div>
+              <div style="font-size:11px;color:var(--mut)">Both Mac and Windows point to the same folder. Switch devices instantly — your data is always there.</div>
+            </div>
+          </div>
+          <div class="step-note" style="margin-top:10px" data-en="Google Drive is optional. If you only use one device you can skip this step — your data saves locally." data-es="Google Drive es opcional. Si solo usás un dispositivo podés saltear este paso — tus datos se guardan localmente.">Google Drive is optional. If you only use one device you can skip this step — your data saves locally.</div>
+        </div>
+      </div>
+
+      <!-- STEP 7 — Optional: AI Coach -->
+      <div class="install-step" style="opacity:.8">
+        <div class="step-left">
+          <div class="step-num" style="background:var(--bg2);color:var(--mut);border:1px solid var(--brd)">7</div>
+        </div>
+        <div class="step-right">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div class="step-title" style="margin-bottom:0" data-en="Optional: enable AI Coach (local)" data-es="Opcional: activar AI Coach (local)">Optional: enable AI Coach (local)</div>
+            <span style="background:rgba(91,76,219,.15);color:#7c6ee6;font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid rgba(91,76,219,.3);font-weight:600">OPTIONAL</span>
+          </div>
+          <p class="step-desc" data-en="For full local AI without internet, install <strong>Ollama</strong> and download the AI model. In Tyvaris → Settings → Ollama section, click <strong>"Download Ollama"</strong> then <strong>"Install model"</strong>." data-es="Para IA local completa sin internet, instalá <strong>Ollama</strong> y descargá el modelo de IA. En Tyvaris → Ajustes → sección Ollama, hacé click en <strong>"Download Ollama"</strong> y luego <strong>"Install model"</strong>.">For full local AI without internet, install <strong>Ollama</strong> and download the AI model. In Tyvaris → Settings → Ollama section, click <strong>"Download Ollama"</strong> then <strong>"Install model"</strong>.</p>
+          <div class="step-note" data-en="Alternatively, add your <strong>Anthropic API key</strong> in Settings to use Claude as your AI Coach without installing anything locally." data-es="Alternativamente, agregá tu <strong>Anthropic API key</strong> en Ajustes para usar Claude como tu AI Coach sin instalar nada localmente.">Alternatively, add your <strong>Anthropic API key</strong> in Settings to use Claude as your AI Coach without installing anything locally.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Done state -->
+    <div style="margin-top:48px;text-align:center;padding:32px;background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.2);border-radius:16px">
+      <div style="font-size:32px;margin-bottom:12px">🎉</div>
+      <div style="font-size:20px;font-weight:700;margin-bottom:8px" data-en="You're all set" data-es="¡Listo!">You're all set</div>
+      <div style="color:var(--mut);font-size:14px;max-width:440px;margin:0 auto" data-en="Tyvaris will now sync your MT5 trades automatically. Open the Dashboard to see your data." data-es="Tyvaris sincronizará tus trades de MT5 automáticamente. Abrí el Dashboard para ver tus datos.">Tyvaris will now sync your MT5 trades automatically. Open the Dashboard to see your data.</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.install-step { display:flex; gap:24px; padding-bottom:40px; }
+.step-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+.step-num { width:40px; height:40px; background:var(--acc); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; color:white; flex-shrink:0; }
+.step-line { width:2px; flex:1; background:var(--brd); margin-top:8px; min-height:24px; }
+.step-right { padding-top:8px; flex:1; padding-bottom:8px; }
+.step-title { font-size:18px; font-weight:700; margin-bottom:8px; }
+.step-desc { color:var(--mut); font-size:14px; line-height:1.6; margin:0; }
+.step-note { background:var(--bg2); border:1px solid var(--brd); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--mut); line-height:1.6; }
+.step-substep { display:flex; align-items:flex-start; gap:10px; background:var(--bg2); border:1px solid var(--brd); border-radius:8px; padding:10px 14px; font-size:13px; }
+.substep-n { width:22px; height:22px; background:var(--acc); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:white; flex-shrink:0; margin-top:1px; }
+@media(max-width:600px){ .install-step{flex-direction:column;gap:12px} .step-left{flex-direction:row;gap:12px} .step-line{display:none} }
+</style>
+
+<script>
+function setOS(os) {
+  var isMac = os === 'mac'
+  document.getElementById('os-mac').style.background = isMac ? 'var(--acc)' : 'transparent'
+  document.getElementById('os-mac').style.color = isMac ? 'white' : 'var(--mut)'
+  document.getElementById('os-win').style.background = !isMac ? 'var(--acc)' : 'transparent'
+  document.getElementById('os-win').style.color = !isMac ? 'white' : 'var(--mut)'
+  var macEls = ['s1-mac','s1-mac-note','s3-mac','s5-mac']
+  var winEls = ['s1-win','s1-win-note','s3-win','s5-win']
+  macEls.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display = isMac?'':'none' })
+  winEls.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display = !isMac?'':'none' })
+}
+</script>
+
 <section id="download">
   <div class="section-inner">
     <div class="beta-banner">
       <div class="hero-badge" style="margin:0 auto 24px">
         <span></span> Beta — Free for 1 month
       </div>
-      <h2 class="beta-title">Ready to trade with clarity?</h2>
-      <p class="beta-sub">Download Tyvaris free for 1 month. No credit card required.<br>Available for Mac (Apple Silicon + Intel) and Windows.</p>
-      <div class="beta-counter" id="banner-counter" style="margin:0 auto 28px;max-width:360px;display:none">
-        <div class="beta-counter-bar"><div class="beta-counter-fill" id="banner-counter-fill" style="width:0%"></div></div>
-        <div class="beta-counter-text"><strong id="banner-counter-left">—</strong> of 100 beta spots remaining</div>
+      <h2 class="beta-title" data-en="Ready to trade with clarity?" data-es="¿Listo para operar con claridad?">Ready to trade with clarity?</h2>
+      <p class="beta-sub" data-en="Download Tyvaris free for 1 month. No credit card required.<br>Available for Mac (Apple Silicon + Intel) and Windows." data-es="Descargá Tyvaris gratis por 1 mes. Sin tarjeta de crédito.<br>Disponible para Mac (Apple Silicon + Intel) y Windows.">Download Tyvaris free for 1 month. No credit card required.<br>Available for Mac (Apple Silicon + Intel) and Windows.</p>
+      <div class="beta-counter" id="banner-counter" style="margin: 0px auto 28px; max-width: 360px; display: flex;">
+        <div class="beta-counter-bar"><div class="beta-counter-fill" id="banner-counter-fill" style="width: 6%;"></div></div>
+        <div class="beta-counter-text"><strong id="banner-counter-left">94</strong> <span data-en="of 100 beta spots remaining" data-es="de 100 lugares disponibles">of 100 beta spots remaining</span></div>
       </div>
       <div class="beta-ctas">
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac">Download for Mac →</a>
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win">Download for Windows</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows">Download for Windows</a>
       </div>
-      <p style="font-size:12px;color:var(--mut);margin-top:20px;font-family:var(--mono)">macOS 12+ · Windows 10/11 · Free beta · $149/yr after</p>
+      <p style="font-size:12px;color:var(--mut);margin-top:20px;font-family:var(--mono)" data-en="macOS 12+ · Windows 10/11 · Free beta · $149/yr after" data-es="macOS 12+ · Windows 10/11 · Beta gratis · $149/año después">macOS 12+ · Windows 10/11 · Free beta · $149/yr after</p>
     </div>
   </div>
 </section>
@@ -714,46 +964,48 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <svg width="20" height="20" viewBox="0 0 20 20"><polygon points="1,1 11,1 6,7" fill="#5b4cdb"/><polygon points="3,9 9,9 6,18" fill="#7c6ef0"/></svg>
+      <svg width="20" height="20" viewBox="0 0 20 20"><polygon points="1,1 11,1 6,7" fill="#5b4cdb"></polygon><polygon points="3,9 9,9 6,18" fill="#7c6ef0"></polygon></svg>
       Tyvaris
     </div>
     <div class="footer-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#features" data-en="Features" data-es="Funciones">Features</a>
+      <a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="mailto:contact@tyvaris.com">Contact</a>
+      <a href="mailto:contact@tyvaris.com" data-en="Contact" data-es="Contacto">Contact</a>
+      <a href="https://www.instagram.com/tyvarisapp/" target="_blank" style="display:flex;align-items:center;gap:5px">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
     </div>
   </div>
-  <div class="footer-copy">© 2026 Tyvaris · Track your trades. Master your edge. · contact@tyvaris.com</div>
+  <div class="footer-copy" data-en="© 2026 Tyvaris · Track your trades. Master your edge. · contact@tyvaris.com" data-es="© 2026 Tyvaris · Registrá tus trades. Dominá tu edge. · contact@tyvaris.com" data-en="© 2026 Tyvaris · Track your trades. Master your edge. · contact@tyvaris.com" data-es="© 2026 Tyvaris · Registrá tus trades. Dominá tu edge. · contact@tyvaris.com">© 2026 Tyvaris · Track your trades. Master your edge. · contact@tyvaris.com</div>
 </footer>
 
-</div><!-- /view-landing -->
+<!-- /view-landing -->
 
 <!-- ═══ LOGIN VIEW ═══ -->
 <div id="view-login" class="view">
   <div class="auth-wrap">
     <div class="auth-card">
       <div class="auth-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"></polygon><polygon points="4,10 10,10 7,20" fill="#7c6ef0"></polygon></svg>
         <span>Tyvaris</span>
       </div>
       <div class="auth-title">Welcome back</div>
       <div class="auth-sub">Sign in to manage your subscription</div>
       <div class="auth-err" id="login-err"></div>
       <div class="field">
-        <label>Email</label>
-        <input type="email" id="login-email" placeholder="you@email.com" autocomplete="email"
-          onkeydown="if(event.key==='Enter')document.getElementById('login-pass').focus()">
+        <label data-en="Email" data-es="Email">Email</label>
+        <input type="email" id="login-email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;login-pass&#39;).focus()">
       </div>
       <div class="field">
-        <label>Password</label>
-        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"
-          onkeydown="if(event.key==='Enter')webLogin()">
+        <label data-en="Password" data-es="Contraseña">Password</label>
+        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key===&#39;Enter&#39;)webLogin()">
       </div>
       <button class="btn-full" id="login-btn" onclick="webLogin()">Sign in →</button>
-      <p class="auth-link">Don't have an account? <a href="#" onclick="showView('register');return false">Create account →</a></p>
-      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView('forgot');return false" style="color:var(--mut)">Forgot password?</a></p>
-      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
+      <p class="auth-link">Don't have an account? <a href="#" onclick="showView(&#39;register&#39;);return false">Create account →</a></p>
+      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView(&#39;forgot&#39;);return false" style="color:var(--mut)" data-en="Forgot password?" data-es="¿Olvidaste tu contraseña?">Forgot password?</a></p>
+      <p class="auth-link" style="margin-top:6px"><a href="#" onclick="showView(&#39;landing&#39;);return false" style="color:var(--mut)">← Back to site</a></p>
     </div>
   </div>
 </div>
@@ -763,48 +1015,41 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   <div class="auth-wrap">
     <div class="auth-card">
       <div class="auth-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"></polygon><polygon points="4,10 10,10 7,20" fill="#7c6ef0"></polygon></svg>
         <span>Tyvaris</span>
       </div>
-      <div class="auth-title">Create account</div>
+      <div class="auth-title" data-en="Create account" data-es="Crear cuenta">Create account</div>
       <div class="auth-sub">Register to subscribe and use Tyvaris</div>
       <div class="auth-err" id="register-err"></div>
       <div class="field">
         <label>Name</label>
-        <input type="text" id="register-name" placeholder="Your name" autocomplete="name"
-          onkeydown="if(event.key==='Enter')document.getElementById('register-email').focus()">
+        <input type="text" id="register-name" placeholder="Your name" autocomplete="name" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-email&#39;).focus()">
       </div>
       <div class="field">
-        <label>Email</label>
-        <input type="email" id="register-email" placeholder="you@email.com" autocomplete="email"
-          onkeydown="if(event.key==='Enter')document.getElementById('register-pass').focus()">
+        <label data-en="Email" data-es="Email">Email</label>
+        <input type="email" id="register-email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-pass&#39;).focus()">
       </div>
       <div class="field">
-        <label>Password</label>
-        <input type="password" id="register-pass" placeholder="Min. 6 characters" autocomplete="new-password"
-          onkeydown="if(event.key==='Enter')document.getElementById('register-pass2').focus()">
+        <label data-en="Password" data-es="Contraseña">Password</label>
+        <input type="password" id="register-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-pass2&#39;).focus()">
       </div>
       <div class="field">
         <label>Confirm password</label>
-        <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password"
-          onkeydown="if(event.key==='Enter')document.getElementById('register-referral').focus()">
+        <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-referral&#39;).focus()">
       </div>
       <div class="field" id="field-referral">
         <label style="display:flex;align-items:center;justify-content:space-between">
           Referral code <span style="font-size:10px;color:var(--mut);font-weight:400">(optional)</span>
         </label>
         <div style="display:flex;gap:6px">
-          <input type="text" id="register-referral" placeholder="e.g. CESAR20" autocomplete="off"
-            style="text-transform:uppercase;flex:1"
-            onkeydown="if(event.key==='Enter')webRegister()"
-            oninput="this.value=this.value.toUpperCase();validateReferralCode(this.value)">
+          <input type="text" id="register-referral" placeholder="e.g. CESAR20" autocomplete="off" style="text-transform:uppercase;flex:1" onkeydown="if(event.key===&#39;Enter&#39;)webRegister()" oninput="this.value=this.value.toUpperCase();validateReferralCode(this.value)">
           <span id="referral-check" style="font-size:18px;line-height:36px;min-width:20px"></span>
         </div>
         <div id="referral-msg" style="font-size:11px;margin-top:3px;display:none"></div>
       </div>
       <button class="btn-full" id="register-btn" onclick="webRegister()">Create account →</button>
-      <p class="auth-link">Already have an account? <a href="#" onclick="showView('login');return false">Sign in →</a></p>
-      <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView('landing');return false" style="color:var(--mut)">← Back to site</a></p>
+      <p class="auth-link">Already have an account? <a href="#" onclick="showView(&#39;login&#39;);return false">Sign in →</a></p>
+      <p class="auth-link" style="margin-top:8px"><a href="#" onclick="showView(&#39;landing&#39;);return false" style="color:var(--mut)">← Back to site</a></p>
     </div>
   </div>
 </div>
@@ -836,8 +1081,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <div style="font-size:48px;margin-bottom:8px">⚠️</div>
       <div class="auth-title">Link inválido o expirado</div>
       <div class="auth-sub" style="margin-bottom:20px">El link de verificación expiró o ya fue usado.</div>
-      <button class="btn-full" onclick="showView('login')" style="margin-bottom:8px">Ir al login</button>
-      <button class="btn-full" onclick="showView('verify-email')" style="background:transparent;border:1px solid var(--b1);color:var(--mut)">Reenviar verificación</button>
+      <button class="btn-full" onclick="showView(&#39;login&#39;)" style="margin-bottom:8px">Ir al login</button>
+      <button class="btn-full" onclick="showView(&#39;verify-email&#39;)" style="background:transparent;border:1px solid var(--b1);color:var(--mut)">Reenviar verificación</button>
     </div>
   </div>
 </div>
@@ -847,7 +1092,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   <div class="auth-wrap">
     <div class="auth-card">
       <div class="auth-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"></polygon><polygon points="4,10 10,10 7,20" fill="#7c6ef0"></polygon></svg>
         <span>Tyvaris</span>
       </div>
       <div style="text-align:center;margin-bottom:16px">
@@ -862,7 +1107,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       </div>
       <div id="resend-ok" style="display:none;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:8px;padding:10px;font-size:12px;color:var(--grn);text-align:center;margin-bottom:12px">✓ New verification email sent!</div>
       <button class="btn-full" onclick="resendVerifyFromView()" style="background:transparent;border:1px solid var(--b1);color:var(--mut)" id="btn-resend-verify">Resend verification email</button>
-      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView(&#39;login&#39;);return false" style="color:var(--mut)">← Back to sign in</a></p>
     </div>
   </div>
 </div>
@@ -872,22 +1117,21 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   <div class="auth-wrap">
     <div class="auth-card">
       <div class="auth-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"></polygon><polygon points="4,10 10,10 7,20" fill="#7c6ef0"></polygon></svg>
         <span>Tyvaris</span>
       </div>
-      <div class="auth-title">Forgot password?</div>
+      <div class="auth-title" data-en="Forgot password?" data-es="¿Olvidaste tu contraseña?">Forgot password?</div>
       <div class="auth-sub">Enter your email and we'll send you a reset link</div>
       <div class="auth-err" id="forgot-err"></div>
       <div id="forgot-ok" style="display:none;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);border-radius:8px;padding:12px;font-size:13px;color:var(--grn);text-align:center;margin-bottom:16px">
         ✓ Check your email — reset link sent!
       </div>
       <div class="field">
-        <label>Email</label>
-        <input type="email" id="forgot-email" placeholder="you@email.com" autocomplete="email"
-          onkeydown="if(event.key==='Enter')webForgot()">
+        <label data-en="Email" data-es="Email">Email</label>
+        <input type="email" id="forgot-email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)webForgot()">
       </div>
       <button class="btn-full" id="forgot-btn" onclick="webForgot()">Send reset link →</button>
-      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView(&#39;login&#39;);return false" style="color:var(--mut)">← Back to sign in</a></p>
     </div>
   </div>
 </div>
@@ -897,7 +1141,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   <div class="auth-wrap">
     <div class="auth-card">
       <div class="auth-logo">
-        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"/><polygon points="4,10 10,10 7,20" fill="#7c6ef0"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="1,1 13,1 7,8" fill="#5b4cdb"></polygon><polygon points="4,10 10,10 7,20" fill="#7c6ef0"></polygon></svg>
         <span>Tyvaris</span>
       </div>
       <div class="auth-title">Set new password</div>
@@ -908,16 +1152,14 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       </div>
       <div class="field">
         <label>New password</label>
-        <input type="password" id="reset-pass" placeholder="Min. 6 characters" autocomplete="new-password"
-          onkeydown="if(event.key==='Enter')document.getElementById('reset-pass2').focus()">
+        <input type="password" id="reset-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;reset-pass2&#39;).focus()">
       </div>
       <div class="field">
         <label>Confirm password</label>
-        <input type="password" id="reset-pass2" placeholder="Repeat password" autocomplete="new-password"
-          onkeydown="if(event.key==='Enter')webResetConfirm()">
+        <input type="password" id="reset-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)webResetConfirm()">
       </div>
       <button class="btn-full" id="reset-btn" onclick="webResetConfirm()">Set new password →</button>
-      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView('login');return false" style="color:var(--mut)">← Back to sign in</a></p>
+      <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView(&#39;login&#39;);return false" style="color:var(--mut)">← Back to sign in</a></p>
     </div>
   </div>
 </div>
@@ -926,12 +1168,12 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 <div id="view-dashboard" class="view">
   <!-- Dash nav -->
   <nav>
-    <div class="nav-logo" onclick="showView('landing')" style="cursor:pointer">
-      <svg viewBox="0 0 32 32" fill="none"><polygon points="2,2 18,2 10,10" fill="#5b4cdb"/><polygon points="6,13 14,13 10,26" fill="#7c6ef0"/><rect x="8" y="10" width="4" height="4" fill="#5b4cdb"/></svg>
+    <div class="nav-logo" onclick="showView(&#39;landing&#39;)" style="cursor:pointer">
+      <svg viewBox="0 0 32 32" fill="none"><polygon points="2,2 18,2 10,10" fill="#5b4cdb"></polygon><polygon points="6,13 14,13 10,26" fill="#7c6ef0"></polygon><rect x="8" y="10" width="4" height="4" fill="#5b4cdb"></rect></svg>
       <span class="nav-brand">Tyvaris</span>
     </div>
     <ul class="nav-links">
-      <li><a href="#" onclick="showView('landing');return false">← Back to site</a></li>
+      <li><a href="#" onclick="showView(&#39;landing&#39;);return false">← Back to site</a></li>
     </ul>
     <div class="nav-cta">
       <span id="dash-nav-email" style="font-size:12px;color:var(--mut);font-family:var(--mono)"></span>
@@ -1015,14 +1257,14 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <div class="dash-card-title">Download Tyvaris</div>
           <div class="download-grid">
             <a class="dl-card" id="dl-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg">
-              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M26.5 19.2c0-4.1 3.4-6.1 3.5-6.2-1.9-2.8-4.9-3.1-5.9-3.2-2.5-.3-4.9 1.5-6.2 1.5-1.3 0-3.2-1.4-5.3-1.4-2.7.1-5.2 1.6-6.6 4-2.8 4.9-.7 12.2 2 16.2 1.3 1.9 2.9 4.1 5 4 2-.1 2.8-1.3 5.2-1.3 2.4 0 3.1 1.3 5.3 1.2 2.2 0 3.5-2 4.8-3.9 1.5-2.2 2.1-4.4 2.2-4.5-.1 0-4-1.6-4-6.4z" fill="currentColor"/><path d="M22.4 7.3c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 3-1.6 4.7 1.7.1 3.5-.9 4.6-2.2z" fill="currentColor"/></svg></div>
+              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M26.5 19.2c0-4.1 3.4-6.1 3.5-6.2-1.9-2.8-4.9-3.1-5.9-3.2-2.5-.3-4.9 1.5-6.2 1.5-1.3 0-3.2-1.4-5.3-1.4-2.7.1-5.2 1.6-6.6 4-2.8 4.9-.7 12.2 2 16.2 1.3 1.9 2.9 4.1 5 4 2-.1 2.8-1.3 5.2-1.3 2.4 0 3.1 1.3 5.3 1.2 2.2 0 3.5-2 4.8-3.9 1.5-2.2 2.1-4.4 2.2-4.5-.1 0-4-1.6-4-6.4z" fill="currentColor"></path><path d="M22.4 7.3c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 3-1.6 4.7 1.7.1 3.5-.9 4.6-2.2z" fill="currentColor"></path></svg></div>
               <div class="dl-name">Tyvaris for Mac</div>
               <div class="dl-meta">macOS 12+ · Apple Silicon + Intel · DMG</div>
             </a>
             <a class="dl-card" id="dl-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe">
-              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 5.5l12.5-1.7v12H4V5.5z" fill="#00ADEF"/><path d="M17.8 3.6L32 1.5v14.8H17.8V3.6z" fill="#00ADEF"/><path d="M4 17.2h12.5v12L4 27.5V17.2z" fill="#00ADEF"/><path d="M17.8 17.2H32v14.8l-14.2-2V17.2z" fill="#00ADEF"/></svg></div>
+              <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 5.5l12.5-1.7v12H4V5.5z" fill="#00ADEF"></path><path d="M17.8 3.6L32 1.5v14.8H17.8V3.6z" fill="#00ADEF"></path><path d="M4 17.2h12.5v12L4 27.5V17.2z" fill="#00ADEF"></path><path d="M17.8 17.2H32v14.8l-14.2-2V17.2z" fill="#00ADEF"></path></svg></div>
               <div class="dl-name">Tyvaris for Windows</div>
-              <div class="dl-meta">Windows 10/11 · x64 · EXE installer</div>
+              <div class="dl-meta" data-en="Windows 10/11 · x64 · EXE installer" data-es="Windows 10/11 · x64 · Instalador EXE">Windows 10/11 · x64 · EXE installer</div>
             </a>
           </div>
           <p style="font-size:12px;color:var(--mut);font-family:var(--mono);margin-top:14px">
@@ -1745,5 +1987,34 @@ window.addEventListener('scroll', function(){
   else nav.style.borderBottomColor = 'rgba(255,255,255,.07)'
 })
 </script>
-</body>
-</html>
+
+
+<veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{appearance:auto}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{appearance:auto;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}@keyframes slide-in{0%{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.gradient-blue{background:radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)}.gradient-green{background:radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)}.gradient-purple{background:radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)}.bg-blue{background-color:#f2f5ff}.bg-purple{background-color:#f7f0ff}.bg-green{background-color:#ebffed}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;right:24px;bottom:24px;width:327px;border-radius:24px;overflow:hidden;box-shadow:0 24px 32px #00000014;animation:slide-in .3s ease-in-out forwards}.lock-screen__content{position:relative;padding:24px 24px 64px}.lock-screen__close{position:absolute;top:16px;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.5}.lock-screen__label{height:26px;width:fit-content;border-radius:50px;background-color:#fff3;padding-inline:16px;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:12px;line-height:18px;margin:-8px auto 16px}.lock-screen__title{color:#fff;text-align:center;font-size:20px;line-height:28px;font-weight:600;margin-bottom:8px}.lock-screen__description{color:#f5f6f7;text-align:center;font-size:14px;line-height:20px}.lock-screen__description b{font-weight:600}.lock-screen__card{position:relative;z-index:1;margin-top:-44px;background-color:#fff;border-radius:24px;padding:32px 20px 20px}.lock-screen__inner{margin-bottom:24px}.lock-screen__submit{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:16px;height:40px;width:100%;border-radius:12px;padding-inline:16px;background-color:#f70;color:#fff;margin-bottom:16px}.lock-screen__skip{display:flex;align-items:center;justify-content:center;font-size:14px;line-height:20px;color:#82829c;margin-inline:auto}.price-card{border:1px solid #f2f2fc;background:linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);border-radius:24px;padding:24px 28px}.price-card__label{color:#4a5764;text-align:center;font-size:14px;line-height:20px;text-transform:uppercase;margin-bottom:16px}.price-card__price{display:flex;justify-content:center;align-items:flex-start;column-gap:2px;margin-bottom:12px}.price-card__currency{color:#515478;font-size:18px;line-height:28px}.price-card__number{color:#14142a;text-align:center;font-size:64px;line-height:54px}.price-card__wrap{display:flex;flex-direction:column}.price-card__decimal{color:#515478;font-size:18px;line-height:28px;font-weight:600}.price-card__period{color:#515478;font-size:14px;line-height:20px;margin-top:-6px}.price-card__discount{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.price-card__discount-divider{position:absolute;z-index:0;top:50%;left:0;width:100%;height:1px;background-color:#dbe2f9;transform:translateY(-50%)}.price-card__discount-icon{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}.price-card__discount-text{position:relative;z-index:2;color:#fff;font-size:12px;font-weight:600;line-height:18px}.price-card__features{display:flex;align-items:center;justify-content:center;column-gap:16px}.price-card__feature{color:#222e3a;font-size:14px;line-height:20px;display:flex;align-items:center;gap:6px}.price-card__feature:before{content:"";display:block;width:4px;height:4px;background-color:#20df9e;border-radius:50%;flex-shrink:0}.features-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.features-list__item{display:flex;flex-direction:column;align-items:center;gap:6px}.features-list__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}.features-list__text{color:#293a53;text-align:center;font-size:16px;line-height:24px;letter-spacing:-.1px}</style></template><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></veepn-lock-screen><script>
+function setOS(os) {
+  var isMac = os === 'mac'
+  document.getElementById('os-mac').style.background = isMac ? 'var(--acc)' : 'transparent'
+  document.getElementById('os-mac').style.color = isMac ? 'white' : 'var(--mut)'
+  document.getElementById('os-win').style.background = !isMac ? 'var(--acc)' : 'transparent'
+  document.getElementById('os-win').style.color = !isMac ? 'white' : 'var(--mut)'
+  var macEls = ['s1-mac','s1-mac-note','s3-mac','s5-mac']
+  var winEls = ['s1-win','s1-win-note','s3-win','s5-win']
+  macEls.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display = isMac?'':'none' })
+  winEls.forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display = !isMac?'':'none' })
+}
+</script>
+
+<script>
+var _landingLang = 'en'
+function toggleLang() {
+  _landingLang = _landingLang === 'en' ? 'es' : 'en'
+  document.getElementById('lang-btn').textContent = _landingLang === 'en' ? 'EN' : 'ES'
+  applyLandingLang()
+}
+function applyLandingLang() {
+  var en = _landingLang === 'en'
+  document.querySelectorAll('[data-en]').forEach(function(el) {
+    el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-es')
+  })
+}
+</script>
+</body></html>
