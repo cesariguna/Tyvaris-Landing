@@ -562,160 +562,6 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
-<section id="compare" style="padding:100px 24px">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:60px">
-      <div class="section-label" data-en="COMPARISON" data-es="COMPARACIÓN">COMPARISON</div>
-      <h2 class="section-title" data-en="How Tyvaris stacks up" data-es="Cómo se compara Tyvaris">How Tyvaris stacks up</h2>
-      <p class="section-sub" style="margin:0 auto" data-en="Not all journals are built the same. Here's what sets Tyvaris apart." data-es="No todos los journals son iguales. Esto es lo que hace diferente a Tyvaris.">Not all journals are built the same. Here's what sets Tyvaris apart.</p>
-    </div>
-
-    <!-- DESKTOP TABLE -->
-    <div class="cmp-desktop">
-      <table style="width:100%;border-collapse:separate;border-spacing:0">
-        <thead>
-          <tr>
-            <th style="padding:16px 20px;text-align:left;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1);width:40%"></th>
-            <th style="padding:16px 20px;text-align:center;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--mut);letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--b1)" data-en="Typical web journals" data-es="Journals web típicos">Typical web journals</th>
-            <th style="padding:0;text-align:center;border-bottom:none;position:relative">
-              <div style="background:rgba(91,76,219,.08);border:1px solid rgba(91,76,219,.35);border-bottom:none;border-radius:12px 12px 0 0;padding:16px 20px;position:relative">
-                <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--acc);color:#fff;font-size:9px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:3px 12px;border-radius:99px;letter-spacing:1.5px;white-space:nowrap" data-en="YOU ARE HERE" data-es="ESTÁS AQUÍ">YOU ARE HERE</div>
-                <span style="font-size:14px;font-weight:800;color:var(--txt)">Tyvaris</span>
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="compare-body"></tbody>
-        <tfoot>
-          <tr>
-            <td style="padding:20px;font-size:13px;font-weight:700;color:var(--txt);border-top:1px solid var(--b1)" data-en="Price" data-es="Precio">Price</td>
-            <td style="padding:20px;text-align:center;font-size:13px;color:var(--mut);border-top:1px solid var(--b1)" data-en="$40–$60 / month" data-es="$40–$60 / mes">$40–$60 / month</td>
-            <td style="padding:20px;text-align:center;border-top:1px solid rgba(91,76,219,.2);background:rgba(91,76,219,.05);border-left:1px solid rgba(91,76,219,.2);border-right:1px solid rgba(91,76,219,.2)">
-              <span style="font-size:15px;font-weight:800;color:var(--grn)">$149<span style="font-size:12px;font-weight:500;color:var(--mut)">/yr</span></span>
-              <div style="font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--grn);margin-top:3px" data-en="Free during beta" data-es="Gratis en beta">Free during beta</div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2" style="padding:0;border:none"></td>
-            <td style="padding:0;border:none"><div style="height:4px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn));border-radius:0 0 12px 12px"></div></td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-
-    <!-- MOBILE CARDS -->
-    <div class="cmp-mobile" id="compare-mobile"></div>
-
-    <div style="text-align:center;margin-top:40px">
-      <a href="#download" class="btn-hero btn-hero-primary" data-en="Try Tyvaris free →" data-es="Probá Tyvaris gratis →">Try Tyvaris free →</a>
-    </div>
-  </div>
-</section>
-
-<style>
-.cmp-desktop { display:block }
-.cmp-mobile  { display:none }
-@media(max-width:640px){
-  .cmp-desktop { display:none }
-  .cmp-mobile  { display:flex; flex-direction:column; gap:10px }
-}
-.cmp-row td { border-top:1px solid var(--b1); transition:background .15s }
-.cmp-row:hover td { background:rgba(255,255,255,.02) }
-.cmp-row td:last-child { border-left:1px solid rgba(91,76,219,.2); border-right:1px solid rgba(91,76,219,.2); background:rgba(91,76,219,.04) }
-.cmp-row:hover td:last-child { background:rgba(91,76,219,.08) }
-.cmp-check  { color:var(--grn); font-size:16px; font-weight:700 }
-.cmp-cross  { color:#444; font-size:18px }
-.cmp-partial{ color:#f5a623; font-size:12px; font-family:'IBM Plex Mono',monospace }
-.cmp-feat   { font-size:14px; color:var(--txt); font-weight:600 }
-.cmp-feat-sub { font-size:11px; color:var(--mut); margin-top:2px; font-family:'IBM Plex Mono',monospace }
-/* mobile card */
-.cmp-card { background:var(--bg2); border:1px solid var(--b1); border-radius:12px; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px }
-.cmp-card-left { flex:1 }
-.cmp-card-cols { display:flex; gap:16px; flex-shrink:0; align-items:center }
-.cmp-col-label { font-size:9px; font-family:'IBM Plex Mono',monospace; color:var(--mut); letter-spacing:1px; text-align:center; margin-bottom:4px }
-.cmp-col-val   { text-align:center }
-.cmp-card-tyvaris { border-color:rgba(91,76,219,.35); background:rgba(91,76,219,.05) }
-</style>
-
-<script>
-(function(){
-  var rows = [
-    { en:'MT5 native auto-sync',           es:'Sync automático nativo MT5',          sub_en:'No CSV exports, ever',            sub_es:'Sin exportar CSV nunca',             web:'partial', web_en:'CSV only',    web_es:'Solo CSV'    },
-    { en:'Desktop app — data stays local', es:'App desktop — datos locales',         sub_en:'Your files, your control',        sub_es:'Tus archivos, tu control',           web:false                                                  },
-    { en:'Conversational AI Coach',        es:'AI Coach conversacional',             sub_en:'Based on your actual trades',     sub_es:'Basado en tus trades reales',        web:false                                                  },
-    { en:'Protection & discipline system', es:'Sistema de protección y disciplina',  sub_en:'Blocks trading when rules break', sub_es:'Bloquea al romper tus reglas',       web:false                                                  },
-    { en:'Multiple MT5 accounts',          es:'Múltiples cuentas MT5',               sub_en:'All in one place',                sub_es:'Todo en un lugar',                   web:'partial', web_en:'Limited',     web_es:'Limitado'    },
-    { en:'Trading calendar heatmap',       es:'Heatmap de calendario',               sub_en:'Spot bad sessions at a glance',   sub_es:'Detectá malas sesiones fácilmente',  web:true                                                   },
-    { en:'Playbooks per setup',            es:'Playbooks por setup',                 sub_en:'Track edge by strategy',          sub_es:'Medí tu edge por estrategia',        web:'partial', web_en:'Basic notes', web_es:'Notas básicas'},
-    { en:'Google Drive sync',              es:'Sync con Google Drive',               sub_en:'Seamless Mac ↔ Windows',          sub_es:'Mac ↔ Windows sin fricción',         web:false                                                  },
-  ];
-
-  function webVal(r, lang) {
-    if(r.web === true)  return '<span class="cmp-check">✓</span>';
-    if(r.web === false) return '<span class="cmp-cross">✕</span>';
-    return '<span class="cmp-partial">'+(lang==='es'?r.web_es:r.web_en)+'</span>';
-  }
-
-  var lang = document.documentElement.lang === 'es' ? 'es' : 'en';
-
-  // Desktop table
-  var tbody = document.getElementById('compare-body');
-  if(tbody){
-    rows.forEach(function(r){
-      var tr = document.createElement('tr');
-      tr.className = 'cmp-row';
-      tr.innerHTML =
-        '<td style="padding:16px 20px">'+
-          '<div class="cmp-feat">'+( lang==='es'?r.es:r.en )+'</div>'+
-          '<div class="cmp-feat-sub">'+( lang==='es'?r.sub_es:r.sub_en )+'</div>'+
-        '</td>'+
-        '<td style="padding:16px 20px;text-align:center">'+webVal(r,lang)+'</td>'+
-        '<td style="padding:16px 20px;text-align:center"><span class="cmp-check">✓</span></td>';
-      tbody.appendChild(tr);
-    });
-  }
-
-  // Mobile cards
-  var mob = document.getElementById('compare-mobile');
-  if(mob){
-    // header card
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'display:grid;grid-template-columns:1fr 72px 72px;gap:12px;padding:0 4px;margin-bottom:4px';
-    hdr.innerHTML =
-      '<div></div>'+
-      '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--mut);letter-spacing:1px;text-align:center;text-transform:uppercase" data-en="Others" data-es="Otros">'+(lang==='es'?'Otros':'Others')+'</div>'+
-      '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--acc2);letter-spacing:1px;text-align:center;text-transform:uppercase">Tyvaris</div>';
-    mob.appendChild(hdr);
-
-    rows.forEach(function(r){
-      var card = document.createElement('div');
-      card.style.cssText = 'background:var(--bg2);border:1px solid var(--b1);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr 72px 72px;gap:12px;align-items:center';
-      card.innerHTML =
-        '<div>'+
-          '<div class="cmp-feat">'+( lang==='es'?r.es:r.en )+'</div>'+
-          '<div class="cmp-feat-sub">'+( lang==='es'?r.sub_es:r.sub_en )+'</div>'+
-        '</div>'+
-        '<div style="text-align:center">'+webVal(r,lang)+'</div>'+
-        '<div style="text-align:center;background:rgba(91,76,219,.08);border-radius:8px;padding:6px 0"><span class="cmp-check">✓</span></div>';
-      mob.appendChild(card);
-    });
-
-    // price row
-    var priceCard = document.createElement('div');
-    priceCard.style.cssText = 'background:var(--bg2);border:1px solid var(--b1);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr 72px 72px;gap:12px;align-items:center;margin-top:4px';
-    priceCard.innerHTML =
-      '<div class="cmp-feat" data-en="Price" data-es="Precio">'+(lang==='es'?'Precio':'Price')+'</div>'+
-      '<div style="text-align:center;font-size:11px;color:var(--mut)" data-en="$40–60/mo" data-es="$40–60/mes">'+(lang==='es'?'$40–60/mes':'$40–60/mo')+'</div>'+
-      '<div style="text-align:center;background:rgba(91,76,219,.08);border-radius:8px;padding:6px 4px">'+
-        '<div style="font-size:13px;font-weight:800;color:var(--grn)">$149<span style="font-size:10px;font-weight:400;color:var(--mut)">/yr</span></div>'+
-        '<div style="font-size:9px;font-family:\'IBM Plex Mono\',monospace;color:var(--grn)" data-en="free beta" data-es="beta gratis">'+(lang==='es'?'beta gratis':'free beta')+'</div>'+
-      '</div>';
-    mob.appendChild(priceCard);
-  }
-})();
-</script>
-
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-inner" style="text-align:center">
@@ -870,8 +716,14 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
     <!-- OS Toggle -->
     <div style="display:flex;justify-content:center;margin-bottom:48px">
       <div style="display:flex;background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:4px;gap:4px">
-        <button id="os-mac" onclick="setOS('mac')" style="padding:8px 28px;border-radius:7px;border:none;background:var(--acc);color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🍎 Mac</button>
-        <button id="os-win" onclick="setOS('win')" style="padding:8px 28px;border-radius:7px;border:none;background:transparent;color:var(--mut);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">🪟 Windows</button>
+        <button id="os-mac" onclick="setOS('mac')" style="padding:8px 24px;border-radius:7px;border:none;background:var(--acc);color:white;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px">
+          <svg width="15" height="15" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.5 135.4-317.5 268.5-317.5 99.8 0 182.6 65.8 244.9 65.8 59.2 0 152-69.1 265.9-69.1 43.3 0 156.2 4 236.4 116.5zM564.3 93.6c45.9-54.2 79.5-130 79.5-205.8 0-10.3-.6-20.7-2.6-29.1-75.9 2.9-166.5 50.5-221.9 114.9-42.8 49.3-83.3 125.1-83.3 202.2 0 11.6 1.9 23.2 2.6 26.7 4.5.6 11.6 1.6 18.7 1.6 68 0 150.4-45.2 206.9-110.5z"/></svg>
+          Mac
+        </button>
+        <button id="os-win" onclick="setOS('win')" style="padding:8px 24px;border-radius:7px;border:none;background:transparent;color:var(--mut);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px">
+          <svg width="15" height="15" viewBox="0 0 88 88" fill="currentColor"><path d="M0 12.402l35.687-4.86.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.026 45.7zm4.326-39.025L87.314 0v41.527l-47.318.376zm47.329 39.349l-.011 41.34-47.318-6.678-.066-34.739z"/></svg>
+          Windows
+        </button>
       </div>
     </div>
 
