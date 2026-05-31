@@ -123,21 +123,37 @@ section{padding:100px 24px}
 .diff-list li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0}
 
 /* PRICING */
-.pricing-wrap{display:grid;grid-template-columns:1fr 420px 1fr;gap:0;max-width:900px;margin:0 auto}
-.pricing-card{background:var(--bg2);border:1px solid var(--b1);border-radius:20px;padding:40px;position:relative;overflow:hidden;grid-column:2}
-.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn))}
+.pricing-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:860px;margin:0 auto}
+.pricing-card{background:var(--bg2);border:1px solid var(--b1);border-radius:20px;padding:36px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.pricing-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.pricing-card.featured{border-color:rgba(91,76,219,.45);background:linear-gradient(160deg,rgba(91,76,219,.07),var(--bg2))}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--b1)}
+.pricing-card.featured::before{background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn))}
+.pricing-best{position:absolute;top:18px;right:18px;font-size:10px;font-family:var(--mono);padding:3px 10px;border-radius:100px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:700;letter-spacing:.5px}
 .pricing-badge{display:inline-block;font-size:10px;font-family:var(--mono);padding:4px 12px;border-radius:100px;background:rgba(0,200,150,.12);color:var(--grn);border:1px solid rgba(0,200,150,.2);margin-bottom:20px;letter-spacing:1px}
-.pricing-price{font-size:64px;font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:4px}
-.pricing-price span{font-size:24px;font-weight:500;color:var(--mut);letter-spacing:0}
+.pricing-badge.monthly{background:rgba(91,76,219,.12);color:var(--acc2);border-color:rgba(91,76,219,.25)}
+.pricing-price{font-size:58px;font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:4px}
+.pricing-price span{font-size:22px;font-weight:500;color:var(--mut);letter-spacing:0}
 .pricing-period{font-size:13px;color:var(--mut);font-family:var(--mono);margin-bottom:8px}
-.pricing-beta{font-size:12px;color:var(--grn);font-family:var(--mono);margin-bottom:32px;padding:8px 12px;background:rgba(0,200,150,.06);border-radius:6px;border:1px solid rgba(0,200,150,.15)}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.pricing-saving{font-size:11px;color:var(--grn);font-family:var(--mono);margin-bottom:8px;font-weight:600}
+.pricing-beta{font-size:12px;color:var(--grn);font-family:var(--mono);margin-bottom:28px;padding:8px 12px;background:rgba(0,200,150,.06);border-radius:6px;border:1px solid rgba(0,200,150,.15)}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
 .pricing-features li{font-size:14px;display:flex;align-items:center;gap:10px;color:var(--txt)}
 .pricing-features li .check{color:var(--grn);font-weight:700;flex-shrink:0}
 .pricing-features li .soon{font-size:10px;font-family:var(--mono);color:var(--mut);margin-left:auto}
-.btn-pricing{width:100%;padding:15px;border-radius:10px;border:none;background:var(--acc);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;text-align:center;display:block;text-decoration:none}
-.btn-pricing:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,76,219,.4)}
+.btn-pricing{width:100%;padding:14px;border-radius:10px;border:none;background:rgba(255,255,255,.06);color:var(--txt);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;text-align:center;display:block;text-decoration:none;border:1px solid var(--b2)}
+.btn-pricing:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
+.btn-pricing.primary{background:var(--acc);color:#fff;border:none}
+.btn-pricing.primary:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,76,219,.4)}
 .pricing-note{text-align:center;font-size:12px;color:var(--mut);margin-top:14px;font-family:var(--mono)}
+/* plan selector inside modal */
+.plan-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.plan-opt{padding:12px 10px;border-radius:9px;border:1px solid var(--b1);background:var(--bg);cursor:pointer;text-align:center;transition:all .15s}
+.plan-opt.sel{border-color:var(--acc);background:rgba(91,76,219,.1)}
+.plan-opt-name{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.plan-opt-price{font-size:18px;font-weight:800;color:var(--txt);line-height:1.1;font-family:var(--mono)}
+.plan-opt-sub{font-size:10px;color:var(--mut);font-family:var(--mono);margin-top:2px}
+.plan-opt-save{font-size:10px;color:var(--grn);font-family:var(--mono);margin-top:3px;font-weight:600}
 /* BETA COUNTER */
 .beta-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px auto 0;max-width:320px}
 .beta-counter-bar{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
@@ -202,11 +218,6 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
 .field label{display:block;font-size:10px;font-family:var(--mono);color:var(--mut);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
 .field input{width:100%;background:var(--bg);border:1px solid var(--b1);color:var(--txt);font-family:var(--sans);font-size:14px;padding:11px 14px;border-radius:8px;outline:none;transition:border-color .2s}
 .field input:focus{border-color:var(--acc)}
-.pwd-wrap{position:relative}
-.pwd-wrap input{padding-right:44px}
-.pwd-eye{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--mut);padding:4px;display:flex;align-items:center;justify-content:center;transition:color .15s;-webkit-appearance:none;appearance:none;outline:none}
-.pwd-eye:hover{color:var(--txt)}
-.pwd-eye svg{width:18px;height:18px;display:block}
 .auth-err{display:none;font-size:12px;color:#e63950;font-family:var(--mono);padding:8px 12px;background:rgba(230,57,80,.08);border:1px solid rgba(230,57,80,.2);border-radius:6px;margin-bottom:14px}
 .btn-full{width:100%;padding:13px;border-radius:8px;border:none;background:var(--acc);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;margin-bottom:14px}
 .btn-full:hover{background:var(--acc2);transform:translateY(-1px)}
@@ -575,10 +586,37 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
     <p class="section-sub" style="margin:0 auto 60px" data-en="One plan. Everything included. Cancel anytime." data-es="Un plan. Todo incluido. Cancelá cuando quieras.">One plan. Everything included. Cancel anytime.</p>
 
     <div class="pricing-wrap">
+
+      <!-- MONTHLY -->
       <div class="pricing-card">
+        <div class="pricing-badge monthly" data-en="MONTHLY" data-es="MENSUAL">MONTHLY</div>
+        <div class="pricing-price">$19<span>/mo</span></div>
+        <div class="pricing-period" data-en="after beta · billed monthly" data-es="después de la beta · facturado mensualmente">after beta · billed monthly</div>
+        <div class="pricing-beta" data-en="🎉 Beta is completely free — no credit card required." data-es="🎉 La beta es completamente gratis — sin tarjeta de crédito.">🎉 Beta is completely free — no credit card required.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> <span data-en="MT5 auto-sync (EA included)" data-es="Sync automático MT5 (EA incluido)">MT5 auto-sync (EA included)</span></li>
+          <li><span class="check">✓</span> <span data-en="Futures &amp; prop firm import" data-es="Importación de futuros y prop firms">Futures &amp; prop firm import</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited trading accounts" data-es="Cuentas de trading ilimitadas">Unlimited trading accounts</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited journal entries" data-es="Entradas de journal ilimitadas">Unlimited journal entries</span></li>
+          <li><span class="check">✓</span> <span data-en="Unlimited playbooks" data-es="Playbooks ilimitados">Unlimited playbooks</span></li>
+          <li><span class="check">✓</span> <span data-en="Advanced analytics &amp; calendar" data-es="Analytics avanzado y calendario">Advanced analytics &amp; calendar</span></li>
+          <li><span class="check">✓</span> <span data-en="AI Coach" data-es="AI Coach">AI Coach</span></li>
+          <li><span class="check">✓</span> <span data-en="Protection &amp; discipline system" data-es="Sistema de protección y disciplina">Protection &amp; discipline system</span></li>
+          <li><span class="check">✓</span> <span data-en="Google Drive sync" data-es="Sync con Google Drive">Google Drive sync</span></li>
+          <li><span class="check">✓</span> <span data-en="Mac + Windows (2 devices)" data-es="Mac + Windows (2 dispositivos)">Mac + Windows (2 devices)</span></li>
+          <li><span class="check">✓</span> <span data-en="NinjaTrader &amp; cTrader" data-es="NinjaTrader &amp; cTrader">NinjaTrader &amp; cTrader</span> <span class="soon">SOON</span></li>
+        </ul>
+        <a href="#download" class="btn-pricing" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
+        <p class="pricing-note" data-en="No credit card · Free 1 month · $19/mo after" data-es="Sin tarjeta · Gratis 1 mes · $19/mes después">No credit card · Free 1 month · $19/mo after</p>
+      </div>
+
+      <!-- ANNUAL — featured -->
+      <div class="pricing-card featured">
+        <div class="pricing-best" data-en="BEST VALUE" data-es="MEJOR VALOR">BEST VALUE</div>
         <div class="pricing-badge" data-en="BETA — 1 MONTH FREE" data-es="BETA — 1 MES GRATIS">BETA — 1 MONTH FREE</div>
         <div class="pricing-price">$149<span>/yr</span></div>
         <div class="pricing-period" data-en="after beta · billed annually" data-es="después de la beta · facturado anualmente">after beta · billed annually</div>
+        <div class="pricing-saving" data-en="✦ Save $79 vs monthly — 2 months free" data-es="✦ Ahorrás $79 vs mensual — 2 meses gratis">✦ Save $79 vs monthly — 2 months free</div>
         <div class="pricing-beta" data-en="🎉 Beta period is completely free — no credit card required. Give feedback, shape the product." data-es="🎉 La beta es completamente gratis — sin tarjeta de crédito. Danos feedback y ayudanos a mejorar el producto.">🎉 Beta period is completely free — no credit card required. Give feedback, shape the product.</div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> <span data-en="MT5 auto-sync (EA included)" data-es="Sync automático MT5 (EA incluido)">MT5 auto-sync (EA included)</span></li>
@@ -593,13 +631,14 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <li><span class="check">✓</span> <span data-en="Mac + Windows (2 devices)" data-es="Mac + Windows (2 dispositivos)">Mac + Windows (2 devices)</span></li>
           <li><span class="check">✓</span> <span data-en="NinjaTrader &amp; cTrader" data-es="NinjaTrader &amp; cTrader">NinjaTrader &amp; cTrader</span> <span class="soon">SOON</span></li>
         </ul>
-        <a href="#download" class="btn-pricing" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
+        <a href="#download" class="btn-pricing primary" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
         <p class="pricing-note" data-en="No credit card · Free for 1 month · $149/yr after" data-es="Sin tarjeta · Gratis 1 mes · $149/año después">No credit card · Free for 1 month · $149/yr after</p>
-        <div class="beta-counter" id="pricing-counter" style="display: flex;">
-          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width: 6%;"></div></div>
+        <div class="beta-counter" id="pricing-counter" style="display:flex;margin-top:12px">
+          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width:6%"></div></div>
           <div class="beta-counter-text"><strong id="pricing-counter-left">94</strong> <span data-en="spots left" data-es="lugares disponibles">spots left</span></div>
         </div>
       </div>
+
     </div>
 
     <!-- Payment methods -->
@@ -642,16 +681,29 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <div class="pay-modal-title" id="pay-modal-title">Subscribe to Tyvaris</div>
       <button onclick="closePayModal()" style="background:none;border:none;color:var(--mut);font-size:20px;cursor:pointer;line-height:1;padding:0 0 0 12px">✕</button>
     </div>
-    <div class="pay-modal-sub" id="pay-modal-sub">Enter your email to continue</div>
+    <div class="pay-modal-sub" id="pay-modal-sub">Choose your plan</div>
+    <!-- Plan selector -->
+    <div class="plan-toggle" id="pay-plan-toggle">
+      <div class="plan-opt sel" id="plan-opt-annual" onclick="selectPlan('annual')">
+        <div class="plan-opt-name" data-en="Annual" data-es="Anual">Annual</div>
+        <div class="plan-opt-price">$149<span style="font-size:12px;font-weight:500;color:var(--mut)">/yr</span></div>
+        <div class="plan-opt-save" data-en="2 months free" data-es="2 meses gratis">2 months free</div>
+      </div>
+      <div class="plan-opt" id="plan-opt-monthly" onclick="selectPlan('monthly')">
+        <div class="plan-opt-name" data-en="Monthly" data-es="Mensual">Monthly</div>
+        <div class="plan-opt-price">$19<span style="font-size:12px;font-weight:500;color:var(--mut)">/mo</span></div>
+        <div class="plan-opt-sub" data-en="$228/yr total" data-es="$228/año total">$228/yr total</div>
+      </div>
+    </div>
     <div id="pay-modal-email-wrap">
       <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)confirmPayment()">
     </div>
     <div class="pay-modal-err" id="pay-modal-err"></div>
     <div class="pay-modal-actions">
-      <button class="pay-modal-cancel" onclick="closePayModal()">Cancel</button>
+      <button class="pay-modal-cancel" onclick="closePayModal()" data-en="Cancel" data-es="Cancelar">Cancel</button>
       <button class="pay-modal-confirm" id="pay-modal-confirm" onclick="confirmPayment()">Continue →</button>
     </div>
-    <p style="font-size:11px;color:var(--mut);text-align:center;margin-top:14px;font-family:var(--mono)">🔒 Secure · $149 USD / year · Cancel anytime</p>
+    <p id="pay-modal-footer" style="font-size:11px;color:var(--mut);text-align:center;margin-top:14px;font-family:var(--mono)">🔒 Secure · $149 USD / year · Cancel anytime</p>
   </div>
 </div>
 
@@ -1012,12 +1064,7 @@ function setOS(os) {
       </div>
       <div class="field">
         <label data-en="Password" data-es="Contraseña">Password</label>
-        <div class="pwd-wrap">
-          <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key===&#39;Enter&#39;)webLogin()">
-          <button type="button" class="pwd-eye" onclick="togglePwd('login-pass',this)" tabindex="-1" aria-label="Mostrar contraseña">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
+        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key===&#39;Enter&#39;)webLogin()">
       </div>
       <button class="btn-full" id="login-btn" onclick="webLogin()">Sign in →</button>
       <p class="auth-link">Don't have an account? <a href="#" onclick="showView(&#39;register&#39;);return false">Create account →</a></p>
@@ -1048,21 +1095,11 @@ function setOS(os) {
       </div>
       <div class="field">
         <label data-en="Password" data-es="Contraseña">Password</label>
-        <div class="pwd-wrap">
-          <input type="password" id="register-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-pass2&#39;).focus()">
-          <button type="button" class="pwd-eye" onclick="togglePwd('register-pass',this)" tabindex="-1" aria-label="Mostrar contraseña">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
+        <input type="password" id="register-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-pass2&#39;).focus()">
       </div>
       <div class="field">
         <label>Confirm password</label>
-        <div class="pwd-wrap">
-          <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-referral&#39;).focus()">
-          <button type="button" class="pwd-eye" onclick="togglePwd('register-pass2',this)" tabindex="-1" aria-label="Mostrar contraseña">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
+        <input type="password" id="register-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;register-referral&#39;).focus()">
       </div>
       <div class="field" id="field-referral">
         <label style="display:flex;align-items:center;justify-content:space-between">
@@ -1179,21 +1216,11 @@ function setOS(os) {
       </div>
       <div class="field">
         <label>New password</label>
-        <div class="pwd-wrap">
-          <input type="password" id="reset-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;reset-pass2&#39;).focus()">
-          <button type="button" class="pwd-eye" onclick="togglePwd('reset-pass',this)" tabindex="-1" aria-label="Mostrar contraseña">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
+        <input type="password" id="reset-pass" placeholder="Min. 6 characters" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)document.getElementById(&#39;reset-pass2&#39;).focus()">
       </div>
       <div class="field">
         <label>Confirm password</label>
-        <div class="pwd-wrap">
-          <input type="password" id="reset-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)webResetConfirm()">
-          <button type="button" class="pwd-eye" onclick="togglePwd('reset-pass2',this)" tabindex="-1" aria-label="Mostrar contraseña">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </button>
-        </div>
+        <input type="password" id="reset-pass2" placeholder="Repeat password" autocomplete="new-password" onkeydown="if(event.key===&#39;Enter&#39;)webResetConfirm()">
       </div>
       <button class="btn-full" id="reset-btn" onclick="webResetConfirm()">Set new password →</button>
       <p class="auth-link" style="margin-top:10px"><a href="#" onclick="showView(&#39;login&#39;);return false" style="color:var(--mut)">← Back to sign in</a></p>
@@ -1272,30 +1299,15 @@ function setOS(os) {
           <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px" id="dash-pwd-fields">
             <div class="field" style="margin:0">
               <label>Current password</label>
-              <div class="pwd-wrap">
-                <input type="password" id="dash-pwd-current" placeholder="••••••••">
-                <button type="button" class="pwd-eye" onclick="togglePwd('dash-pwd-current',this)" tabindex="-1" aria-label="Mostrar contraseña">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-              </div>
+              <input type="password" id="dash-pwd-current" placeholder="••••••••">
             </div>
             <div class="field" style="margin:0">
               <label>New password</label>
-              <div class="pwd-wrap">
-                <input type="password" id="dash-pwd-new" placeholder="••••••••">
-                <button type="button" class="pwd-eye" onclick="togglePwd('dash-pwd-new',this)" tabindex="-1" aria-label="Mostrar contraseña">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-              </div>
+              <input type="password" id="dash-pwd-new" placeholder="••••••••">
             </div>
             <div class="field" style="margin:0">
               <label>Confirm new password</label>
-              <div class="pwd-wrap">
-                <input type="password" id="dash-pwd-confirm" placeholder="••••••••">
-                <button type="button" class="pwd-eye" onclick="togglePwd('dash-pwd-confirm',this)" tabindex="-1" aria-label="Mostrar contraseña">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-              </div>
+              <input type="password" id="dash-pwd-confirm" placeholder="••••••••">
             </div>
           </div>
           <div class="dash-btn-row">
@@ -1556,7 +1568,7 @@ async function loadDashboard() {
     if (el('dash-email-disp')) el('dash-email-disp').textContent = email
     var sub = data.subscription
     if (el('dash-sub-dot'))  el('dash-sub-dot').className  = 'sub-dot'+(data.valid?'':' inactive')
-    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan==='beta'?'Beta':sub.plan==='trial'?'Trial':'Annual'):(data.valid?'Beta':'Inactive')
+    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan==='beta'?'Beta':sub.plan==='trial'?'Trial':sub.plan==='monthly'?'Monthly':'Annual'):(data.valid?'Beta':'Inactive')
     if (el('dash-plan-badge')) el('dash-plan-badge').innerHTML = getDashboardTrialBadge(sub)
     if (el('dash-expires')) {
       if (sub && sub.expires_at) {
@@ -1864,6 +1876,7 @@ async function validateReferralCode(code) {
 
 // ─── PAYMENT MODAL ───────────────────────────────────────────────
 var _payMethod = null
+var _payPlan   = 'annual'   // 'annual' | 'monthly'
 
 // Recuperar user desde token JWT si _webUser es null pero _webToken existe
 function getPayUserId() {
@@ -1887,16 +1900,28 @@ function getPayUserEmail() {
   return ''
 }
 
+function selectPlan(plan) {
+  _payPlan = plan
+  document.getElementById('plan-opt-annual').classList.toggle('sel',  plan === 'annual')
+  document.getElementById('plan-opt-monthly').classList.toggle('sel', plan === 'monthly')
+  var footer = document.getElementById('pay-modal-footer')
+  if (footer) {
+    footer.textContent = plan === 'annual'
+      ? '🔒 Secure · $149 USD / year · Cancel anytime'
+      : '🔒 Secure · $19 USD / month · Cancel anytime'
+  }
+}
+
 function openPayModal(method) {
   _payMethod = method
-  var titles = { stripe: 'Credit / Debit Card — $149/yr', mp: 'Mercado Pago — $149/yr', crypto: 'Crypto — $149/yr' }
-  var subs   = { stripe: 'Redirecting to Stripe secure checkout', mp: 'Serás redirigido al checkout de Mercado Pago', crypto: 'Redirecting to NOWPayments crypto checkout' }
-  document.getElementById('pay-modal-title').textContent = titles[method] || 'Subscribe'
-  document.getElementById('pay-modal-sub').textContent   = subs[method]  || ''
+  _payPlan   = 'annual'   // default to annual each time
+  selectPlan('annual')
+  var methodNames = { stripe: 'Card (Stripe)', mp: 'Mercado Pago', crypto: 'Crypto' }
+  document.getElementById('pay-modal-title').textContent = 'Subscribe — ' + (methodNames[method] || method)
+  document.getElementById('pay-modal-sub').textContent   = 'Choose your billing plan'
   var emailInput = document.getElementById('pay-modal-email')
   var knownEmail = getPayUserEmail()
   emailInput.value = knownEmail
-  // Si ya tiene sesión, ocultar el campo de email
   var emailWrap = document.getElementById('pay-modal-email-wrap')
   if (emailWrap) emailWrap.style.display = knownEmail ? 'none' : 'block'
   document.getElementById('pay-modal-err').style.display = 'none'
@@ -1925,7 +1950,6 @@ async function confirmPayment() {
     errEl.textContent = 'Please enter a valid email'; errEl.style.display = 'block'; return
   }
 
-  // Obtener user_id del token JWT (no depender de _webUser que puede ser null)
   var userId = getPayUserId()
   if (!userId) {
     errEl.textContent = 'Please sign in first to continue.'
@@ -1945,7 +1969,7 @@ async function confirmPayment() {
     var res = await fetch(BACKEND + endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _webToken },
-      body: JSON.stringify({ email: email, user_id: userId, plan: 'annual' })
+      body: JSON.stringify({ email: email, user_id: userId, plan: _payPlan })
     })
     var data = await res.json()
     if (!res.ok) {
@@ -2067,19 +2091,6 @@ function applyLandingLang() {
   document.querySelectorAll('[data-en]').forEach(function(el) {
     el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-es')
   })
-}
-
-// ── PASSWORD VISIBILITY TOGGLE ────────────────────────────────
-var EYE_SHOW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>'
-var EYE_HIDE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
-function togglePwd(id, btn) {
-  var inp = document.getElementById(id)
-  if (!inp) return
-  var showing = inp.type === 'text'
-  inp.type = showing ? 'password' : 'text'
-  btn.innerHTML = showing ? EYE_SHOW : EYE_HIDE
-  btn.style.color = showing ? '' : 'var(--txt)'
-  inp.focus()
 }
 </script>
 </body></html>
