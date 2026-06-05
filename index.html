@@ -123,37 +123,21 @@ section{padding:100px 24px}
 .diff-list li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0}
 
 /* PRICING */
-.pricing-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:860px;margin:0 auto}
-.pricing-card{background:var(--bg2);border:1px solid var(--b1);border-radius:20px;padding:36px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.pricing-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
-.pricing-card.featured{border-color:rgba(91,76,219,.45);background:linear-gradient(160deg,rgba(91,76,219,.07),var(--bg2))}
-.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--b1)}
-.pricing-card.featured::before{background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn))}
-.pricing-best{position:absolute;top:18px;right:18px;font-size:10px;font-family:var(--mono);padding:3px 10px;border-radius:100px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:700;letter-spacing:.5px}
+.pricing-wrap{display:grid;grid-template-columns:1fr 420px 1fr;gap:0;max-width:900px;margin:0 auto}
+.pricing-card{background:var(--bg2);border:1px solid var(--b1);border-radius:20px;padding:40px;position:relative;overflow:hidden;grid-column:2}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2),var(--grn))}
 .pricing-badge{display:inline-block;font-size:10px;font-family:var(--mono);padding:4px 12px;border-radius:100px;background:rgba(0,200,150,.12);color:var(--grn);border:1px solid rgba(0,200,150,.2);margin-bottom:20px;letter-spacing:1px}
-.pricing-badge.monthly{background:rgba(91,76,219,.12);color:var(--acc2);border-color:rgba(91,76,219,.25)}
-.pricing-price{font-size:58px;font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:4px}
-.pricing-price span{font-size:22px;font-weight:500;color:var(--mut);letter-spacing:0}
+.pricing-price{font-size:64px;font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:4px}
+.pricing-price span{font-size:24px;font-weight:500;color:var(--mut);letter-spacing:0}
 .pricing-period{font-size:13px;color:var(--mut);font-family:var(--mono);margin-bottom:8px}
-.pricing-saving{font-size:11px;color:var(--grn);font-family:var(--mono);margin-bottom:8px;font-weight:600}
-.pricing-beta{font-size:12px;color:var(--grn);font-family:var(--mono);margin-bottom:28px;padding:8px 12px;background:rgba(0,200,150,.06);border-radius:6px;border:1px solid rgba(0,200,150,.15)}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.pricing-beta{font-size:12px;color:var(--grn);font-family:var(--mono);margin-bottom:32px;padding:8px 12px;background:rgba(0,200,150,.06);border-radius:6px;border:1px solid rgba(0,200,150,.15)}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
 .pricing-features li{font-size:14px;display:flex;align-items:center;gap:10px;color:var(--txt)}
 .pricing-features li .check{color:var(--grn);font-weight:700;flex-shrink:0}
 .pricing-features li .soon{font-size:10px;font-family:var(--mono);color:var(--mut);margin-left:auto}
-.btn-pricing{width:100%;padding:14px;border-radius:10px;border:none;background:rgba(255,255,255,.06);color:var(--txt);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;text-align:center;display:block;text-decoration:none;border:1px solid var(--b2)}
-.btn-pricing:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
-.btn-pricing.primary{background:var(--acc);color:#fff;border:none}
-.btn-pricing.primary:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,76,219,.4)}
+.btn-pricing{width:100%;padding:15px;border-radius:10px;border:none;background:var(--acc);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .2s;text-align:center;display:block;text-decoration:none}
+.btn-pricing:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(91,76,219,.4)}
 .pricing-note{text-align:center;font-size:12px;color:var(--mut);margin-top:14px;font-family:var(--mono)}
-/* plan selector inside modal */
-.plan-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
-.plan-opt{padding:12px 10px;border-radius:9px;border:1px solid var(--b1);background:var(--bg);cursor:pointer;text-align:center;transition:all .15s}
-.plan-opt.sel{border-color:var(--acc);background:rgba(91,76,219,.1)}
-.plan-opt-name{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:2px}
-.plan-opt-price{font-size:18px;font-weight:800;color:var(--txt);line-height:1.1;font-family:var(--mono)}
-.plan-opt-sub{font-size:10px;color:var(--mut);font-family:var(--mono);margin-top:2px}
-.plan-opt-save{font-size:10px;color:var(--grn);font-family:var(--mono);margin-top:3px;font-weight:600}
 /* BETA COUNTER */
 .beta-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px auto 0;max-width:320px}
 .beta-counter-bar{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
@@ -586,37 +570,10 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
     <p class="section-sub" style="margin:0 auto 60px" data-en="One plan. Everything included. Cancel anytime." data-es="Un plan. Todo incluido. Cancelá cuando quieras.">One plan. Everything included. Cancel anytime.</p>
 
     <div class="pricing-wrap">
-
-      <!-- MONTHLY -->
       <div class="pricing-card">
-        <div class="pricing-badge monthly" data-en="MONTHLY" data-es="MENSUAL">MONTHLY</div>
-        <div class="pricing-price">$19<span>/mo</span></div>
-        <div class="pricing-period" data-en="after beta · billed monthly" data-es="después de la beta · facturado mensualmente">after beta · billed monthly</div>
-        <div class="pricing-beta" data-en="🎉 Beta is completely free — no credit card required." data-es="🎉 La beta es completamente gratis — sin tarjeta de crédito.">🎉 Beta is completely free — no credit card required.</div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> <span data-en="MT5 auto-sync (EA included)" data-es="Sync automático MT5 (EA incluido)">MT5 auto-sync (EA included)</span></li>
-          <li><span class="check">✓</span> <span data-en="Futures &amp; prop firm import" data-es="Importación de futuros y prop firms">Futures &amp; prop firm import</span></li>
-          <li><span class="check">✓</span> <span data-en="Unlimited trading accounts" data-es="Cuentas de trading ilimitadas">Unlimited trading accounts</span></li>
-          <li><span class="check">✓</span> <span data-en="Unlimited journal entries" data-es="Entradas de journal ilimitadas">Unlimited journal entries</span></li>
-          <li><span class="check">✓</span> <span data-en="Unlimited playbooks" data-es="Playbooks ilimitados">Unlimited playbooks</span></li>
-          <li><span class="check">✓</span> <span data-en="Advanced analytics &amp; calendar" data-es="Analytics avanzado y calendario">Advanced analytics &amp; calendar</span></li>
-          <li><span class="check">✓</span> <span data-en="AI Coach" data-es="AI Coach">AI Coach</span></li>
-          <li><span class="check">✓</span> <span data-en="Protection &amp; discipline system" data-es="Sistema de protección y disciplina">Protection &amp; discipline system</span></li>
-          <li><span class="check">✓</span> <span data-en="Google Drive sync" data-es="Sync con Google Drive">Google Drive sync</span></li>
-          <li><span class="check">✓</span> <span data-en="Mac + Windows (2 devices)" data-es="Mac + Windows (2 dispositivos)">Mac + Windows (2 devices)</span></li>
-          <li><span class="check">✓</span> <span data-en="NinjaTrader &amp; cTrader" data-es="NinjaTrader &amp; cTrader">NinjaTrader &amp; cTrader</span> <span class="soon">SOON</span></li>
-        </ul>
-        <a href="#download" class="btn-pricing" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
-        <p class="pricing-note" data-en="No credit card · Free 1 month · $19/mo after" data-es="Sin tarjeta · Gratis 1 mes · $19/mes después">No credit card · Free 1 month · $19/mo after</p>
-      </div>
-
-      <!-- ANNUAL — featured -->
-      <div class="pricing-card featured">
-        <div class="pricing-best" data-en="BEST VALUE" data-es="MEJOR VALOR">BEST VALUE</div>
         <div class="pricing-badge" data-en="BETA — 1 MONTH FREE" data-es="BETA — 1 MES GRATIS">BETA — 1 MONTH FREE</div>
         <div class="pricing-price">$149<span>/yr</span></div>
         <div class="pricing-period" data-en="after beta · billed annually" data-es="después de la beta · facturado anualmente">after beta · billed annually</div>
-        <div class="pricing-saving" data-en="✦ Save $79 vs monthly — 2 months free" data-es="✦ Ahorrás $79 vs mensual — 2 meses gratis">✦ Save $79 vs monthly — 2 months free</div>
         <div class="pricing-beta" data-en="🎉 Beta period is completely free — no credit card required. Give feedback, shape the product." data-es="🎉 La beta es completamente gratis — sin tarjeta de crédito. Danos feedback y ayudanos a mejorar el producto.">🎉 Beta period is completely free — no credit card required. Give feedback, shape the product.</div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> <span data-en="MT5 auto-sync (EA included)" data-es="Sync automático MT5 (EA incluido)">MT5 auto-sync (EA included)</span></li>
@@ -631,14 +588,13 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <li><span class="check">✓</span> <span data-en="Mac + Windows (2 devices)" data-es="Mac + Windows (2 dispositivos)">Mac + Windows (2 devices)</span></li>
           <li><span class="check">✓</span> <span data-en="NinjaTrader &amp; cTrader" data-es="NinjaTrader &amp; cTrader">NinjaTrader &amp; cTrader</span> <span class="soon">SOON</span></li>
         </ul>
-        <a href="#download" class="btn-pricing primary" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
+        <a href="#download" class="btn-pricing" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →" data-en="Download Free Beta →" data-es="Descargar Beta Gratis →">Download Free Beta →</a>
         <p class="pricing-note" data-en="No credit card · Free for 1 month · $149/yr after" data-es="Sin tarjeta · Gratis 1 mes · $149/año después">No credit card · Free for 1 month · $149/yr after</p>
-        <div class="beta-counter" id="pricing-counter" style="display:flex;margin-top:12px">
-          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width:6%"></div></div>
+        <div class="beta-counter" id="pricing-counter" style="display: flex;">
+          <div class="beta-counter-bar"><div class="beta-counter-fill" id="pricing-counter-fill" style="width: 6%;"></div></div>
           <div class="beta-counter-text"><strong id="pricing-counter-left">94</strong> <span data-en="spots left" data-es="lugares disponibles">spots left</span></div>
         </div>
       </div>
-
     </div>
 
     <!-- Payment methods -->
@@ -681,29 +637,30 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
       <div class="pay-modal-title" id="pay-modal-title">Subscribe to Tyvaris</div>
       <button onclick="closePayModal()" style="background:none;border:none;color:var(--mut);font-size:20px;cursor:pointer;line-height:1;padding:0 0 0 12px">✕</button>
     </div>
-    <div class="pay-modal-sub" id="pay-modal-sub">Choose your plan</div>
-    <!-- Plan selector -->
-    <div class="plan-toggle" id="pay-plan-toggle">
-      <div class="plan-opt sel" id="plan-opt-annual" onclick="selectPlan('annual')">
-        <div class="plan-opt-name" data-en="Annual" data-es="Anual">Annual</div>
-        <div class="plan-opt-price">$149<span style="font-size:12px;font-weight:500;color:var(--mut)">/yr</span></div>
-        <div class="plan-opt-save" data-en="2 months free" data-es="2 meses gratis">2 months free</div>
-      </div>
-      <div class="plan-opt" id="plan-opt-monthly" onclick="selectPlan('monthly')">
-        <div class="plan-opt-name" data-en="Monthly" data-es="Mensual">Monthly</div>
-        <div class="plan-opt-price">$19<span style="font-size:12px;font-weight:500;color:var(--mut)">/mo</span></div>
-        <div class="plan-opt-sub" data-en="$228/yr total" data-es="$228/año total">$228/yr total</div>
-      </div>
-    </div>
+    <div class="pay-modal-sub" id="pay-modal-sub">Enter your email to continue</div>
     <div id="pay-modal-email-wrap">
-      <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key===&#39;Enter&#39;)confirmPayment()">
+      <input class="pay-modal-input" id="pay-modal-email" type="email" placeholder="you@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')confirmPayment()">
+    </div>
+    <!-- Referral code -->
+    <div id="pay-referral-wrap" style="margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:6px" onclick="toggleReferralField()">
+        <span style="font-size:11px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px" data-en="Have a referral code?" data-es="¿Tenés un código de descuento?">Have a referral code?</span>
+        <span id="pay-referral-arrow" style="font-size:10px;color:var(--mut);transition:transform .2s">▼</span>
+      </div>
+      <div id="pay-referral-field" style="display:none">
+        <div style="display:flex;gap:8px">
+          <input class="pay-modal-input" id="pay-referral-code" type="text" placeholder="TRADER10" style="text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:0" oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')validateReferralCode()">
+          <button onclick="validateReferralCode()" style="background:var(--acc);color:#fff;border:none;border-radius:8px;padding:0 14px;font-size:12px;font-family:var(--mono);font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0" data-en="Apply" data-es="Aplicar">Apply</button>
+        </div>
+        <div id="pay-referral-msg" style="font-size:11px;font-family:var(--mono);margin-top:6px;min-height:16px"></div>
+      </div>
     </div>
     <div class="pay-modal-err" id="pay-modal-err"></div>
     <div class="pay-modal-actions">
-      <button class="pay-modal-cancel" onclick="closePayModal()" data-en="Cancel" data-es="Cancelar">Cancel</button>
+      <button class="pay-modal-cancel" onclick="closePayModal()">Cancel</button>
       <button class="pay-modal-confirm" id="pay-modal-confirm" onclick="confirmPayment()">Continue →</button>
     </div>
-    <p id="pay-modal-footer" style="font-size:11px;color:var(--mut);text-align:center;margin-top:14px;font-family:var(--mono)">🔒 Secure · $149 USD / year · Cancel anytime</p>
+    <p style="font-size:11px;color:var(--mut);text-align:center;margin-top:14px;font-family:var(--mono)">🔒 Secure · $149 USD / year · Cancel anytime</p>
   </div>
 </div>
 
@@ -797,8 +754,8 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <div class="step-title" data-en="Download & install Tyvaris" data-es="Descargar e instalar Tyvaris">Download & install Tyvaris</div>
           <p class="step-desc" data-en="Download the app for your operating system and run the installer." data-es="Descargá la app para tu sistema operativo y ejecutá el instalador.">Download the app for your operating system and run the installer.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <a id="s1-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none" data-en="⬇ Download for Mac" data-es="⬇ Descargar para Mac">⬇ Download for Mac</a>
-            <a id="s1-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris.Setup.3.0.1.exe" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none;display:none" data-en="⬇ Download for Windows" data-es="⬇ Descargar para Windows">⬇ Download for Windows</a>
+            <a id="s1-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none" data-en="⬇ Download for Mac" data-es="⬇ Descargar para Mac">⬇ Download for Mac</a>
+            <a id="s1-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none;display:none" data-en="⬇ Download for Windows" data-es="⬇ Descargar para Windows">⬇ Download for Windows</a>
           </div>
           <div id="s1-mac-note" class="step-note" style="margin-top:12px" data-en="Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it." data-es="Abrí el archivo <strong>.dmg</strong> → arrastrá Tyvaris a Aplicaciones → abrilo.">Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it.</div>
           <div id="s1-win-note" class="step-note" style="margin-top:12px;display:none">Run the <strong>.exe</strong> installer → if Windows shows a SmartScreen warning, click <strong>"More info" → "Run anyway"</strong>. This is normal for new apps without a code signing certificate.</div>
@@ -1015,8 +972,8 @@ function setOS(os) {
         <div class="beta-counter-text"><strong id="banner-counter-left">94</strong> <span data-en="of 100 beta spots remaining" data-es="de 100 lugares disponibles">of 100 beta spots remaining</span></div>
       </div>
       <div class="beta-ctas">
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows">Download for Windows</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows">Download for Windows</a>
       </div>
       <p style="font-size:12px;color:var(--mut);margin-top:20px;font-family:var(--mono)" data-en="macOS 12+ · Windows 10/11 · Free beta · $149/yr after" data-es="macOS 12+ · Windows 10/11 · Beta gratis · $149/año después">macOS 12+ · Windows 10/11 · Free beta · $149/yr after</p>
       <p style="font-size:11px;color:var(--mut);margin-top:10px;opacity:.6" data-en="As a new independent app, Mac or Windows may flag the installer on first run — this is normal for apps without a paid security certificate. On Mac: right-click → Open. On Windows: More info → Run anyway." data-es="Como app independiente nueva, Mac o Windows pueden marcar el instalador la primera vez — esto es normal para apps sin certificado de seguridad pago. En Mac: click derecho → Abrir. En Windows: Más información → Ejecutar de todas formas.">As a new independent app, Mac or Windows may flag the installer on first run — this is normal for apps without a paid security certificate. On Mac: right-click → Open. On Windows: More info → Run anyway.</p>
@@ -1320,12 +1277,12 @@ function setOS(os) {
         <div class="dash-card full">
           <div class="dash-card-title">Download Tyvaris</div>
           <div class="download-grid">
-            <a class="dl-card" id="dl-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg">
+            <a class="dl-card" id="dl-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris-3.0.0-arm64.dmg">
               <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M26.5 19.2c0-4.1 3.4-6.1 3.5-6.2-1.9-2.8-4.9-3.1-5.9-3.2-2.5-.3-4.9 1.5-6.2 1.5-1.3 0-3.2-1.4-5.3-1.4-2.7.1-5.2 1.6-6.6 4-2.8 4.9-.7 12.2 2 16.2 1.3 1.9 2.9 4.1 5 4 2-.1 2.8-1.3 5.2-1.3 2.4 0 3.1 1.3 5.3 1.2 2.2 0 3.5-2 4.8-3.9 1.5-2.2 2.1-4.4 2.2-4.5-.1 0-4-1.6-4-6.4z" fill="currentColor"></path><path d="M22.4 7.3c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 3-1.6 4.7 1.7.1 3.5-.9 4.6-2.2z" fill="currentColor"></path></svg></div>
               <div class="dl-name">Tyvaris for Mac</div>
               <div class="dl-meta">macOS 12+ · Apple Silicon + Intel · DMG</div>
             </a>
-            <a class="dl-card" id="dl-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris.Setup.3.0.1.exe">
+            <a class="dl-card" id="dl-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/V3.0.0/Tyvaris.Setup.3.0.1.exe">
               <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M4 5.5l12.5-1.7v12H4V5.5z" fill="#00ADEF"></path><path d="M17.8 3.6L32 1.5v14.8H17.8V3.6z" fill="#00ADEF"></path><path d="M4 17.2h12.5v12L4 27.5V17.2z" fill="#00ADEF"></path><path d="M17.8 17.2H32v14.8l-14.2-2V17.2z" fill="#00ADEF"></path></svg></div>
               <div class="dl-name">Tyvaris for Windows</div>
               <div class="dl-meta" data-en="Windows 10/11 · x64 · EXE installer" data-es="Windows 10/11 · x64 · Instalador EXE">Windows 10/11 · x64 · EXE installer</div>
@@ -1568,7 +1525,7 @@ async function loadDashboard() {
     if (el('dash-email-disp')) el('dash-email-disp').textContent = email
     var sub = data.subscription
     if (el('dash-sub-dot'))  el('dash-sub-dot').className  = 'sub-dot'+(data.valid?'':' inactive')
-    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan==='beta'?'Beta':sub.plan==='trial'?'Trial':sub.plan==='monthly'?'Monthly':'Annual'):(data.valid?'Beta':'Inactive')
+    if (el('dash-plan'))     el('dash-plan').textContent   = sub?(sub.plan==='beta'?'Beta':sub.plan==='trial'?'Trial':'Annual'):(data.valid?'Beta':'Inactive')
     if (el('dash-plan-badge')) el('dash-plan-badge').innerHTML = getDashboardTrialBadge(sub)
     if (el('dash-expires')) {
       if (sub && sub.expires_at) {
@@ -1875,47 +1832,96 @@ async function validateReferralCode(code) {
 }
 
 // ─── PAYMENT MODAL ───────────────────────────────────────────────
-var _payMethod = null
-var _payPlan   = 'annual'   // 'annual' | 'monthly'
+var _payMethod        = null
+var _payPlan          = 'annual'
+var _referralCode     = null
+var _referralDiscount = 0
 
-// Recuperar user desde token JWT si _webUser es null pero _webToken existe
 function getPayUserId() {
   if (_webUser && _webUser.id) return _webUser.id
   if (_webToken) {
-    try {
-      var payload = JSON.parse(atob(_webToken.split('.')[1]))
-      return payload.id || null
-    } catch(e) {}
+    try { return JSON.parse(atob(_webToken.split('.')[1])).id || null } catch(e) {}
   }
   return null
 }
 function getPayUserEmail() {
   if (_webUser && _webUser.email) return _webUser.email
   if (_webToken) {
-    try {
-      var payload = JSON.parse(atob(_webToken.split('.')[1]))
-      return payload.email || ''
-    } catch(e) {}
+    try { return JSON.parse(atob(_webToken.split('.')[1])).email || '' } catch(e) {}
   }
   return ''
 }
 
+function toggleReferralField() {
+  var field = document.getElementById('pay-referral-field')
+  var arrow = document.getElementById('pay-referral-arrow')
+  var hidden = field.style.display === 'none'
+  field.style.display = hidden ? 'block' : 'none'
+  arrow.style.transform = hidden ? 'rotate(180deg)' : ''
+  if (hidden) document.getElementById('pay-referral-code').focus()
+}
+
+async function validateReferralCode() {
+  var code  = document.getElementById('pay-referral-code').value.trim().toUpperCase()
+  var msgEl = document.getElementById('pay-referral-msg')
+  var footer = document.getElementById('pay-modal-footer')
+  if (!code) { msgEl.textContent = ''; return }
+  msgEl.style.color = 'var(--mut)'
+  msgEl.textContent = 'Validating...'
+  try {
+    var res  = await fetch(BACKEND + '/referral/validate/' + encodeURIComponent(code))
+    var data = await res.json()
+    if (data.valid) {
+      _referralCode     = code
+      _referralDiscount = data.discountPct
+      msgEl.style.color = '#00c896'
+      msgEl.textContent = '✓ Code applied — ' + data.discountPct + '% discount!'
+      var base = _payPlan === 'monthly' ? 19 : 149
+      var discounted = (base * (1 - data.discountPct / 100)).toFixed(2)
+      if (footer) footer.textContent = '🔒 Secure · $' + discounted + ' USD · Cancel anytime'
+    } else {
+      _referralCode = null; _referralDiscount = 0
+      msgEl.style.color = '#e63950'
+      msgEl.textContent = '✗ Invalid or expired code'
+    }
+  } catch(e) {
+    msgEl.style.color = 'var(--mut)'
+    msgEl.textContent = 'Error validating code'
+  }
+}
+
+function _updatePayFooter() {
+  var footer = document.getElementById('pay-modal-footer')
+  if (!footer) return
+  var base = _payPlan === 'annual' ? 149 : 19
+  var period = _payPlan === 'annual' ? '/ year' : '/ month'
+  var price = _referralDiscount ? (base * (1 - _referralDiscount / 100)).toFixed(2) : base
+  footer.textContent = '🔒 Secure · $' + price + ' USD ' + period + ' · Cancel anytime'
+}
+
 function selectPlan(plan) {
   _payPlan = plan
-  document.getElementById('plan-opt-annual').classList.toggle('sel',  plan === 'annual')
-  document.getElementById('plan-opt-monthly').classList.toggle('sel', plan === 'monthly')
-  var footer = document.getElementById('pay-modal-footer')
-  if (footer) {
-    footer.textContent = plan === 'annual'
-      ? '🔒 Secure · $149 USD / year · Cancel anytime'
-      : '🔒 Secure · $19 USD / month · Cancel anytime'
-  }
+  var annOpt = document.getElementById('plan-opt-annual')
+  var monOpt = document.getElementById('plan-opt-monthly')
+  if (annOpt) annOpt.classList.toggle('sel', plan === 'annual')
+  if (monOpt) monOpt.classList.toggle('sel', plan === 'monthly')
+  _updatePayFooter()
 }
 
 function openPayModal(method) {
   _payMethod = method
-  _payPlan   = 'annual'   // default to annual each time
+  _payPlan   = 'annual'
+  _referralCode = null; _referralDiscount = 0
   selectPlan('annual')
+  // Reset referral field
+  var field = document.getElementById('pay-referral-field')
+  var arrow = document.getElementById('pay-referral-arrow')
+  var msg   = document.getElementById('pay-referral-msg')
+  var code  = document.getElementById('pay-referral-code')
+  if (field) field.style.display = 'none'
+  if (arrow) arrow.style.transform = ''
+  if (msg)   msg.textContent = ''
+  if (code)  code.value = ''
   var methodNames = { stripe: 'Card (Stripe)', mp: 'Mercado Pago', crypto: 'Crypto' }
   document.getElementById('pay-modal-title').textContent = 'Subscribe — ' + (methodNames[method] || method)
   document.getElementById('pay-modal-sub').textContent   = 'Choose your billing plan'
@@ -1942,34 +1948,31 @@ document.addEventListener('click', function(e) {
 
 async function confirmPayment() {
   var emailInput = document.getElementById('pay-modal-email')
-  var email = emailInput.value.trim() || getPayUserEmail()
-  var errEl = document.getElementById('pay-modal-err')
-  var btn   = document.getElementById('pay-modal-confirm')
+  var email  = emailInput.value.trim() || getPayUserEmail()
+  var errEl  = document.getElementById('pay-modal-err')
+  var btn    = document.getElementById('pay-modal-confirm')
   errEl.style.display = 'none'
   if (!email || !email.includes('@')) {
     errEl.textContent = 'Please enter a valid email'; errEl.style.display = 'block'; return
   }
-
   var userId = getPayUserId()
   if (!userId) {
     errEl.textContent = 'Please sign in first to continue.'
-    errEl.style.display = 'block'
-    btn.disabled = false
+    errEl.style.display = 'block'; btn.disabled = false
     setTimeout(function(){ closePayModal(); window.location.hash='#login'; showView('login') }, 1200)
     return
   }
-
   btn.disabled = true; btn.textContent = 'Redirecting...'
-
   try {
     var endpoint = _payMethod === 'stripe' ? '/billing/checkout'
                  : _payMethod === 'mp'     ? '/billing/checkout-mp'
                  :                           '/billing/checkout-crypto'
-
+    var payload = { email: email, user_id: userId, plan: _payPlan }
+    if (_referralCode) payload.referralCode = _referralCode
     var res = await fetch(BACKEND + endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _webToken },
-      body: JSON.stringify({ email: email, user_id: userId, plan: _payPlan })
+      body: JSON.stringify(payload)
     })
     var data = await res.json()
     if (!res.ok) {
@@ -1978,12 +1981,13 @@ async function confirmPayment() {
     }
     var url = data.url || data.init_point || data.invoice_url
     if (url) window.location.href = url
-    else { errEl.textContent = 'Could not get payment URL. Try again.'; errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'Continue →' }
+    else { errEl.textContent = 'Could not get payment URL.'; errEl.style.display = 'block'; btn.disabled = false; btn.textContent = 'Continue →' }
   } catch(e) {
     errEl.textContent = 'Connection error — try again'; errEl.style.display = 'block'
     btn.disabled = false; btn.textContent = 'Continue →'
   }
 }
+
 
 var screenCaptions = {
   dashboard:  'Dashboard — Equity curve, Smart Insights and full performance overview',
