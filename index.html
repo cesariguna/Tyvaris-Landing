@@ -1873,10 +1873,15 @@ async function supaFetch(path) {
 async function loadReferralStats() {
   if (!_webToken) return
   try {
-    // Get current user id from JWT
+    // Get email from JWT
     var payload = JSON.parse(atob(_webToken.split('.')[1]))
-    var userId  = payload.sub || payload.id || payload.user_id || null
-    if (!userId) return
+    var email   = payload.email || null
+    if (!email) return
+
+    // Look up the user Supabase UUID by email
+    var users = await supaFetch('users?email=eq.' + encodeURIComponent(email) + '&select=id')
+    if (!users || users.length === 0) return
+    var userId = users[0].id
 
     // Fetch referral row for this user
     var referrals = await supaFetch('referrals?owner_id=eq.' + userId + '&select=*')
