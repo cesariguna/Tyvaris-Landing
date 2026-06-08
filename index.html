@@ -819,7 +819,7 @@ footer{padding:40px 24px;border-top:1px solid var(--b1);text-align:center}
           <div class="step-title" data-en="Download & install Tyvaris" data-es="Descargar e instalar Tyvaris">Download & install Tyvaris</div>
           <p class="step-desc" data-en="Download the app for your operating system and run the installer." data-es="Descargá la app para tu sistema operativo y ejecutá el instalador.">Download the app for your operating system and run the installer.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <a id="s1-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1.dmg" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none" data-en="⬇ Download for Mac" data-es="⬇ Descargar para Mac">⬇ Download for Mac</a>
+            <a id="s1-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none" data-en="⬇ Download for Mac" data-es="⬇ Descargar para Mac">⬇ Download for Mac</a>
             <a id="s1-win" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris.Setup.3.0.1.exe" class="btn-primary" style="font-size:13px;padding:10px 20px;text-decoration:none;display:none" data-en="⬇ Download for Windows" data-es="⬇ Descargar para Windows">⬇ Download for Windows</a>
           </div>
           <div id="s1-mac-note" class="step-note" style="margin-top:12px" data-en="Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it." data-es="Abrí el archivo <strong>.dmg</strong> → arrastrá Tyvaris a Aplicaciones → abrilo.">Open the <strong>.dmg</strong> file → drag Tyvaris to Applications → open it.</div>
@@ -1037,7 +1037,7 @@ function setOS(os) {
         <div class="beta-counter-text"><strong id="banner-counter-left">94</strong> <span data-en="of 100 beta spots remaining" data-es="de 100 lugares disponibles">of 100 beta spots remaining</span></div>
       </div>
       <div class="beta-ctas">
-        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
+        <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg" class="btn-hero btn-hero-primary" id="btn-mac" data-en="Download for Mac →" data-es="Descargar para Mac →">Download for Mac →</a>
         <a href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris.Setup.3.0.1.exe" class="btn-hero btn-hero-secondary" id="btn-win" data-en="Download for Windows" data-es="Descargar para Windows">Download for Windows</a>
       </div>
       <p style="font-size:12px;color:var(--mut);margin-top:20px;font-family:var(--mono)" data-en="macOS 12+ · Windows 10/11 · Free beta · $149/yr after" data-es="macOS 12+ · Windows 10/11 · Beta gratis · $149/año después">macOS 12+ · Windows 10/11 · Free beta · $149/yr after</p>
@@ -1363,11 +1363,43 @@ function setOS(os) {
           </div>
         </div>
 
+        <!-- Referral card -->
+        <div class="dash-card full" id="dash-referral-code-wrap" style="display:none">
+          <div class="dash-card-title">Affiliate Program</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+            <div style="background:var(--bg);border:1px solid var(--b1);border-radius:10px;padding:16px">
+              <div style="font-size:11px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px;margin-bottom:6px">YOUR CODE</div>
+              <div style="font-size:22px;font-weight:800;letter-spacing:2px;color:var(--acc2);font-family:var(--mono)" id="dash-ref-code">—</div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--b1);border-radius:10px;padding:16px">
+              <div style="font-size:11px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px;margin-bottom:6px">TOTAL SALES</div>
+              <div style="font-size:22px;font-weight:800;color:var(--txt)" id="dash-ref-paid">—</div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--b1);border-radius:10px;padding:16px">
+              <div style="font-size:11px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px;margin-bottom:6px">TOTAL EARNED</div>
+              <div style="font-size:22px;font-weight:800;color:var(--grn)" id="dash-ref-earned">—</div>
+            </div>
+          </div>
+          <div style="background:var(--bg);border:1px solid var(--b1);border-radius:10px;padding:14px;margin-bottom:16px">
+            <div style="font-size:11px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px;margin-bottom:6px">YOUR REFERRAL LINK</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:13px;color:var(--txt);font-family:var(--mono);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="dash-ref-link">—</div>
+              <button class="btn-dash btn-dash-ghost" onclick="copyReferralCode()" style="flex-shrink:0">Copy</button>
+            </div>
+          </div>
+          <div id="dash-ref-commissions-wrap">
+            <div style="font-size:12px;color:var(--mut);font-family:var(--mono);letter-spacing:.5px;margin-bottom:10px">COMMISSION HISTORY</div>
+            <div id="dash-ref-commissions-list" style="display:flex;flex-direction:column;gap:6px">
+              <div style="font-size:13px;color:var(--mut)">Loading...</div>
+            </div>
+          </div>
+        </div>
+
         <!-- Download card -->
         <div class="dash-card full">
           <div class="dash-card-title">Download Tyvaris</div>
           <div class="download-grid">
-            <a class="dl-card" id="dl-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1.dmg">
+            <a class="dl-card" id="dl-mac" href="https://github.com/cesariguna/tyvaris-releases/releases/download/v3.0.1/Tyvaris-3.0.1-arm64.dmg">
               <div class="dl-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M26.5 19.2c0-4.1 3.4-6.1 3.5-6.2-1.9-2.8-4.9-3.1-5.9-3.2-2.5-.3-4.9 1.5-6.2 1.5-1.3 0-3.2-1.4-5.3-1.4-2.7.1-5.2 1.6-6.6 4-2.8 4.9-.7 12.2 2 16.2 1.3 1.9 2.9 4.1 5 4 2-.1 2.8-1.3 5.2-1.3 2.4 0 3.1 1.3 5.3 1.2 2.2 0 3.5-2 4.8-3.9 1.5-2.2 2.1-4.4 2.2-4.5-.1 0-4-1.6-4-6.4z" fill="currentColor"></path><path d="M22.4 7.3c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 3-1.6 4.7 1.7.1 3.5-.9 4.6-2.2z" fill="currentColor"></path></svg></div>
               <div class="dl-name">Tyvaris for Mac</div>
               <div class="dl-meta">macOS 12+ · Apple Silicon + Intel · DMG</div>
@@ -1824,29 +1856,67 @@ async function handleVerifyToken(token) {
 }
 
 // ─── REFERRAL DASHBOARD FUNCTIONS ───────────────────────────────
+var SUPA_URL  = 'https://ghkqnehjflohhbpuqnho.supabase.co'
+var SUPA_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdoa3FuZWhqZmxvaGhicHVxbmhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MzY0NzMsImV4cCI6MjA5MzMxMjQ3M30.i7KkkeJOMGNP_VRBGtVMQFFzRsLuVVaHsJFGC5XFMkQ'
+
+async function supaFetch(path) {
+  var res = await fetch(SUPA_URL + '/rest/v1/' + path, {
+    headers: {
+      'apikey': SUPA_ANON,
+      'Authorization': 'Bearer ' + SUPA_ANON,
+      'Content-Type': 'application/json'
+    }
+  })
+  return res.json()
+}
+
 async function loadReferralStats() {
   if (!_webToken) return
   try {
-    var res = await fetch(BACKEND + '/referral/stats', { headers:{ Authorization:'Bearer '+_webToken } })
-    var data = await res.json()
+    // Get current user id from JWT
+    var payload = JSON.parse(atob(_webToken.split('.')[1]))
+    var userId  = payload.sub || payload.id || payload.user_id || null
+    if (!userId) return
+
+    // Fetch referral row for this user
+    var referrals = await supaFetch('referrals?owner_id=eq.' + userId + '&select=*')
     var wrap   = document.getElementById('dash-referral-code-wrap')
     var create = document.getElementById('dash-referral-create')
-    if (data.hasCode) {
-      var code = document.getElementById('dash-ref-code')
-      if (code) code.textContent = data.code
-      var uses = document.getElementById('dash-ref-uses')
-      if (uses) uses.textContent = data.uses || 0
-      var paid = document.getElementById('dash-ref-paid')
-      if (paid) paid.textContent = data.paidConverts || 0
-      var earned = document.getElementById('dash-ref-earned')
-      if (earned) earned.textContent = '$' + (data.earnings || 0).toFixed(2)
-      if (wrap)   wrap.style.display = 'block'
-      if (create) create.style.display = 'none'
-    } else {
+
+    if (!referrals || referrals.length === 0) {
       if (wrap)   wrap.style.display = 'none'
       if (create) create.style.display = 'block'
+      return
     }
-  } catch(e) {}
+
+    var ref = referrals[0]
+    if (wrap)   wrap.style.display = 'block'
+    if (create) create.style.display = 'none'
+
+    var el = function(id){ return document.getElementById(id) }
+    if (el('dash-ref-code'))   el('dash-ref-code').textContent   = ref.code || '—'
+    if (el('dash-ref-paid'))   el('dash-ref-paid').textContent   = ref.uses || 0
+    if (el('dash-ref-earned')) el('dash-ref-earned').textContent = '$' + parseFloat(ref.earnings || 0).toFixed(2)
+    if (el('dash-ref-link'))   el('dash-ref-link').textContent   = 'https://www.tyvaris.com/?ref=' + ref.code
+
+    // Fetch commission history
+    var commissions = await supaFetch('referral_commissions?referral_id=eq.' + ref.id + '&select=*&order=created_at.desc')
+    var listEl = el('dash-ref-commissions-list')
+    if (listEl) {
+      if (!commissions || commissions.length === 0) {
+        listEl.innerHTML = '<div style="font-size:13px;color:var(--mut);font-family:var(--mono)">No commissions yet — share your link to start earning.</div>'
+      } else {
+        listEl.innerHTML = commissions.map(function(c) {
+          var date = new Date(c.created_at).toLocaleDateString('en-US',{day:'2-digit',month:'short',year:'numeric'})
+          var amount = '$' + parseFloat(c.amount || 0).toFixed(2)
+          return '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg);border:1px solid var(--b1);border-radius:8px">' +
+            '<span style="font-size:12px;color:var(--mut);font-family:var(--mono)">' + date + '</span>' +
+            '<span style="font-size:13px;color:var(--grn);font-weight:700;font-family:var(--mono)">' + amount + '</span>' +
+          '</div>'
+        }).join('')
+      }
+    }
+  } catch(e) { console.error('Referral stats error:', e) }
 }
 
 async function createReferralCode() {
