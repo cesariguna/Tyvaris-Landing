@@ -1873,28 +1873,59 @@ async function supaFetch(path) {
 async function loadReferralStats() {
   if (!_webToken) return
   try {
-    // Get email from JWT
+    // Get user id and email from JWT (Railway token has .id)
     var payload = JSON.parse(atob(_webToken.split('.')[1]))
+    var userId  = payload.id || payload.sub || payload.user_id || null
     var email   = payload.email || null
-    if (!email) return
 
-    // Look up the user Supabase UUID by email
-    var users = await supaFetch('users?email=eq.' + encodeURIComponent(email) + '&select=id')
-    if (!users || users.length === 0) return
-    var userId = users[0].id
+    var referrals = null
+
+    // Try by userId first
+    if (userId) {
+      referrals = await supaFetch('referrals?owner_id=eq.' + userId + '&select=*')
+    }
+
+    // Fallback: try fetching via backend /referral/stats
+    if (!referrals || referrals.length === 0) {
+      try {
+        var backendRes = await fetch(BACKEND + '/referral/stats', { headers:{ Authorization:'Bearer '+_webToken } })
+        if (backendRes.ok) {
+          var backendData = await backendRes.json()
+          if (backendData.hasCode) {
+            var wrap   = document.getElementById('dash-referral-code-wrap')
+            var create = document.getElementById('dash-referral-create')
+            if (wrap)   wrap.style.display = 'block'
+            if (create) create.style.display = 'none'
+            var el = function(id){ return document.getElementById(id) }
+            if (el('dash-ref-code'))   el('dash-ref-code').textContent   = backendData.code || '—'
+            if (el('dash-ref-paid'))   el('dash-ref-paid').textContent   = backendData.paidConverts || backendData.uses || 0
+            if (el('dash-ref-earned')) el('dash-ref-earned').textContent = '$' + parseFloat(backendData.earnings || 0).toFixed(2)
+            if (el('dash-ref-link'))   el('dash-ref-link').textContent   = 'https://www.tyvaris.com/?ref=' + backendData.code
+            var listEl = el('dash-ref-commissions-list')
+            if (listEl) listEl.innerHTML = '<div style="font-size:13px;color:var(--mut);font-family:var(--mono)">No commission history available yet.</div>'
+            return
+          }
+        }
+      } catch(e2) {}
+      var wrap2 = document.getElementById('dash-referral-code-wrap')
+      var create2 = document.getElementById('dash-referral-create')
+      if (wrap2)   wrap2.style.display = 'none'
+      if (create2) create2.style.display = 'block'
+      return
+    }
 
     // Fetch referral row for this user
-    var referrals = await supaFetch('referrals?owner_id=eq.' + userId + '&select=*')
+    var referrals2 = referrals
     var wrap   = document.getElementById('dash-referral-code-wrap')
     var create = document.getElementById('dash-referral-create')
 
-    if (!referrals || referrals.length === 0) {
+    if (!referrals2 || referrals2.length === 0) {
       if (wrap)   wrap.style.display = 'none'
       if (create) create.style.display = 'block'
       return
     }
 
-    var ref = referrals[0]
+    var ref = referrals2[0]
     if (wrap)   wrap.style.display = 'block'
     if (create) create.style.display = 'none'
 
